@@ -1,0 +1,66 @@
+.main-hero {
+    padding-top: 152px;
+
+    .wrap {
+        display: flex;
+        flex-direction: column;
+        padding: 0 32px;
+    }
+
+    &__title {
+        font-size: 32px;
+        color: $blue;
+        line-height: 1.1;
+        max-width: 280px;
+
+        strong {
+            font-weight: 700;
+
+            &.purple {
+                color: $purple;
+            }
+        }
+    }
+
+    &__desc {
+        margin-top: 10px;
+        font-weight: 300;
+        color: $blue;
+        font-size: 18px;
+        line-height: 1.4;
+    }
+
+    &__button {
+        display: inline-block;
+        color: $purple;
+        border: 2px solid $purple;
+        width: 100%;
+        padding: 18px;
+        border-radius: 48px;
+        text-align: center;
+        margin-top: 24px;
+        line-height: 0.7;
+        text-transform: uppercase;
+    }
+
+    &__image {
+        margin-top: 40px;
+
+        &--desktop {
+            display: none;
+
+            @media screen and (min-width: 1024px) {
+                display: block;
+            }
+        }
+
+        &--mobile {
+            -webkit-filter: drop-shadow(0px 7px 67px rgba(0, 0, 0, 0.15));
+            filter: drop-shadow(0px 7px 67px rgba(0, 0, 0, 0.15));
+
+            @media screen and (min-width: 1024px) {
+                display: none;
+            }
+        }
+    }
+}
