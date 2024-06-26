@@ -1,0 +1,23 @@
+[text* nome autocomplete:name placeholder"Seu nome"]
+[number* idade placeholder"Sua idade"]
+[email* email placeholder"Seu e-mail"]
+[tel* telefone placeholder"Seu telefone"]
+[text* estado placeholder"Seu estado"]
+[text* cidade placeholder"Seu cidade"]
+[text* altura placeholder"Sua altura. Exemplo: 1,60"]
+[text* peso placeholder"Seu peso. Exemplo: 63kg"]
+[text* profissao placeholder"Sua profissão"]
+
+<label> Qual modalidade gostaria de agendar sua consulta
+[select modalidade include_blank "Online" "Presencial"] </label>
+
+<label> Está buscando qual procedimento?</label>
+[checkbox* procedimento use_label_element "Prótese de silicone" "Prótese com recuperação rápida (R24R)" "Mastopexia sem prótese" "Abdominoplastia" "Lipoescultura" "Lipoenxertia" "Lifting das mamas" "Lipo HD"] 
+
+<label> Quais motivos te motivam a ter buscado a Dra Denise Torejane?</label>
+[checkbox* motivos use_label_element "Quero recuperar minha autoestima" "Gostaria de mudar meu corpo" "Quero me sentir mais bonita" "Quero ser mais admirada" "Mudança de estilo de vida"] 
+
+<label> Ja realizou alguma cirurgia plástica anteriormente? Se sim qual?</label>
+    [textarea ja_realizou] 
+
+[submit "Enviar"]
