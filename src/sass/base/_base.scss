@@ -1,9 +1,13 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
-    font-family: "Manrope", sans-serif;
+    font-family: "Alexandria", sans-serif;
 }
 
 textarea{
-    font-family: "Manrope", sans-serif;
+    font-family: "Alexandria", sans-serif;
 }
 
 strong{
@@ -18,8 +22,8 @@ em{
     position: relative;
     max-width: #{$container}px;
     margin: 0 auto;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 16px;
+    padding-right: 16px;
 
     @media(min-width: 1024px) {
         padding: 0;
