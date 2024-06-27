@@ -7,28 +7,33 @@ window.addEventListener('load', function () {
     })
 })
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    const swiper = new Swiper(".main-banner", {
-        slidesPerView: 1,
-        spaceBetween: 30,
-        loop: true,
-    });
-});
+// document.addEventListener("DOMContentLoaded", (event) => {
+//     const swiper = new Swiper(".divider__cards", {
+//         loop: true,
+//         spaceBetween: 30,
+//         centeredSlides: false,
+//         slidesPerView: "auto",
+//     });
 
-document.addEventListener("DOMContentLoaded", (event) => {
-    const bannerHeight = document.querySelector('.main-banner').offsetHeight;
-    const mainHeader = document.querySelector('.main-header');
-    console.log(bannerHeight);
-    window.addEventListener('scroll', (e) => {
-        if (this.scrollY >= bannerHeight) {
-            mainHeader.classList.add('fixed')
-            mainHeader.classList.remove('offset')
-        } else if (this.scrollY >= (mainHeader.offsetHeight * 3)) {
-            mainHeader.classList.add('offset')
-            mainHeader.classList.remove('fixed')
-        } else {
-            mainHeader.classList.remove('fixed')
-            mainHeader.classList.remove('offset')
-        }
-    })
-});
+//     // if(window.innerWidth >= 768){
+//     //     swiper.destroy()
+//     // }
+// });
+
+// document.addEventListener("DOMContentLoaded", (event) => {
+//     const bannerHeight = document.querySelector('.main-banner').offsetHeight;
+//     const mainHeader = document.querySelector('.main-header');
+//     console.log(bannerHeight);
+//     window.addEventListener('scroll', (e) => {
+//         if (this.scrollY >= bannerHeight) {
+//             mainHeader.classList.add('fixed')
+//             mainHeader.classList.remove('offset')
+//         } else if (this.scrollY >= (mainHeader.offsetHeight * 3)) {
+//             mainHeader.classList.add('offset')
+//             mainHeader.classList.remove('fixed')
+//         } else {
+//             mainHeader.classList.remove('fixed')
+//             mainHeader.classList.remove('offset')
+//         }
+//     })
+// });
