@@ -43,7 +43,7 @@
     &__title {
         color: $white;
         font-size: 32px;
-        margin-top: 8px;
+        margin-top: 6px;
         font-weight: 300;
         line-height: 1.1;
 
@@ -61,9 +61,13 @@
 
     &__desc {
         color: $white;
-        margin-top: 24px;
+        margin-top: 18px;
         font-size: 18px;
         line-height: 1.4;
+
+        @media screen and (min-width: 1024px) {
+            margin-top: 24px;
+        }
 
         p {
             margin-bottom: 10px;
@@ -159,8 +163,13 @@
         }
 
         &--desktop {
-            bottom: -142px;
-            left: 232px;
+            display: none;
+
+            @media screen and (min-width: 1024px) {
+                display: block;
+                bottom: -142px;
+                left: 232px;
+            }
         }
     }
 }

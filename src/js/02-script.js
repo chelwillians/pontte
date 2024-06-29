@@ -42,3 +42,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
 //         }
 //     })
 // });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const faq = document.querySelectorAll('.faq');
+    if (!faq) return;
+
+    faq[0].addEventListener('click', (e) => {
+        if(!e.target.closest('.faq__item--answer')){
+            const question = e.target.closest('.faq__item');
+            question.classList.toggle('active');
+        }
+    })
+});
