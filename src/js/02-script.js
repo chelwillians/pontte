@@ -7,18 +7,23 @@ window.addEventListener('load', function () {
     })
 })
 
-// document.addEventListener("DOMContentLoaded", (event) => {
-//     const swiper = new Swiper(".divider__cards", {
-//         loop: true,
-//         spaceBetween: 30,
-//         centeredSlides: false,
-//         slidesPerView: "auto",
-//     });
+document.addEventListener("DOMContentLoaded", (event) => {
+    const swiper = new Swiper(".divider__cards", {
+        rewind: true,
+        spaceBetween: 16,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        initialSlide: "1",
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+    });
 
-//     // if(window.innerWidth >= 768){
-//     //     swiper.destroy()
-//     // }
-// });
+    if (window.innerWidth >= 768) {
+        swiper.destroy()
+    }
+});
 
 // document.addEventListener("DOMContentLoaded", (event) => {
 //     const bannerHeight = document.querySelector('.main-banner').offsetHeight;

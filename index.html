@@ -85,8 +85,10 @@
                     prazos. Aqui você tem crédito justo para realizar sonhos.</p>
             </div>
             <a href="#" class="divider__button">Tire suas dúvidas aqui</a>
-            <div class="divider__cards">
-                <div class="divider__cards-item">
+        </div>
+        <div class="divider__cards swiper">
+            <div class="swiper-wrapper">
+                <div class="divider__cards-item swiper-slide">
                     <div class="divider__cards-icon">
                         <img src="./dist/images/icon-calendar.svg" alt="Ícone de um calendário">
                     </div>
@@ -95,7 +97,7 @@
                         <span class="divider__cards-text--normal">1,09% ao mês + IPCA</span>
                     </div>
                 </div>
-                <!-- <div class="divider__cards-item swiper-slide">
+                <div class="divider__cards-item swiper-slide">
                     <div class="divider__cards-icon">
                         <img src="./dist/images/icon-calendar.svg" alt="Ícone de um calendário">
                     </div>
@@ -112,20 +114,33 @@
                         <span class="divider__cards-text--min">Empréstimo de até</span>
                         <span class="divider__cards-text--normal">50% do valor do imóvel</span>
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
     </section>
 
     <section class="about">
         <div class="container wrap">
-            <div class="about__image"></div>
+            <div class="about__image">
+                <img src="./dist/images/about-mobile.jpg" alt="" class="about__image--mobile">
+                <img src="./dist/images/about.jpg" alt="" class="about__image--desktop">
+                <img src="./dist/images/icon-pontte-gray.svg" alt="Ícone Pontte em cinza" class="about__image--icon">
+            </div>
             <div class="about__content">
                 <strong class="about__pre-title">Saiba mais</strong>
                 <h2 class="about__title">Sobre a <strong>Pontte</strong></h2>
                 <div class="about__desc">
-                    <p>A Pontte é uma plataforma de empréstimo digital e acredita que o crédito precisa ser simples, inteligente, justo e flexível. Combinamos nossa obsessão por eficiência, dados e tecnologia para oferecer taxas de juros mais baixas, prazos de pagamento mais longos e mais controle sobre o contrato. <strong>Com gestão flexível de parcelas e prazos, criando um caminho mais rápido para o futuro.</strong></p>
+                    <p>A Pontte é uma plataforma de empréstimo digital e acredita que o crédito precisa ser simples,
+                        inteligente, justo e flexível. Combinamos nossa obsessão por eficiência, dados e tecnologia para
+                        oferecer taxas de juros mais baixas, prazos de pagamento mais longos e mais controle sobre o
+                        contrato. <strong>Com gestão flexível de parcelas e prazos, criando um caminho mais rápido para
+                            o futuro.</strong></p>
                 </div>
+            </div>
+            <div class="about__block">
+                <p>Tem um negócio e quer <strong>oferecer crédito imobiliário para seus clientes?</strong></p>
+                <a href="#" class="about__block--button">Clique e veja como</a>
+                <img class="about__block--image" src="./dist/images/coins.png" alt="Ilustração de moedas">
             </div>
         </div>
     </section>
