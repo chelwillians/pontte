@@ -64,6 +64,8 @@
             width: auto;
             padding: 18px 54px;
             font-size: 14px;
+            position: relative;
+            z-index: 50;
         }
     }
 
@@ -76,6 +78,11 @@
 
         @media screen and (min-width: 1024px) {
             flex-direction: row;
+            max-width: #{$container}px;
+            margin: 0 auto;
+            padding: 60px 0 70px 288px;
+            margin-top: -20px;
+            overflow: inherit;
         }
 
         &-item {
@@ -85,6 +92,10 @@
             width: 292px;
             margin: 0 6px;
             background-color: $white;
+
+            @media screen and (min-width: 1024px) {
+                margin: 0 8px;
+            }
         }
 
         &-text {
@@ -102,6 +113,10 @@
                 font-weight: 600;
                 height: 1.2;
                 margin-top: 6px;
+
+                @media screen and (min-width: 1024px) {
+                    font-size: 18px;
+                }
             }
         }
     }

@@ -1,33 +1,185 @@
-.about{
+.about {
+    position: relative;
     margin-top: -102px;
 
-    .wrap{
-        padding: 0;
+    @media screen and (min-width: 1024px) {
+        margin-top: -148px;
     }
 
-    &__image{
+    .wrap {
+        padding: 0;
+
+        @media screen and (min-width: 1024px) {
+            max-width: 1440px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__image {
         position: relative;
         height: 362px;
         background-size: contain;
         background-position-x: 50%;
 
-        &--mobile{
-            object-fit: cover;
-            width: 100%;
+        @media screen and (min-width: 1024px) {
+            width: 45.5%;
             height: 100%;
         }
 
-        &--desktop{
-            display: none;
+        &--mobile {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+
+            @media screen and (min-width: 1024px) {
+                display: none;
+            }
         }
 
-        &--icon{
+        &--desktop {
+            display: none;
+
+            @media screen and (min-width: 1024px) {
+                display: block;
+                object-fit: cover;
+                width: 100%;
+                height: 100%
+            }
+        }
+
+        &--icon {
             position: absolute;
             display: block;
             width: 100px;
             top: 50%;
             left: 98px;
-            transform: translateY(-50%);
+            transform: translateY(calc(-50% - 16px));
+
+            @media screen and (min-width: 1024px) {
+                left: 176px;
+                width: 129px;
+
+            }
+        }
+    }
+
+    &__content {
+        background-color: $light-purple;
+        padding: 46px 32px 132px;
+
+        @media screen and (min-width: 1024px) {
+            width: 54.5%;
+            padding: 180px 161px 180px 64px;
+        }
+    }
+
+    &__pre-title {
+        font-weight: 300;
+        color: $blue;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+
+        @media screen and (min-width: 1024px) {
+            font-size: 18px;
+        }
+    }
+
+    &__title {
+        color: $purple;
+        font-size: 32px;
+        margin-top: 8px;
+        font-weight: 300;
+
+        @media screen and (min-width: 1024px) {
+            font-size: 40px;
+            margin-top: 14px;
+        }
+    }
+
+    &__desc {
+        margin-top: 22px;
+        color: $blue;
+        font-weight: 300;
+        line-height: 1.4;
+        font-size: 18px;
+
+        @media screen and (min-width: 1024px) {
+            margin-top: 30px;
+        }
+
+        p {
+            margin-bottom: 10px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        strong {
+            color: $dark-blue;
+        }
+    }
+
+    &__block {
+        position: absolute;
+        top: calc(100% - 98px);
+        left: 0;
+        margin: 0 32px;
+        background-color: $blue;
+        border-radius: 16px;
+        padding: 34px 40px 150px;
+
+        @media screen and (min-width: 1024px) {
+            top: calc(100% - 142px);
+            right: 120px;
+            margin: 0;
+            left: unset;
+            max-width: 700px;
+            padding: 32px 42px 40px;
+        }
+
+        p {
+            color: $white;
+            font-weight: 300;
+            line-height: 1.4;
+            font-size: 20px;
+
+            @media screen and (min-width: 1024px) {
+                font-size: 24px;
+            }
+        }
+
+        &--button {
+            display: inline-block;
+            margin-top: 24px;
+            color: $white;
+            border: 2px solid $white;
+            padding: 18px;
+            text-align: center;
+            width: 100%;
+            border-radius: 48px;
+            line-height: .7;
+            font-size: 14px;
+            text-transform: uppercase;
+
+            @media screen and (min-width: 1024px) {
+                width: auto;
+                padding: 18px 22px;
+                line-height: .6;
+            }
+        }
+
+        &--image {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 296px;
+
+            @media screen and (min-width: 1024px) {
+                display: none;
+            }
         }
     }
 }
