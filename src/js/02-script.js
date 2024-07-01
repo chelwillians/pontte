@@ -54,3 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 });
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    const swiperMidia = new Swiper(".midia__list", {
+        rewind: true,
+        spaceBetween: 8,
+        // centeredSlides: true,
+        slidesPerView: "auto",
+    });
+});
