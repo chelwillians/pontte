@@ -1,7 +1,7 @@
 .midia {
     margin-top: 100px;
 
-    .wrap{
+    .wrap {
         padding: 0;
     }
 
@@ -38,9 +38,85 @@
         justify-content: center;
         padding: 30px 28px;
 
-        img{
+        img {
             max-height: 34px;
             object-fit: contain;
+        }
+    }
+
+    &__content-list {
+        padding: 52px 56px 120px;
+        background-color: $light-purple;
+        margin-top: -88px;
+    }
+
+    &__content-item {
+        display: flex;
+        flex-wrap: wrap;
+
+        &--data {
+            color: $dark-blue;
+            padding-right: 24px;
+            width: 74px;
+
+            .month {
+                display: inline-block;
+                font-size: 18px;
+                font-weight: 300;
+                letter-spacing: 0.08rem;
+            }
+
+            .year {
+                display: inline-block;
+                font-size: 20px;
+                font-weight: 700;
+                margin-top: 2px;
+            }
+        }
+
+        &--text {
+            color: $dark-blue;
+            width: calc(100% - 74px);
+
+            p {
+                line-height: 1.37;
+                font-weight: 300;
+            }
+        }
+
+
+        &--link {
+            position: relative;
+            flex: 1;
+            margin-left: 74px;
+            margin-top: 26px;
+            width: 100%;
+            padding: 16px 18px 10px;
+            text-transform: uppercase;
+            color: $purple;
+            border: 2px solid $purple;
+            border-radius: 48px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 0.7;
+
+            span {
+                display: flex;
+                align-items: center;
+                margin-top: -6px;
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 24px;
+                    height: 24px;
+                    background-color: $purple;
+                    -webkit-mask-image: url(../images/icon-arrow-left.svg);
+                    mask-image: url(../images/icon-arrow-left.svg);
+                    margin-left: 10px;
+                }
+            }
         }
     }
 }
