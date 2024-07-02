@@ -40,9 +40,9 @@
         justify-content: center;
         padding: 30px 28px;
 
-        &--empty{
+        &--empty {
             width: 170px;
-            height: 88px;    
+            height: 88px;
         }
 
         &.swiper-slide-active {
@@ -90,6 +90,10 @@
 
         &.active {
             display: flex;
+            opacity: 0;
+            animation: show 1s;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
         }
 
         &--data {
@@ -156,6 +160,16 @@
                     margin-left: 10px;
                 }
             }
+        }
+    }
+
+    @keyframes show {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
         }
     }
 
