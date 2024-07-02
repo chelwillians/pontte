@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!faq) return;
 
     faq[0].addEventListener('click', (e) => {
-        if(!e.target.closest('.faq__item--answer')){
+        if (!e.target.closest('.faq__item--answer')) {
             const question = e.target.closest('.faq__item');
             question.classList.toggle('active');
         }
@@ -56,10 +56,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
+    const contentMidia = document.querySelectorAll('.midia__content-list .midia__content-item')
     const swiperMidia = new Swiper(".midia__list", {
         rewind: true,
         spaceBetween: 8,
         // centeredSlides: true,
         slidesPerView: "auto",
+    });
+    swiperMidia.on('slideChange', function () {
+        let sliderActive = swiperMidia.activeIndex;
+
+        document.querySelector('.midia__content-list .midia__content-item.active').classList.remove('active')
+        contentMidia[sliderActive].classList.add('active');
     });
 });
