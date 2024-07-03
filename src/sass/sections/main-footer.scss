@@ -1,0 +1,60 @@
+.main-footer {
+    position: relative;
+    background-color: $blue;
+    padding: 64px 32px;
+
+    .wrap{
+        padding: 0
+    }
+
+    &__menus {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    &__links {
+        margin-top: 84px;
+        li {
+            margin-bottom: 28px;
+            display: block;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        a {
+            color: $off-white;
+            text-decoration: none;
+        }
+    }
+
+    &__social{
+        &-item{
+            margin-right: 12px;
+            width: 40px;
+            display: inline-block;
+
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__text{
+        margin-top: 56px;
+        width: 100%;
+        p{
+            font-size: 10px;
+            line-height: 1.4;
+            color: $off-white;
+        }
+    }
+
+    &__logo{
+        position: absolute;
+        top: -24px;
+        right: -32px;
+        max-width: 98px;
+    }
+}
