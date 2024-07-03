@@ -195,11 +195,11 @@
             align-items: center;
             justify-content: center;
             line-height: 0.7;
-            font-size: 14px;
 
             @media screen and (min-width: 1024px) {
                 min-width: 264px;
                 margin-top: 0;
+                font-size: 14px;
             }
 
             span {

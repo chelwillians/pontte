@@ -3,20 +3,46 @@
     background-color: $blue;
     padding: 64px 32px;
 
-    .wrap{
+    @media screen and (min-width: 1024px) {
+        padding: 64px 0 44px;
+    }
+
+    .wrap {
         padding: 0
     }
 
     &__menus {
         display: flex;
         flex-direction: column-reverse;
+
+        @media screen and (min-width: 1024px) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 80%;
+            width: 100%;
+
+            padding-bottom: 28px;
+
+            border-bottom: 1px solid $dark-blue;
+        }
     }
 
     &__links {
         margin-top: 84px;
+
+        @media screen and (min-width: 1024px) {
+            margin-top: 0px;
+        }
+
         li {
             margin-bottom: 28px;
-            display: block;
+            display: inline-block;
+
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 0;
+                margin-right: 28px;
+            }
 
             &:last-child {
                 margin-bottom: 0;
@@ -29,32 +55,49 @@
         }
     }
 
-    &__social{
-        &-item{
+    &__social {
+        &-item {
             margin-right: 12px;
             width: 40px;
             display: inline-block;
 
-            &:last-child{
+            @media screen and (min-width: 1024px) {
+                margin-right: 0px;
+                margin-left: 20px;
+            }
+
+            &:last-child {
                 margin-right: 0;
             }
         }
     }
 
-    &__text{
+    &__text {
         margin-top: 56px;
         width: 100%;
-        p{
+
+        @media screen and (min-width: 1024px) {
+            max-width: 80%;
+            width: 100%;
+            margin-top: 22px;
+        }
+
+        p {
             font-size: 10px;
             line-height: 1.4;
             color: $off-white;
         }
     }
 
-    &__logo{
+    &__logo {
         position: absolute;
         top: -24px;
         right: -32px;
         max-width: 98px;
+
+        @media screen and (min-width: 1024px) {
+            top: 0;
+            right: 0;
+        }
     }
 }
