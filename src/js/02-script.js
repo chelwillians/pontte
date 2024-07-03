@@ -1,9 +1,12 @@
 window.addEventListener('load', function () {
+    const mainHeader = document.querySelector('.main-header');
     const hamburguerItem = document.querySelector('.main-header__hamburguer');
     const headerMenus = document.querySelector('.main-header__menus');
     hamburguerItem.addEventListener('click', (e) => {
         hamburguerItem.classList.toggle('active');
         headerMenus.classList.toggle('active');
+        mainHeader.classList.toggle('active');
+        document.querySelector('body').classList.toggle('no-scroll');
     })
 })
 
