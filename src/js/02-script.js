@@ -87,7 +87,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
             el.classList.add('active');
             contentMidia[index].classList.add('active');
-            console.log(index)
         })
     })
 });
