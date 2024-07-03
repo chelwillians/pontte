@@ -57,16 +57,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", (event) => {
     const contentMidia = document.querySelectorAll('.midia__content-list .midia__content-item')
+    const contentLogo = document.querySelectorAll('.midia__list .midia__item')
     const swiperMidia = new Swiper(".midia__list", {
         rewind: true,
         spaceBetween: 8,
         // centeredSlides: true,
         slidesPerView: "auto",
+        breakpoints: {
+            1024: {
+                spaceBetween: 16,
+            },
+        }
     });
-    swiperMidia.on('slideChange', function () {
-        let sliderActive = swiperMidia.activeIndex;
 
-        document.querySelector('.midia__content-list .midia__content-item.active').classList.remove('active')
-        contentMidia[sliderActive].classList.add('active');
-    });
+    contentLogo[0].classList.add('active');
+    contentMidia[0].classList.add('active');
+
+    // swiperMidia.on('slideChange', function () {
+    //     let sliderActive = swiperMidia.activeIndex;
+
+    //     document.querySelector('.midia__content-list .midia__content-item.active').classList.remove('active')
+    //     contentMidia[sliderActive].classList.add('active');
+    // });
+
+    contentLogo.forEach((el, index) => {
+        el.addEventListener('click', () => {
+            document.querySelector('.midia__list .midia__item.active')?.classList.remove('active')
+            document.querySelector('.midia__content-list .midia__content-item.active')?.classList.remove('active')
+
+            el.classList.add('active');
+            contentMidia[index].classList.add('active');
+            console.log(index)
+        })
+    })
 });

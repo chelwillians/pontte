@@ -2,6 +2,25 @@
     position: relative;
     margin-top: 100px;
 
+    @media screen and (min-width: 1024px) {
+        margin-top: 126px;
+    }
+
+    &::after {
+        content: '';
+        background-color: $light-purple;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 82%;
+        z-index: -1;
+
+        @media screen and (min-width: 1024px) {
+            height: 65%;
+        }
+    }
+
     .wrap {
         padding: 0;
     }
@@ -12,10 +31,14 @@
         font-size: 32px;
         font-weight: 300;
 
+        @media screen and (min-width: 1024px) {
+            text-align: left;
+            font-size: 40px;
+        }
+
         strong {
             flex-wrap: 700;
         }
-
     }
 
     &__list {
@@ -26,6 +49,10 @@
         position: relative;
         padding: 40px 32px 70px;
         margin-top: -12px;
+
+        @media screen and (min-width: 1024px) {
+            padding: 62px 50px 70px;
+        }
     }
 
     &__item {
@@ -40,12 +67,16 @@
         justify-content: center;
         padding: 30px 28px;
 
+        @media screen and (min-width: 1024px) {
+            padding: 30px 16px;
+        }
+
         &--empty {
             width: 170px;
             height: 88px;
         }
 
-        &.swiper-slide-active {
+        &.active {
             position: relative;
 
             &::after {
@@ -59,6 +90,12 @@
                 height: 22px;
                 background-color: $yellow;
 
+                @media screen and (min-width: 1024px) {
+                    left: 50%;
+                    transform: translateX(-50%) translateY(100%);
+                    height: 36px;
+
+                }
             }
 
             img {
@@ -76,17 +113,22 @@
 
     &__content-list {
         padding: 52px 56px 40px;
-        background-color: $light-purple;
         margin-top: -88px;
         position: relative;
+
+        @media screen and (min-width: 1024px) {
+            padding: 90px 50px 76px;
+        }
     }
 
     &__content-item {
         flex-wrap: wrap;
-
-        background-color: $light-purple;
-
         display: none;
+
+        @media screen and (min-width: 1024px) {
+            flex-wrap: nowrap;
+            align-items: flex-start;
+        }
 
         &.active {
             display: flex;
@@ -100,6 +142,11 @@
             color: $dark-blue;
             padding-right: 24px;
             width: 74px;
+
+            @media screen and (min-width: 1024px) {
+                padding-right: 36px;
+                width: 85px;
+            }
 
             .month {
                 display: inline-block;
@@ -119,6 +166,10 @@
         &--text {
             color: $dark-blue;
             width: calc(100% - 74px);
+
+            @media screen and (min-width: 1024px) {
+                width: unset;
+            }
 
             p {
                 line-height: 1.37;
@@ -143,6 +194,12 @@
             align-items: center;
             justify-content: center;
             line-height: 0.7;
+            font-size: 14px;
+
+            @media screen and (min-width: 1024px) {
+                min-width: 264px;
+                margin-top: 0;
+            }
 
             span {
                 display: flex;
