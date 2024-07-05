@@ -1,8 +1,16 @@
 .the-future {
     margin-top: 34px;
 
+    @media screen and (min-width: 1024px) {
+        margin-top: 144px;
+    }
+
     .wrap {
         padding: 0 32px;
+
+        @media screen and (min-width: 1024px) {
+            padding: 0;
+        }
     }
 
     &__title {
@@ -12,6 +20,12 @@
         line-height: 1.2;
         padding-right: 44px;
 
+        @media screen and (min-width: 1024px) {
+            font-size: 72px;
+            max-width: 776px;
+            margin: 0 auto;
+        }
+
         strong {
             font-weight: 500;
         }
@@ -20,6 +34,13 @@
     &__list {
         margin-top: 32px;
         padding-left: 48px;
+
+        @media screen and (min-width: 1024px) {
+            max-width: 636px;
+            margin: 60px auto;
+            padding-left: 0;
+        }
+
     }
 
     &__item {
@@ -48,6 +69,11 @@
             left: -40px;
             top: 8px;
             z-index: 10;
+
+            @media screen and (min-width: 1024px) {
+                left: -69px;
+
+            }
         }
 
         &::after {
@@ -60,6 +86,10 @@
             left: -36px;
             top: 8px;
             z-index: 5;
+
+            @media screen and (min-width: 1024px) {
+                left: -66px;
+            }
         }
 
         &--title {
