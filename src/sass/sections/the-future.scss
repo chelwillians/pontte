@@ -1,4 +1,5 @@
 .the-future {
+    position: relative;
     margin-top: 34px;
 
     @media screen and (min-width: 1024px) {
@@ -106,6 +107,25 @@
                 color: $dark-blue;
                 line-height: 1.4;
                 font-weight: 300;
+            }
+        }
+    }
+
+    &__float-item {
+        display: none;
+
+        @media screen and (min-width: 1024px) {
+            position: absolute;
+            display: block;
+
+            &--top-left {
+                left: 0%;
+                top: -61%;
+            }
+
+            &--bottom-right {
+                right: -1%;
+                bottom: -48%;
             }
         }
     }
