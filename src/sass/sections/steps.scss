@@ -1,0 +1,123 @@
+.steps {
+    margin-top: 106px;
+    margin-bottom: 72px;
+
+    @media screen and (min-width: 1024px) {
+        margin-bottom: 148px;
+    }
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__arrow-down {
+        @media screen and (min-width: 1024px) {
+            display: none;
+        }
+    }
+
+    &__title {
+        margin-top: 50px;
+        font-size: 32px;
+        line-height: 1.2;
+        text-align: center;
+        color: $blue;
+        font-weight: 300;
+        padding: 0 38px;
+
+        @media screen and (min-width: 1024px) {
+            font-size: 40px;
+            margin-top: 54px;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+    }
+
+    &__button {
+        display: none;
+
+        margin-top: 22px;
+        font-size: 14px;
+        color: $purple;
+        background-color: transparent;
+        border-radius: 48px;
+        padding: 18px;
+        text-align: center;
+        width: 100%;
+        text-transform: uppercase;
+        box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
+        border: 2px solid $purple;
+
+        @media screen and (min-width: 1024px) {
+            display: inline-block;
+            margin-top: 30px;
+            width: auto;
+            min-width: 272px;
+            padding: 14px 24px;
+        }
+    }
+
+    &__cards {
+        margin-top: 102px;
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 104px;
+            gap: 24px;
+        }
+    }
+
+    &__item {
+        border: 1px solid $purple;
+        border-radius: 16px;
+        padding: 67px 32px 26px;
+        margin: 0px 16px;
+        background-color: $white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 70px;
+
+        @media screen and (min-width: 1024px) {
+            max-width: 282px;
+            margin: 0px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &--icon {
+            background-color: $white;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0px 7px 67px rgba(0, 0, 0, 0.15);
+            margin-top: -104px;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        &--title {
+            font-size: 18px;
+            margin-top: 18px;
+            color: $purple;
+            font-weight: 600;
+        }
+
+        &--desc {
+            margin-top: 18px;
+            line-height: 1.2;
+
+            p {
+                color: $dark-blue;
+                line-height: 1.35;
+                font-weight: 300;
+            }
+        }
+    }
+}
