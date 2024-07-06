@@ -1,0 +1,82 @@
+.timeline {
+    margin-top: -22px;
+
+    .wrap {
+        padding: 0;
+    }
+
+    &__left {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    &__image {
+        max-width: 398px;
+
+        // remover
+        margin-bottom: 46px;
+    }
+
+    &__title {
+        margin-top: 48px;
+        font-size: 32px;
+        line-height: 1.2;
+        color: $purple;
+        font-weight: 300;
+        padding: 0 46px;
+
+        strong {
+            font-weight: 700;
+        }
+    }
+
+    &__desc {
+        margin-top: 28px;
+        font-size: 18px;
+        line-height: 1.2;
+        font-weight: 300;
+        padding: 0 44px;
+        color: $purple;
+    }
+
+    &__list {
+        margin-top: 38px;
+        padding: 0 68px 0 46px;
+    }
+
+    &__item {
+        $item: &;
+        display: flex;
+
+        &:last-child {
+            #{$item}--desc {
+                padding-bottom: 0;
+            }
+        }
+
+        &--year {
+            font-size: 24px;
+            color: $yellow;
+            line-height: 1.2;
+            font-weight: 500;
+            margin-right: 24px;
+            max-width: 56px;
+        }
+
+        &--desc {
+            padding-bottom: 31px;
+            padding-left: 24px;
+            border-left: 1px solid $off-white;
+
+            p {
+                font-size: 14px;
+                line-height: 1.4;
+                color: $dark-blue;
+
+                strong {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
