@@ -1,13 +1,29 @@
 .timeline {
     margin-top: -22px;
 
+    @media screen and (min-width: 1024px) {
+        margin-top: 72px;
+    }
+
     .wrap {
         padding: 0;
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            align-items: flex-start;
+        }
     }
 
     &__left {
         display: flex;
         flex-direction: column-reverse;
+
+        @media screen and (min-width: 1024px) {
+            flex-direction: column;
+            max-width: 488px;
+
+            position: relative;
+        }
     }
 
     &__image {
@@ -15,6 +31,16 @@
 
         // remover
         margin-bottom: 46px;
+
+        @media screen and (min-width: 1024px) {
+            max-width: 608px;
+
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin-bottom: 0;
+            transform: translateY(100%);
+        }
     }
 
     &__title {
@@ -24,6 +50,13 @@
         color: $purple;
         font-weight: 300;
         padding: 0 46px;
+
+        @media screen and (min-width: 1024px) {
+            font-size: 40px;
+            margin-top: 0;
+            padding: 0;
+            padding-right: 60px;
+        }
 
         strong {
             font-weight: 700;
@@ -37,20 +70,36 @@
         font-weight: 300;
         padding: 0 44px;
         color: $purple;
+
+        @media screen and (min-width: 1024px) {
+            margin-top: 26px;
+            padding: 0;
+            margin-bottom: 44px;
+        }
     }
 
     &__list {
         margin-top: 38px;
         padding: 0 68px 0 46px;
+
+        @media screen and (min-width: 1024px) {
+            margin-top: 5px;
+            padding: 0 68px 0 120px;
+        }
     }
 
     &__item {
         $item: &;
         display: flex;
+        position: relative;
 
         &:last-child {
             #{$item}--desc {
                 padding-bottom: 0;
+
+                @media screen and (min-width: 1024px) {
+                    padding-bottom: 26px;
+                }
             }
         }
 
@@ -61,12 +110,31 @@
             font-weight: 500;
             margin-right: 24px;
             max-width: 56px;
+
+            @media screen and (min-width: 1024px) {
+                max-width: unset;
+                margin-right: 0;
+                inline-size: fit-content;
+                transform: rotate(-90deg);
+                font-size: 32px;
+
+                position: absolute;
+                left: -36px;
+                top: 22px;
+            }
         }
 
         &--desc {
             padding-bottom: 31px;
             padding-left: 24px;
             border-left: 1px solid $off-white;
+
+            @media screen and (min-width: 1024px) {
+                max-width: 230px;
+                padding-left: 24px;
+                margin-left: 36px;
+                padding-bottom: 64px;
+            }
 
             p {
                 font-size: 14px;
