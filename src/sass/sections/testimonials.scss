@@ -1,0 +1,90 @@
+.testimonials {
+    margin-top: 68px;
+
+    @media screen and (min-width: 1024px) {
+        margin-top: 146px;
+    }
+
+    .wrap {
+        padding: 0;
+    }
+
+    &__pre-title {
+        color: $dark-blue;
+        letter-spacing: 0.08rem;
+        font-size: 18px;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: center;
+        width: 100%;
+        display: block;
+        padding: 0 32px;
+    }
+
+    &__title {
+        margin-top: 14px;
+        font-size: 32px;
+        color: $blue;
+        font-weight: 300;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+        padding: 0 32px;
+
+        @media screen and (min-width: 1024px) {
+            font-size: 40px;
+            margin-top: 10px;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+    }
+
+    &__list {
+        margin-top: -30px;
+        padding: 64px 0;
+
+        @media screen and (min-width: 1024px) {
+            margin-top: -15px;
+        }
+    }
+
+    .swiper-wrapper {
+        align-items: center;
+    }
+
+    &__item {
+        max-width: 300px;
+        width: 100%;
+        box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
+        padding: 32px;
+        border-radius: 16px;
+        color: $dark-blue;
+        background-color: $white;
+        line-height: 1.38;
+        font-weight: 300;
+        height: unset;
+
+        @media screen and (min-width: 1024px) {
+            max-width: 864px;
+        }
+
+        &--wrap {
+            min-height: 353px;
+
+            @media screen and (min-width: 1024px) {
+                min-height: unset;
+            }
+        }
+
+        &.swiper-slide-active {}
+
+        strong {
+            color: $purple;
+            display: block;
+            margin-top: 12px;
+            font-weight: 600;
+        }
+    }
+}

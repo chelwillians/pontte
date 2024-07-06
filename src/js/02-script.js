@@ -76,13 +76,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     contentLogo[0].classList.add('active');
     contentMidia[0].classList.add('active');
 
-    // swiperMidia.on('slideChange', function () {
-    //     let sliderActive = swiperMidia.activeIndex;
-
-    //     document.querySelector('.midia__content-list .midia__content-item.active').classList.remove('active')
-    //     contentMidia[sliderActive].classList.add('active');
-    // });
-
     contentLogo.forEach((el, index) => {
         el.addEventListener('click', () => {
             document.querySelector('.midia__list .midia__item.active')?.classList.remove('active')
@@ -92,4 +85,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
             contentMidia[index].classList.add('active');
         })
     })
+});
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    const swiper = new Swiper(".testimonials__list", {
+        rewind: true,
+        spaceBetween: 16,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        initialSlide: "1",
+        // autoplay: {
+        //     delay: 2500,
+        //     disableOnInteraction: false,
+        // },
+    });
 });
