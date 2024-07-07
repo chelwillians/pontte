@@ -8,17 +8,23 @@ get_header();
 <section class="main-hero">
     <div class="container wrap">
         <div class="main-hero__content">
-            <h1 class="main-hero__title"><strong class="purple">Crédito</strong> para <br>criar o <strong>seu
-                    futuro</strong></h1>
-            <div class="main-hero__desc">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dui ipsum, commodo sed cursus ut,
-                    dictum nec tellus. Curabitur nec mi et.</p>
-            </div>
-            <a href="#" class="main-hero__button">Quero me cadastrar</a>
+            <?php if (!empty(get_field('titulo'))) : ?>
+                <?php echo get_field('titulo'); ?>
+            <?php else : ?>
+                <h1 class="main-hero__title"><strong class="purple">Crédito</strong> para <br>criar o <strong>seu futuro</strong></h1>
+            <?php endif; ?>
+            <?php if (!empty(get_field('descricao'))) : ?>
+                <div class="main-hero__desc">
+                    <?php echo wpautop(get_field('descricao')); ?>
+                </div>
+            <?php endif; ?>
+            <?php if (!empty(get_field('link_botao'))) : ?>
+                <a href="<?php echo get_field('link_botao'); ?>" class="main-hero__button"><?php echo !empty(get_field('texto_botao')) ? get_field('texto_botao') : 'Quero me cadastrar'; ?></a>
+            <?php endif; ?>
         </div>
         <div class="main-hero__image">
-            <img src="<?php echo get_template_directory_uri() ?>/dist/images/banner.png" class="main-hero__image--desktop" alt="Banner">
-            <img src="<?php echo get_template_directory_uri() ?>/dist/images/banner-mobile.png" class="main-hero__image--mobile" alt="Banner">
+            <img src="<?php echo !empty(get_field('imagem_desktop')) ? get_field('imagem_desktop') : get_template_directory_uri() . '/dist/images/banner.png'; ?>" class="main-hero__image--desktop" alt="Banner">
+            <img src="<?php echo !empty(get_field('imagem_mobile')) ? get_field('imagem_mobile') : get_template_directory_uri() . '/dist/images/banner-mobile.png'; ?>" class="main-hero__image--mobile" alt="Banner">
         </div>
         <a href="#" class="main-hero__arrow-down">
             <img src="<?php echo get_template_directory_uri() ?>/dist/images/arrow-down.svg" alt="Seta apontando para baixo">
