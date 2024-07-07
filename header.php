@@ -17,37 +17,44 @@
     <?php wp_body_open(); ?>
     <header class="main-header">
         <div class="container wrap">
-            <div class="main-header__logo">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo.svg" alt="Logo da marca">
-            </div>
+            <a href="<?php echo get_home_url() ?>" class="main-header__logo">
+                <img src="<?php echo !empty(get_option('opt_page_theme_options')['logo']) ? get_option('opt_page_theme_options')['logo'] : get_template_directory_uri() . '/dist/images/logo.svg' ?>" alt="Logo da marca">
+            </a>
             <div class="main-header__menus">
-                <ul class="main-header__menus-item main-header__links">
-                    <li class="main-header__links-item">
-                        <a href="#" class="active">Home</a>
-                    </li>
-                    <li class="main-header__links-item">
-                        <a href="#">Seja um parceiro</a>
-                    </li>
-                    <li class="main-header__links-item">
-                        <a href="#">Contato</a>
-                    </li>
-                    <li class="main-header__links-item">
-                        <a href="#">Termos de uso e privacidade</a>
-                    </li>
-                </ul>
+                <?php
+                $menu_items = get_menu_items('menu_header');
+                if (count($menu_items) > 0) :
+                ?>
+                    <ul class="main-header__menus-item main-header__links">
+                        <?php foreach ($menu_items as $item) :
+                        ?>
+                            <li class="main-header__links-item">
+                                <a href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>" aria-label="Ir para a página <?php echo $item->title; ?>" class=""><?php echo $item->title; ?></a>
+                            </li>
+                        <?php endforeach; ?>
+                    </ul>
+                <?php endif; ?>
                 <ul class="main-header__social">
-                    <li class="main-header__social-item">
-                        <a href="#"><img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-whatsapp.svg" alt=""></a>
-                    </li>
-                    <li class="main-header__social-item">
-                        <a href="#"><img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-facebook.svg" alt=""></a>
-                    </li>
-                    <li class="main-header__social-item">
-                        <a href="#"><img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-instagram.svg" alt=""></a>
-                    </li>
-                    <li class="main-header__social-item">
-                        <a href="#"><img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-linkeding.svg" alt=""></a>
-                    </li>
+                    <?php if (isset(get_option('opt_page_theme_options')['whatsapp'])) : ?>
+                        <li class="main-header__social-item">
+                            <a target="_blank" href="<?php echo get_option('opt_page_theme_options')['whatsapp'] ?>"><img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-whatsapp.svg" alt=""></a>
+                        </li>
+                    <?php endif; ?>
+                    <?php if (isset(get_option('opt_page_theme_options')['facebook'])) : ?>
+                        <li class="main-header__social-item">
+                            <a target="_blank" href="<?php echo get_option('opt_page_theme_options')['facebook'] ?>"><img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-facebook.svg" alt=""></a>
+                        </li>
+                    <?php endif; ?>
+                    <?php if (isset(get_option('opt_page_theme_options')['instagram'])) : ?>
+                        <li class="main-header__social-item">
+                            <a target="_blank" href="<?php echo get_option('opt_page_theme_options')['instagram'] ?>"><img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-instagram.svg" alt=""></a>
+                        </li>
+                    <?php endif; ?>
+                    <?php if (isset(get_option('opt_page_theme_options')['linkedin'])) : ?>
+                        <li class="main-header__social-item">
+                            <a target="_blank" href="<?php echo get_option('opt_page_theme_options')['linkedin'] ?>"><img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-linkeding.svg" alt=""></a>
+                        </li>
+                    <?php endif; ?>
                 </ul>
             </div>
             <div class="main-header__hamburguer">

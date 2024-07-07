@@ -1,0 +1,178 @@
+<?php
+// HABILITAR THUMBNAIL
+add_theme_support('post-thumbnails');
+
+// Ocultar editor 
+function hide_editor()
+{
+    // Get the Post ID.
+    if (isset($_GET['post']))
+        $post_id = $_GET['post'];
+    else if (isset($_POST['post_ID']))
+        $post_id = $_POST['post_ID'];
+
+    if (!isset($post_id) || empty($post_id))
+        return;
+
+    // Get the name of the Page Template file.
+    $template_file = get_post_meta($post_id, '_wp_page_template', true);
+
+    if ($template_file == 'index.php') { // edit the template name
+        remove_post_type_support('page', 'editor');
+    }
+}
+add_action('admin_init', 'hide_editor');
+
+// Menus
+function get_menu_items($menu_name)
+{
+    $menu = get_nav_menu_locations();
+    $menu_id = $menu[$menu_name];
+    return wp_get_nav_menu_items($menu_id);
+}
+
+function menu_header()
+{
+    register_nav_menu('menu_header', __('Menu Header'));
+}
+add_action('init', 'menu_header');
+
+
+// Functions CMB2
+function prefix_sanitize_text_callback($value, $field_args, $field)
+{
+    $value = strip_tags($value, '<p><a><br><br/><strong><b><span>');
+
+    return $value;
+}
+
+function prefix_sanitize_iframe($value, $field_args, $field)
+{
+    $value = strip_tags($value, '<iframe>');
+
+    return $value;
+}
+
+function get_field($key, $page_id = 0)
+{
+    $id = $page_id !== 0 ? $page_id : get_the_ID();
+    return get_post_meta($id, $key, true);
+}
+
+function the_field($key, $page_id = 0)
+{
+    echo get_field($key, $page_id);
+}
+
+function get_alt($key)
+{
+    return get_post_meta($key, '_wp_attachment_image_alt', TRUE);
+}
+
+function cmb2_get_term_options($field)
+{
+    $args = $field->args('get_terms_args');
+    $args = is_array($args) ? $args : array();
+
+    $args = wp_parse_args($args, array('taxonomy' => 'category'));
+
+    $taxonomy = $args['taxonomy'];
+
+    $terms = (array) cmb2_utils()->wp_at_least('4.5.0')
+        ? get_terms($args)
+        : get_terms($taxonomy, $args);
+
+    // Initate an empty array
+    $term_options = array();
+    if (!empty($terms)) {
+        foreach ($terms as $term) {
+            $term_options[$term->term_id] = $term->name;
+        }
+    }
+
+    return $term_options;
+}
+
+// Options page
+function opt_page_register_theme_options_metabox()
+{
+    $cmb_options = new_cmb2_box(array(
+        'id'           => 'opt_page_theme_options_page',
+        'title'        => 'Definições Gerais',
+        'object_types' => array('options-page'),
+        'option_key'   => 'opt_page_theme_options',
+        'icon_url'     => 'dashicons-edit-large',
+        'display_cb'   => 'opt_page_theme_options_page_output', // Override the options-page form output (CMB2_Hookup::options_page_output()).
+    ));
+
+    $cmb_options->add_field(array(
+        'id'   => 'cmb2_title_general',
+        'name' => 'Geral',
+        'type' => 'title',
+    ));
+
+    $cmb_options->add_field(array(
+        'id'      => 'logo',
+        'name'    => 'Logo',
+        'desc'    => 'Resolução recomendada de 108x33',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar arquivo'
+        ),
+        'query_args' => array(
+            'type' => array(
+                'image/png',
+                'image/svg',
+            ),
+        ),
+        'preview_size' => 'large',
+    ));
+
+    $cmb_options->add_field(array(
+        'name' => 'Redes sociais',
+        'type' => 'title',
+        'id' => 'redes_sociais'
+    ));
+
+    $cmb_options->add_field(array(
+        'name' => 'Instagram',
+        'id' => 'instagram',
+        'type' => 'text_url',
+    ));
+
+    $cmb_options->add_field(array(
+        'name' => 'Whatsapp',
+        'id' => 'whatsapp',
+        'type' => 'text_url',
+    ));
+
+    $cmb_options->add_field(array(
+        'name' => 'Linkedin',
+        'id' => 'linkedin',
+        'type' => 'text_url',
+    ));
+
+    $cmb_options->add_field(array(
+        'name' => 'Facebook',
+        'id' => 'facebook',
+        'type' => 'text_url',
+    ));
+
+    $cmb_options->add_field(array(
+        'name' => 'Footer',
+        'type' => 'title',
+        'id' => 'footer'
+    ));
+
+    $cmb_options->add_field(array(
+        'name' => 'Texto Footer',
+        'id' => 'texto_footer',
+        'type' => 'textarea',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+}
+add_action('cmb2_admin_init', 'opt_page_register_theme_options_metabox');

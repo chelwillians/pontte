@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php
+
+/* Template Name: Homepage */
+
+get_header();
+?>
 
 <section class="main-hero">
     <div class="container wrap">
