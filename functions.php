@@ -357,5 +357,116 @@ function cmb2_home_metaboxes()
         'name' => 'Texto 2',
         'type' => 'text',
     ));
+
+    // Sobre
+    $cmb_about = new_cmb2_box(array(
+        'id'            => 'cmb2_sobre',
+        'title'         => __('Sobre', 'cmb2'),
+        'object_types'  => array('page'),
+        'show_on' => array('key' => 'page-template', 'value' => 'index.php'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ));
+    
+    $cmb_about->add_field(array(
+        'id'   => 'exibir_sobre',
+        'name' => 'Exibir seção',
+        'type' => 'checkbox',
+    ));
+    
+    $cmb_about->add_group_field($cards, array(
+        'id'      => 'imagem_desk_sobre',
+        'name'    => 'Imagem desktop',
+        'desc'    => 'Resolução recomendada de 1312x1360',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar imagem'
+        ),
+        // 'query_args' => array(
+        //     'type' => array(
+        //         'image/png',
+        //         'image/jpg',
+        //         'image/jpeg',
+        //         'image/svg',
+        //     ),
+        // ),
+        'preview_size' => 'medium',
+    ));
+    
+    $cmb_about->add_group_field($cards, array(
+        'id'      => 'imagem_mobile_sobre',
+        'name'    => 'Imagem mobile',
+        'desc'    => 'Resolução recomendada de 430x362',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar imagem'
+        ),
+        // 'query_args' => array(
+        //     'type' => array(
+        //         'image/png',
+        //         'image/jpg',
+        //         'image/jpeg',
+        //         'image/svg',
+        //     ),
+        // ),
+        'preview_size' => 'medium',
+    ));
+    
+    $cmb_about->add_field(array(
+        'id'   => 'pretitulo_sobre',
+        'name' => 'Pré Título',
+        'type' => 'text',
+    ));
+    
+    $cmb_about->add_field(array(
+        'id'   => 'titulo_sobre',
+        'name' => 'Título',
+        'type' => 'text',
+        'desc'    => 'Use o a tag strong para deixar em bold',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+    
+    $cmb_about->add_field(array(
+        'id'      => 'descricao_sobre',
+        'name'    => 'Descrição',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'wpautop' => true,
+            'media_buttons' => false,
+        ),
+    ));
+    
+    $cmb_about->add_field(array(
+        'id'   => 'titulo_2_sobre',
+        'name' => 'Título',
+        'type' => 'text',
+        'desc'    => 'Título do bloco flutuante azul',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+    
+    $cmb_about->add_field(array(
+        'id'   => 'link_sobre',
+        'name' => 'Link do botão',
+        'type' => 'text',
+        'desc'    => 'Link do botão do bloco azul',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+    
+    $cmb_about->add_field(array(
+        'id'   => 'texto_botao_sobre',
+        'name' => 'Texto do botão',
+        'type' => 'text',
+        'desc'    => 'Texto do botão do bloco azul',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
 }
 add_action('cmb2_admin_init', 'cmb2_home_metaboxes');

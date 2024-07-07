@@ -75,32 +75,39 @@ get_header();
     </section>
 <?php endif; ?>
 
-<section class="about">
-    <div class="container wrap">
-        <div class="about__image">
-            <img src="<?php echo get_template_directory_uri() ?>/dist/images/about-mobile.jpg" alt="" class="about__image--mobile">
-            <img src="<?php echo get_template_directory_uri() ?>/dist/images/about.jpg" alt="" class="about__image--desktop">
-            <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-pontte-gray.svg" alt="Ícone Pontte em cinza" class="about__image--icon">
-        </div>
-        <div class="about__content">
-            <strong class="about__pre-title">Saiba mais</strong>
-            <h2 class="about__title">Sobre a <strong>Pontte</strong></h2>
-            <div class="about__desc">
-                <p>A Pontte é uma plataforma de empréstimo digital e acredita que o crédito precisa ser simples,
-                    inteligente, justo e flexível.</p>
-                <p>Combinamos nossa obsessão por eficiência, dados e tecnologia para oferecer taxas de juros mais
-                    baixas, prazos de pagamento mais longos e mais controle sobre o contrato. </p>
-                <p><strong>Com gestão flexível de parcelas e prazos, criando um caminho mais rápido para o
-                        futuro.</strong></p>
+<?php if (get_field('exibir_sobre')) : ?>
+    <section class="about">
+        <div class="container wrap">
+            <div class="about__image">
+                <img src="<?php echo !empty(get_field('imagem_mobile_sobre')) ? get_field('imagem_mobile_sobre') : get_template_directory_uri() . '/dist/images/about-mobile.jpg' ?>" alt="" class="about__image--mobile">
+                <img src="<?php echo !empty(get_field('imagem_desk_sobre')) ? get_field('imagem_desk_sobre') : get_template_directory_uri() . '/dist/images/about.jpg' ?>" alt="" class="about__image--desktop">
+                <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-pontte-gray.svg" alt="Ícone Pontte em cinza" class="about__image--icon">
+            </div>
+            <div class="about__content">
+                <?php if (!empty(get_field('pretitulo_sobre'))) : ?>
+                    <strong class="about__pre-title"><?php echo get_field('pretitulo_sobre') ?></strong>
+                <?php endif; ?>
+                <?php if (!empty(get_field('titulo_sobre'))) : ?>
+                    <h2 class="about__title"><?php echo get_field('titulo_sobre') ?></h2>
+                <?php endif; ?>
+                <?php if (!empty(get_field('descricao_sobre'))) : ?>
+                    <div class="about__desc">
+                        <?php echo wpautop(get_field('descricao_sobre')) ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="about__block">
+                <?php if (!empty(get_field('titulo_2_sobre'))) : ?>
+                    <?php echo wpautop(get_field('titulo_2_sobre')) ?>
+                <?php endif; ?>
+                <?php if (!empty(get_field('link_sobre'))) : ?>
+                    <a href="<?php echo get_field('link_sobre') ?>" class="about__block--button"><?php echo !empty(get_field('texto_botao_sobre')) ? get_field('texto_botao_sobre') : 'Clique e veja como' ?></a>
+                <?php endif; ?>
+                <img class="about__block--image" src="<?php echo get_template_directory_uri() ?>/dist/images/coins.png" alt="Ilustração de moedas">
             </div>
         </div>
-        <div class="about__block">
-            <p>Tem um negócio e quer <strong>oferecer crédito imobiliário para seus clientes?</strong></p>
-            <a href="#" class="about__block--button">Clique e veja como</a>
-            <img class="about__block--image" src="<?php echo get_template_directory_uri() ?>/dist/images/coins.png" alt="Ilustração de moedas">
-        </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
 <div class="for-you">
     <div class="container wrap">
