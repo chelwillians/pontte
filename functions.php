@@ -468,5 +468,91 @@ function cmb2_home_metaboxes()
         'desc'    => 'Texto do botão do bloco azul',
         'sanitization_cb' => 'prefix_sanitize_text_callback'
     ));
+
+    // Seção para você
+    $cmb_for_you = new_cmb2_box(array(
+        'id'            => 'cmb2_para_voce',
+        'title'         => __('Seção - Para você', 'cmb2'),
+        'object_types'  => array('page'),
+        'show_on' => array('key' => 'page-template', 'value' => 'index.php'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ));
+    
+    $cmb_for_you->add_field(array(
+        'id'   => 'exibir_para_voce',
+        'name' => 'Exibir seção',
+        'type' => 'checkbox',
+    ));
+
+    $cmb_for_you->add_field(array(
+        'id'   => 'pretitulo_para_voce',
+        'name' => 'Pré Título',
+        'type' => 'text',
+    ));
+    
+    $cmb_for_you->add_field(array(
+        'id'   => 'titulo_para_voce',
+        'name' => 'Título',
+        'type' => 'text',
+        'desc'    => 'Use o a tag strong para deixar em bold',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+
+    $cards_for_you = $cmb_for_you->add_field(array(
+        'id'          => 'cards_list_para_voce',
+        'type'        => 'group',
+        'description' => __('Cards', 'cmb2'),
+        // 'repeatable'  => false, // use false if you want non-repeatable group
+        'options'     => array(
+            'group_title'       => __('Card {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
+            'add_button'        => __('Adicionar card', 'cmb2'),
+            'remove_button'     => __('Remover', 'cmb2'),
+            'sortable'          => true,
+            'limit'         => 4,
+            'closed'         => true, // true to have the groups closed by default
+            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+        ),
+    ));
+
+    $cmb_for_you->add_group_field($cards_for_you, array(
+        'id'      => 'icon_card',
+        'name'    => 'Ícone do card',
+        'desc'    => 'Resolução recomendada de 40x40',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar imagem'
+        ),
+        // 'query_args' => array(
+        //     'type' => array(
+        //         'image/png',
+        //         'image/jpg',
+        //         'image/jpeg',
+        //         'image/svg',
+        //     ),
+        // ),
+        'preview_size' => 'medium',
+    ));
+
+    $cmb_for_you->add_group_field($cards_for_you, array(
+        'id'   => 'titulo',
+        'name' => 'Título',
+        'type' => 'text',
+    ));
+
+    $cmb_for_you->add_group_field($cards_for_you, array(
+        'id'      => 'descricao',
+        'name'    => 'Descrição',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'wpautop' => true,
+            'media_buttons' => false,
+        ),
+    ));
 }
 add_action('cmb2_admin_init', 'cmb2_home_metaboxes');

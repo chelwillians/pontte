@@ -109,55 +109,35 @@ get_header();
     </section>
 <?php endif; ?>
 
-<div class="for-you">
-    <div class="container wrap">
-        <strong class="for-you__pre-title">Por você</strong>
-        <h2 class="for-you__title"><strong>Conectamos você</strong> aos seus objetivos</h2>
-        <div class="for-you__cards">
-            <div class="for-you__item">
-                <div class="for-you__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-checkbox.svg" alt="Checkbox">
-                </div>
-                <h3 class="for-you__item--title">Quitar dívidas</h3>
-                <div class="for-you__item--desc">
-                    <p>Com nosso crédito com garantia de imóvel você pode concentrar várias dívidas em uma só, com
-                        parcelas menores e prazo longo para te dar um respiro.</p>
-                </div>
-            </div>
-            <div class="for-you__item">
-                <div class="for-you__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-calendar.svg" alt="">
-                </div>
-                <h3 class="for-you__item--title">Refinanciar imóvel</h3>
-                <div class="for-you__item--desc">
-                    <p>Falta pouco para quitar seu financiamento e quer levantar capital com seu imóvel?
-                        <strong>Refinancie seu bem com a Pontte.</strong>
-                    </p>
-                </div>
-            </div>
-            <div class="for-you__item">
-                <div class="for-you__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-arrows-up.svg" alt="">
-                </div>
-                <h3 class="for-you__item--title">Investir no negócio</h3>
-                <div class="for-you__item--desc">
-                    <p>Use nosso crédito para investir em sua empresa e aumentar seu capital de giro, expandir
-                        operações ou realizar novos projetos.</p>
-                </div>
-            </div>
-            <div class="for-you__item">
-                <div class="for-you__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-house.svg" alt="">
-                </div>
-                <h3 class="for-you__item--title">Reformar a casa</h3>
-                <div class="for-you__item--desc">
-                    <p>Você também pode usar o crédito da Pontte para reformar sua casa e criar o espaço dos seus
-                        sonhos, aumentando o conforto, a funcionalidade e o valor do seu patrimônio.</p>
-                </div>
+<?php if (!empty(get_field('exibir_para_voce'))) : ?>
+    <div class="for-you">
+        <div class="container wrap">
+            <?php if (!empty(get_field('pretitulo_para_voce'))) : ?>
+                <strong class="for-you__pre-title"><?php echo get_field('pretitulo_para_voce'); ?></strong>
+            <?php endif; ?>
+            <?php if (!empty(get_field('titulo_para_voce'))) : ?>
+                <h2 class="for-you__title"><?php echo get_field('titulo_para_voce'); ?></h2>
+            <?php endif; ?>
+            <div class="for-you__cards">
+                <?php foreach (get_field('cards_list_para_voce') as $card) : ?>
+                    <div class="for-you__item">
+                        <div class="for-you__item--icon">
+                            <img src="<?php echo !empty($card['icon_card']) ? $card['icon_card'] : get_template_directory_uri() . '/dist/images/icon-checkbox.svg' ?>" alt="Ícone">
+                        </div>
+                        <?php if (!empty($card['titulo'])) : ?>
+                            <h3 class="for-you__item--title"><?php echo $card['titulo']; ?></h3>
+                        <?php endif; ?>
+                        <?php if (!empty($card['descricao'])) : ?>
+                            <div class="for-you__item--desc">
+                                <?php echo wpautop($card['descricao']); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>
-</div>
+<?php endif; ?>
 
 <section class="home-equity">
     <div class="container wrap">
