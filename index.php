@@ -1,0 +1,455 @@
+<?php get_header(); ?>
+
+<section class="main-hero">
+    <div class="container wrap">
+        <div class="main-hero__content">
+            <h1 class="main-hero__title"><strong class="purple">Crédito</strong> para <br>criar o <strong>seu
+                    futuro</strong></h1>
+            <div class="main-hero__desc">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dui ipsum, commodo sed cursus ut,
+                    dictum nec tellus. Curabitur nec mi et.</p>
+            </div>
+            <a href="#" class="main-hero__button">Quero me cadastrar</a>
+        </div>
+        <div class="main-hero__image">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/images/banner.png" class="main-hero__image--desktop" alt="Banner">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/images/banner-mobile.png" class="main-hero__image--mobile" alt="Banner">
+        </div>
+        <a href="#" class="main-hero__arrow-down">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/images/arrow-down.svg" alt="Seta apontando para baixo">
+        </a>
+    </div>
+    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon.svg" class="main-hero__float-item main-hero__float-item--mobile-top" alt="Ícone quadrado flutuante">
+    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-2.svg" class="main-hero__float-item main-hero__float-item--mobile-center" alt="Ícone retangular flutuante">
+    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-3.svg" class="main-hero__float-item main-hero__float-item--desktop-bottom" alt="Ícone flutuante">
+</section>
+
+<section class="divider">
+    <div class="container wrap">
+        <h2 class="divider__title"><strong>Crédito</strong> para <br>concretizar planos</h2>
+        <div class="divider__desc">
+            <p>Na Pontte você usa um imóvel como garantia e faz todo o processo online, sem se preocupar com taxas e
+                prazos. Aqui você tem crédito justo para realizar sonhos.</p>
+        </div>
+        <a href="#" class="divider__button">Tire suas dúvidas aqui</a>
+    </div>
+    <div class="divider__cards swiper">
+        <div class="swiper-wrapper">
+            <div class="divider__cards-item swiper-slide">
+                <div class="divider__cards-icon">
+                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-calendar.svg" alt="Ícone de um calendário">
+                </div>
+                <div class="divider__cards-text">
+                    <span class="divider__cards-text--min">Taxas a partir de</span>
+                    <span class="divider__cards-text--normal">1,09% ao mês + IPCA</span>
+                </div>
+            </div>
+            <div class="divider__cards-item swiper-slide">
+                <div class="divider__cards-icon">
+                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-calendar.svg" alt="Ícone de um calendário">
+                </div>
+                <div class="divider__cards-text">
+                    <span class="divider__cards-text--min">Carência de 2 meses</span>
+                    <span class="divider__cards-text--normal">para começar a pagar</span>
+                </div>
+            </div>
+            <div class="divider__cards-item swiper-slide">
+                <div class="divider__cards-icon">
+                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-house.svg" alt="Ícone de uma casa">
+                </div>
+                <div class="divider__cards-text">
+                    <span class="divider__cards-text--min">Empréstimo de até</span>
+                    <span class="divider__cards-text--normal">50% do valor do imóvel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about">
+    <div class="container wrap">
+        <div class="about__image">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/images/about-mobile.jpg" alt="" class="about__image--mobile">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/images/about.jpg" alt="" class="about__image--desktop">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-pontte-gray.svg" alt="Ícone Pontte em cinza" class="about__image--icon">
+        </div>
+        <div class="about__content">
+            <strong class="about__pre-title">Saiba mais</strong>
+            <h2 class="about__title">Sobre a <strong>Pontte</strong></h2>
+            <div class="about__desc">
+                <p>A Pontte é uma plataforma de empréstimo digital e acredita que o crédito precisa ser simples,
+                    inteligente, justo e flexível.</p>
+                <p>Combinamos nossa obsessão por eficiência, dados e tecnologia para oferecer taxas de juros mais
+                    baixas, prazos de pagamento mais longos e mais controle sobre o contrato. </p>
+                <p><strong>Com gestão flexível de parcelas e prazos, criando um caminho mais rápido para o
+                        futuro.</strong></p>
+            </div>
+        </div>
+        <div class="about__block">
+            <p>Tem um negócio e quer <strong>oferecer crédito imobiliário para seus clientes?</strong></p>
+            <a href="#" class="about__block--button">Clique e veja como</a>
+            <img class="about__block--image" src="<?php echo get_template_directory_uri() ?>/dist/images/coins.png" alt="Ilustração de moedas">
+        </div>
+    </div>
+</section>
+
+<div class="for-you">
+    <div class="container wrap">
+        <strong class="for-you__pre-title">Por você</strong>
+        <h2 class="for-you__title"><strong>Conectamos você</strong> aos seus objetivos</h2>
+        <div class="for-you__cards">
+            <div class="for-you__item">
+                <div class="for-you__item--icon">
+                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-checkbox.svg" alt="Checkbox">
+                </div>
+                <h3 class="for-you__item--title">Quitar dívidas</h3>
+                <div class="for-you__item--desc">
+                    <p>Com nosso crédito com garantia de imóvel você pode concentrar várias dívidas em uma só, com
+                        parcelas menores e prazo longo para te dar um respiro.</p>
+                </div>
+            </div>
+            <div class="for-you__item">
+                <div class="for-you__item--icon">
+                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-calendar.svg" alt="">
+                </div>
+                <h3 class="for-you__item--title">Refinanciar imóvel</h3>
+                <div class="for-you__item--desc">
+                    <p>Falta pouco para quitar seu financiamento e quer levantar capital com seu imóvel?
+                        <strong>Refinancie seu bem com a Pontte.</strong>
+                    </p>
+                </div>
+            </div>
+            <div class="for-you__item">
+                <div class="for-you__item--icon">
+                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-arrows-up.svg" alt="">
+                </div>
+                <h3 class="for-you__item--title">Investir no negócio</h3>
+                <div class="for-you__item--desc">
+                    <p>Use nosso crédito para investir em sua empresa e aumentar seu capital de giro, expandir
+                        operações ou realizar novos projetos.</p>
+                </div>
+            </div>
+            <div class="for-you__item">
+                <div class="for-you__item--icon">
+                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-house.svg" alt="">
+                </div>
+                <h3 class="for-you__item--title">Reformar a casa</h3>
+                <div class="for-you__item--desc">
+                    <p>Você também pode usar o crédito da Pontte para reformar sua casa e criar o espaço dos seus
+                        sonhos, aumentando o conforto, a funcionalidade e o valor do seu patrimônio.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="home-equity">
+    <div class="container wrap">
+        <div class="home-equity__content">
+            <strong class="home-equity__pre-title">Home Equity</strong>
+            <h2 class="home-equity__title">Crédito com <strong>Garantia de Imóvel</strong></h2>
+            <div class="home-equity__desc">
+                <p>O Crédito com Garantia de Imóvel, também conhecido como Home Equity, permite que você use
+                    <strong>seu
+                        imóvel como garantia para obter empréstimos</strong> com taxas de juros mais baixas e prazos
+                    de
+                    pagamento mais longos.
+                </p>
+                <p><strong>A Pontte oferece um empréstimo com valores mais altos e juros justos, proporcionando uma
+                        maneira financeiramente viável para você realizar seus planos.</strong></p>
+                <a href="#" class="home-equity__button">Quero saber mais</a>
+            </div>
+        </div>
+        <div class="home-equity__side">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/images/home-equity-mobile.png" alt="" class="home-equity__image home-equity__image--mobile">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/images/home-equity-desktop.png" alt="" class="home-equity__image home-equity__image--desktop">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-pontte-gray.svg" alt="Ícone Pontte em cinza" class="home-equity__image home-equity__image--icon">
+        </div>
+    </div>
+    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-4.svg" class="home-equity__float-item home-equity__float-item--mobile" alt="Ícone quadrado flutuante">
+    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-5.svg" class="home-equity__float-item home-equity__float-item--desktop" alt="Ícone quadrado flutuante">
+</section>
+
+<section class="faq">
+    <div class="container wrap">
+        <strong class="faq__pre-title">O que você precisa saber</strong>
+        <h2 class="faq__title"><strong>Dúvidas </strong>Frequentes</h2>
+
+        <div class="faq__list">
+            <div class="faq__item">
+                <strong class="faq__item--question">Quem somos? <div class="faq__item--icon"></div>
+                </strong>
+                <div class="faq__item--answer">
+                    <p>A Pontte é uma fintech que nasceu em 2018 como um braço de real state da Mauá Capital (agora
+                        Jive
+                        Mauá) com o objetivo de tornar a experiência de crédito imobiliário mais rápida e menos
+                        burocrática.</p>
+
+                    <p>Dizemos isso porque somos a primeira instituição financeira a emitir uma CCI (Cédula de
+                        Crédito Imobiliário) digital no Brasil. Ou seja, o nosso processo é 100% online.
+                        Em 2019, iniciamos a nossa operação ofertando Crédito com Garantia de Imóvel. Só neste ano,
+                        tivemos mais de R$ 1.7 bilhões em solicitações de crédito. Também temos um funding próprio e
+                        todo o dinheiro envolvido nas operações vem da Pontte.</p>
+
+                    <p>Já em 2020, recebemos um aporte de R$ 160 milhões A partir de 2021 o parceiro (B2B) se
+                        tornou o nosso foco. Nos anos seguintes, estreitamos a relação com estes parceiros, criamos
+                        a
+                        Central do Parceiro, que é a nossa plataforma oficial para indicação de leads, além de
+                        melhorarmos os processos da nossa esteira de crédito.</p>
+
+                    <p>Em 2024 migramos para o ecossistema da Galapagos Capital e além de Home Equity podemos
+                        ofertar outras soluções financeiras aos nossos clientes.</p>
+                </div>
+            </div>
+            <div class="faq__item">
+                <strong class="faq__item--question">Confiança e transparência estão no nosso DNA <div class="faq__item--icon"></div>
+                </strong>
+                <div class="faq__item--answer">
+                    <p>A Pontte é uma fintech que nasceu em 2018 como um braço de real state da Mauá Capital (agora
+                        Jive
+                        Mauá) com o objetivo de tornar a experiência de crédito imobiliário mais rápida e menos
+                        burocrática.</p>
+
+                    <p>Dizemos isso porque somos a primeira instituição financeira a emitir uma CCI (Cédula de
+                        Crédito Imobiliário) digital no Brasil. Ou seja, o nosso processo é 100% online.
+                        Em 2019, iniciamos a nossa operação ofertando Crédito com Garantia de Imóvel. Só neste ano,
+                        tivemos mais de R$ 1.7 bilhões em solicitações de crédito. Também temos um funding próprio e
+                        todo o dinheiro envolvido nas operações vem da Pontte.</p>
+
+                    <p>Já em 2020, recebemos um aporte de R$ 160 milhões A partir de 2021 o parceiro (B2B) se
+                        tornou o nosso foco. Nos anos seguintes, estreitamos a relação com estes parceiros, criamos
+                        a
+                        Central do Parceiro, que é a nossa plataforma oficial para indicação de leads, além de
+                        melhorarmos os processos da nossa esteira de crédito.</p>
+
+                    <p>Em 2024 migramos para o ecossistema da Galapagos Capital e além de Home Equity podemos
+                        ofertar outras soluções financeiras aos nossos clientes.</p>
+                </div>
+            </div>
+            <div class="faq__item">
+                <strong class="faq__item--question">Qual a diferença entre a Pontte e um Banco? <div class="faq__item--icon"></div>
+                </strong>
+                <div class="faq__item--answer">
+                    <p>A Pontte é uma fintech que nasceu em 2018 como um braço de real state da Mauá Capital (agora
+                        Jive
+                        Mauá) com o objetivo de tornar a experiência de crédito imobiliário mais rápida e menos
+                        burocrática.</p>
+
+                    <p>Dizemos isso porque somos a primeira instituição financeira a emitir uma CCI (Cédula de
+                        Crédito Imobiliário) digital no Brasil. Ou seja, o nosso processo é 100% online.
+                        Em 2019, iniciamos a nossa operação ofertando Crédito com Garantia de Imóvel. Só neste ano,
+                        tivemos mais de R$ 1.7 bilhões em solicitações de crédito. Também temos um funding próprio e
+                        todo o dinheiro envolvido nas operações vem da Pontte.</p>
+
+                    <p>Já em 2020, recebemos um aporte de R$ 160 milhões A partir de 2021 o parceiro (B2B) se
+                        tornou o nosso foco. Nos anos seguintes, estreitamos a relação com estes parceiros, criamos
+                        a
+                        Central do Parceiro, que é a nossa plataforma oficial para indicação de leads, além de
+                        melhorarmos os processos da nossa esteira de crédito.</p>
+
+                    <p>Em 2024 migramos para o ecossistema da Galapagos Capital e além de Home Equity podemos
+                        ofertar outras soluções financeiras aos nossos clientes.</p>
+                </div>
+            </div>
+            <div class="faq__item">
+                <strong class="faq__item--question">Diferenciais dos nossos produtos <div class="faq__item--icon">
+                    </div>
+                </strong>
+                <div class="faq__item--answer">
+                    <p>A Pontte é uma fintech que nasceu em 2018 como um braço de real state da Mauá Capital (agora
+                        Jive
+                        Mauá) com o objetivo de tornar a experiência de crédito imobiliário mais rápida e menos
+                        burocrática.</p>
+
+                    <p>Dizemos isso porque somos a primeira instituição financeira a emitir uma CCI (Cédula de
+                        Crédito Imobiliário) digital no Brasil. Ou seja, o nosso processo é 100% online.
+                        Em 2019, iniciamos a nossa operação ofertando Crédito com Garantia de Imóvel. Só neste ano,
+                        tivemos mais de R$ 1.7 bilhões em solicitações de crédito. Também temos um funding próprio e
+                        todo o dinheiro envolvido nas operações vem da Pontte.</p>
+
+                    <p>Já em 2020, recebemos um aporte de R$ 160 milhões A partir de 2021 o parceiro (B2B) se
+                        tornou o nosso foco. Nos anos seguintes, estreitamos a relação com estes parceiros, criamos
+                        a
+                        Central do Parceiro, que é a nossa plataforma oficial para indicação de leads, além de
+                        melhorarmos os processos da nossa esteira de crédito.</p>
+
+                    <p>Em 2024 migramos para o ecossistema da Galapagos Capital e além de Home Equity podemos
+                        ofertar outras soluções financeiras aos nossos clientes.</p>
+                </div>
+            </div>
+            <div class="faq__item">
+                <strong class="faq__item--question">Crédito com Garantia de Imóvel <div class="faq__item--icon">
+                    </div>
+                </strong>
+                <div class="faq__item--answer">
+                    <p>A Pontte é uma fintech que nasceu em 2018 como um braço de real state da Mauá Capital (agora
+                        Jive
+                        Mauá) com o objetivo de tornar a experiência de crédito imobiliário mais rápida e menos
+                        burocrática.</p>
+
+                    <p>Dizemos isso porque somos a primeira instituição financeira a emitir uma CCI (Cédula de
+                        Crédito Imobiliário) digital no Brasil. Ou seja, o nosso processo é 100% online.
+                        Em 2019, iniciamos a nossa operação ofertando Crédito com Garantia de Imóvel. Só neste ano,
+                        tivemos mais de R$ 1.7 bilhões em solicitações de crédito. Também temos um funding próprio e
+                        todo o dinheiro envolvido nas operações vem da Pontte.</p>
+
+                    <p>Já em 2020, recebemos um aporte de R$ 160 milhões A partir de 2021 o parceiro (B2B) se
+                        tornou o nosso foco. Nos anos seguintes, estreitamos a relação com estes parceiros, criamos
+                        a
+                        Central do Parceiro, que é a nossa plataforma oficial para indicação de leads, além de
+                        melhorarmos os processos da nossa esteira de crédito.</p>
+
+                    <p>Em 2024 migramos para o ecossistema da Galapagos Capital e além de Home Equity podemos
+                        ofertar outras soluções financeiras aos nossos clientes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="midia">
+    <div class="container wrap">
+        <h2 class="midia__title">Pontte na <strong>mídia</strong></h2>
+        <div class="midia__list swiper">
+            <div class="swiper-wrapper">
+                <div class="midia__item swiper-slide">
+                    <div class="midia__item--logo">
+                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo-valor-economico.png" alt="Logo Economico Valor">
+                    </div>
+                </div>
+                <div class="midia__item swiper-slide">
+                    <div class="midia__item--logo">
+                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo-forbes.png" alt="Logo Economico forbes">
+                    </div>
+                </div>
+                <div class="midia__item swiper-slide">
+                    <div class="midia__item--logo">
+                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo-valor-economico.png" alt="Logo Economico Valor">
+                    </div>
+                </div>
+                <div class="midia__item swiper-slide">
+                    <div class="midia__item--logo">
+                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo-forbes.png" alt="Logo Economico forbes">
+                    </div>
+                </div>
+                <div class="midia__item swiper-slide">
+                    <div class="midia__item--logo">
+                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo-valor-economico.png" alt="Logo Economico Valor">
+                    </div>
+                </div>
+                <div class="midia__item swiper-slide">
+                    <div class="midia__item--logo">
+                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo-forbes.png" alt="Logo Economico forbes">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="midia__content-list">
+            <div class="midia__content-item">
+                <div class="midia__content-item--data">
+                    <span class="month">FEV</span>
+                    <span class="year">2022</span>
+                </div>
+                <div class="midia__content-item--text">
+                    <p>1Recentemente, a Pontte liderou um grupo que incluiu a Vórtx DTVM, a QI Tech, a Uniproof e a
+                        Mauá Capital, e desenvolveu o conceito que tornou realidade a emissão de CCIs 100%
+                        eletrônicas. A B3, na qualidade de câmara registradora e de negociação das CCIs, concedeu a
+                        autorização inédita em agosto de 2020 e isso agora passa a ser realidade para todos os
+                        participantes desse mercado. Isso significa mais agilidade e menos custos para o tomador de
+                        crédito no Brasil.</p>
+                </div>
+                <a href="#" class="midia__content-item--link">
+                    <span>Acesse a notícia</span>
+                </a>
+            </div>
+            <div class="midia__content-item">
+                <div class="midia__content-item--data">
+                    <span class="month">MAR</span>
+                    <span class="year">2022</span>
+                </div>
+                <div class="midia__content-item--text">
+                    <p>2Recentemente, a Pontte liderou um grupo que incluiu a Vórtx DTVM, a QI Tech, a Uniproof e a
+                        Mauá Capital, e desenvolveu o conceito que tornou realidade a emissão de CCIs 100%
+                        eletrônicas. A B3, na qualidade de câmara registradora e de negociação das CCIs, concedeu a
+                        autorização inédita em agosto de 2020 e isso agora passa a ser realidade para todos os
+                        participantes desse mercado. Isso significa mais agilidade e menos custos para o tomador de
+                        crédito no Brasil.</p>
+                </div>
+                <a href="#" class="midia__content-item--link">
+                    <span>Acesse a notícia</span>
+                </a>
+            </div>
+            <div class="midia__content-item">
+                <div class="midia__content-item--data">
+                    <span class="month">ABR</span>
+                    <span class="year">2022</span>
+                </div>
+                <div class="midia__content-item--text">
+                    <p>3Recentemente, a Pontte liderou um grupo que incluiu a Vórtx DTVM, a QI Tech, a Uniproof e a
+                        Mauá Capital, e desenvolveu o conceito que tornou realidade a emissão de CCIs 100%
+                        eletrônicas. A B3, na qualidade de câmara registradora e de negociação das CCIs, concedeu a
+                        autorização inédita em agosto de 2020 e isso agora passa a ser realidade para todos os
+                        participantes desse mercado. Isso significa mais agilidade e menos custos para o tomador de
+                        crédito no Brasil.</p>
+                </div>
+                <a href="#" class="midia__content-item--link">
+                    <span>Acesse a notícia</span>
+                </a>
+            </div>
+            <div class="midia__content-item">
+                <div class="midia__content-item--data">
+                    <span class="month">MAI</span>
+                    <span class="year">2022</span>
+                </div>
+                <div class="midia__content-item--text">
+                    <p>4Recentemente, a Pontte liderou um grupo que incluiu a Vórtx DTVM, a QI Tech, a Uniproof e a
+                        Mauá Capital, e desenvolveu o conceito que tornou realidade a emissão de CCIs 100%
+                        eletrônicas. A B3, na qualidade de câmara registradora e de negociação das CCIs, concedeu a
+                        autorização inédita em agosto de 2020 e isso agora passa a ser realidade para todos os
+                        participantes desse mercado. Isso significa mais agilidade e menos custos para o tomador de
+                        crédito no Brasil.</p>
+                </div>
+                <a href="#" class="midia__content-item--link">
+                    <span>Acesse a notícia</span>
+                </a>
+            </div>
+            <div class="midia__content-item">
+                <div class="midia__content-item--data">
+                    <span class="month">JUN</span>
+                    <span class="year">2022</span>
+                </div>
+                <div class="midia__content-item--text">
+                    <p>5Recentemente, a Pontte liderou um grupo que incluiu a Vórtx DTVM, a QI Tech, a Uniproof e a
+                        Mauá Capital, e desenvolveu o conceito que tornou realidade a emissão de CCIs 100%
+                        eletrônicas. A B3, na qualidade de câmara registradora e de negociação das CCIs, concedeu a
+                        autorização inédita em agosto de 2020 e isso agora passa a ser realidade para todos os
+                        participantes desse mercado. Isso significa mais agilidade e menos custos para o tomador de
+                        crédito no Brasil.</p>
+                </div>
+                <a href="#" class="midia__content-item--link">
+                    <span>Acesse a notícia</span>
+                </a>
+            </div>
+            <div class="midia__content-item">
+                <div class="midia__content-item--data">
+                    <span class="month">JUL</span>
+                    <span class="year">2022</span>
+                </div>
+                <div class="midia__content-item--text">
+                    <p>6Recentemente, a Pontte liderou um grupo que incluiu a Vórtx DTVM, a QI Tech, a Uniproof e a
+                        Mauá Capital, e desenvolveu o conceito que tornou realidade a emissão de CCIs 100%
+                        eletrônicas. A B3, na qualidade de câmara registradora e de negociação das CCIs, concedeu a
+                        autorização inédita em agosto de 2020 e isso agora passa a ser realidade para todos os
+                        participantes desse mercado. Isso significa mais agilidade e menos custos para o tomador de
+                        crédito no Brasil.</p>
+                </div>
+                <a href="#" class="midia__content-item--link">
+                    <span>Acesse a notícia</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-6.svg" class="midia__float-item" alt="Ícone quadrado flutuante">
+</section>
+
+<?php get_footer(); ?>
