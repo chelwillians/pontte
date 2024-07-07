@@ -1,0 +1,147 @@
+.price {
+    margin-top: 50px;
+
+    @media screen and (min-width: 1024px) {
+        margin-top: 114px;
+    }
+
+    .wrap {
+        padding: 0;
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            align-items: flex-start;
+        }
+    }
+
+    &__left {
+        position: relative;
+        z-index: 10;
+        background-color: $blue;
+        padding: 30px 54px 40px 32px;
+        border-bottom-right-radius: 104px;
+        margin-right: 32px;
+
+        @media screen and (min-width: 1024px) {
+            padding: 52px 97px 64px 50px;
+            margin-right: 0;
+            width: 50%;
+        }
+    }
+
+    &__title {
+        color: $white;
+        font-size: 32px;
+        line-height: 1.2;
+        font-weight: 300;
+        padding-right: 24px;
+
+        @media screen and (min-width: 1024px) {
+            font-size: 40px;
+            padding-right: 0px;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+    }
+
+    &__desc {
+        margin-top: 18px;
+
+        line-height: 1.4;
+        font-weight: 300;
+        color: $white;
+
+        @media screen and (min-width: 1024px) {
+            margin-top: 26px;
+        }
+
+        strong {
+            font-weight: 500;
+            display: block;
+        }
+    }
+
+    &__button {
+        margin-top: 26px;
+        font-size: 14px;
+        color: $white;
+        background-color: transparent;
+        border-radius: 48px;
+        display: inline-block;
+        padding: 14px 22px;
+        text-align: center;
+        text-transform: uppercase;
+        box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.07);
+        border: 2px solid $white;
+
+        @media screen and (min-width: 1024px) {
+            margin-top: 34px;
+            width: auto;
+            min-width: 210px;
+        }
+    }
+
+    &__right {
+        position: relative;
+        z-index: 5;
+        background-color: $purple;
+        padding-top: 284px;
+        margin-top: -240px;
+        padding-bottom: 50px;
+
+        @media screen and (min-width: 1024px) {
+            padding: 38px 72px 56px 84px;
+            margin-top: 0;
+            width: 50%;
+        }
+
+    }
+
+    &__pre-price {
+        color: $white;
+        font-weight: 700;
+        line-height: 1.4;
+        text-align: center;
+        display: block;
+
+        @media screen and (min-width: 1024px) {
+            text-align: left;
+        }
+    }
+
+    &__value {
+        margin-top: 20px;
+        text-align: center;
+
+        @media screen and (min-width: 1024px) {
+            text-align: left;
+            margin-top: 14px;
+        }
+
+        img {
+            @media screen and (min-width: 1024px) {
+                width: 100%;
+            }
+        }
+    }
+
+    &__after-price {
+        display: block;
+        margin-top: 20px;
+        font-weight: 300;
+        text-align: center;
+        color: $white;
+
+        @media screen and (min-width: 1024px) {
+            margin-top: 2px;
+            text-align: right;
+        }
+
+        strong {
+            font-weight: 500;
+            text-align: center;
+        }
+    }
+}
