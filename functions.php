@@ -653,5 +653,68 @@ function cmb2_home_metaboxes()
         // ),
         'preview_size' => 'medium',
     ));
+
+    // Seção FAQ
+    $cmb_faq = new_cmb2_box(array(
+        'id'            => 'cmb2_faq',
+        'title'         => __('Seção - FAQ', 'cmb2'),
+        'object_types'  => array('page'),
+        'show_on' => array('key' => 'page-template', 'value' => 'index.php'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ));
+
+    $cmb_faq->add_field(array(
+        'id'   => 'exibir_faq',
+        'name' => 'Exibir seção',
+        'type' => 'checkbox',
+    ));
+
+    $cmb_faq->add_field(array(
+        'id'   => 'pretitulo_faq',
+        'name' => 'Pré Título',
+        'type' => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+
+    $cmb_faq->add_field(array(
+        'id'   => 'titulo_faq',
+        'name' => 'Título',
+        'type' => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+
+    $perguntas = $cmb_faq->add_field(array(
+        'id'          => 'faq_list',
+        'type'        => 'group',
+        'description' => __('Perguntas', 'cmb2'),
+        // 'repeatable'  => false, // use false if you want non-repeatable group
+        'options'     => array(
+            'group_title'       => __('Item {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
+            'add_button'        => __('Adicionar item', 'cmb2'),
+            'remove_button'     => __('Remover', 'cmb2'),
+            'sortable'          => true,
+            'limit'         => 4,
+            'closed'         => true, // true to have the groups closed by default
+            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+        ),
+    ));
+
+    $cmb_faq->add_group_field($perguntas, array(
+        'id'   => 'pergunta',
+        'name' => 'Pergunta',
+        'type' => 'text',
+    ));
+
+    $cmb_faq->add_group_field($perguntas, array(
+        'id'      => 'resposta',
+        'name'    => 'Resposta',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'wpautop' => true,
+            'media_buttons' => false,
+        ),
+    ));
 }
 add_action('cmb2_admin_init', 'cmb2_home_metaboxes');

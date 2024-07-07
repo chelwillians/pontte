@@ -169,142 +169,30 @@ get_header();
     </section>
 <?php endif; ?>
 
-<section class="faq">
-    <div class="container wrap">
-        <strong class="faq__pre-title">O que você precisa saber</strong>
-        <h2 class="faq__title"><strong>Dúvidas </strong>Frequentes</h2>
+<?php if (!empty(get_field('exibir_faq'))) : ?>
+    <section class="faq">
+        <div class="container wrap">
+            <?php if (!empty(get_field('pretitulo_faq'))) : ?>
+                <strong class="faq__pre-title"><?php echo get_field('pretitulo_faq'); ?></strong>
+            <?php endif; ?>
+            <?php if (!empty(get_field('titulo_faq'))) : ?>
+                <h2 class="faq__title"><?php echo get_field('titulo_faq'); ?></h2>
+            <?php endif; ?>
 
-        <div class="faq__list">
-            <div class="faq__item">
-                <strong class="faq__item--question">Quem somos? <div class="faq__item--icon"></div>
-                </strong>
-                <div class="faq__item--answer">
-                    <p>A Pontte é uma fintech que nasceu em 2018 como um braço de real state da Mauá Capital (agora
-                        Jive
-                        Mauá) com o objetivo de tornar a experiência de crédito imobiliário mais rápida e menos
-                        burocrática.</p>
-
-                    <p>Dizemos isso porque somos a primeira instituição financeira a emitir uma CCI (Cédula de
-                        Crédito Imobiliário) digital no Brasil. Ou seja, o nosso processo é 100% online.
-                        Em 2019, iniciamos a nossa operação ofertando Crédito com Garantia de Imóvel. Só neste ano,
-                        tivemos mais de R$ 1.7 bilhões em solicitações de crédito. Também temos um funding próprio e
-                        todo o dinheiro envolvido nas operações vem da Pontte.</p>
-
-                    <p>Já em 2020, recebemos um aporte de R$ 160 milhões A partir de 2021 o parceiro (B2B) se
-                        tornou o nosso foco. Nos anos seguintes, estreitamos a relação com estes parceiros, criamos
-                        a
-                        Central do Parceiro, que é a nossa plataforma oficial para indicação de leads, além de
-                        melhorarmos os processos da nossa esteira de crédito.</p>
-
-                    <p>Em 2024 migramos para o ecossistema da Galapagos Capital e além de Home Equity podemos
-                        ofertar outras soluções financeiras aos nossos clientes.</p>
-                </div>
-            </div>
-            <div class="faq__item">
-                <strong class="faq__item--question">Confiança e transparência estão no nosso DNA <div class="faq__item--icon"></div>
-                </strong>
-                <div class="faq__item--answer">
-                    <p>A Pontte é uma fintech que nasceu em 2018 como um braço de real state da Mauá Capital (agora
-                        Jive
-                        Mauá) com o objetivo de tornar a experiência de crédito imobiliário mais rápida e menos
-                        burocrática.</p>
-
-                    <p>Dizemos isso porque somos a primeira instituição financeira a emitir uma CCI (Cédula de
-                        Crédito Imobiliário) digital no Brasil. Ou seja, o nosso processo é 100% online.
-                        Em 2019, iniciamos a nossa operação ofertando Crédito com Garantia de Imóvel. Só neste ano,
-                        tivemos mais de R$ 1.7 bilhões em solicitações de crédito. Também temos um funding próprio e
-                        todo o dinheiro envolvido nas operações vem da Pontte.</p>
-
-                    <p>Já em 2020, recebemos um aporte de R$ 160 milhões A partir de 2021 o parceiro (B2B) se
-                        tornou o nosso foco. Nos anos seguintes, estreitamos a relação com estes parceiros, criamos
-                        a
-                        Central do Parceiro, que é a nossa plataforma oficial para indicação de leads, além de
-                        melhorarmos os processos da nossa esteira de crédito.</p>
-
-                    <p>Em 2024 migramos para o ecossistema da Galapagos Capital e além de Home Equity podemos
-                        ofertar outras soluções financeiras aos nossos clientes.</p>
-                </div>
-            </div>
-            <div class="faq__item">
-                <strong class="faq__item--question">Qual a diferença entre a Pontte e um Banco? <div class="faq__item--icon"></div>
-                </strong>
-                <div class="faq__item--answer">
-                    <p>A Pontte é uma fintech que nasceu em 2018 como um braço de real state da Mauá Capital (agora
-                        Jive
-                        Mauá) com o objetivo de tornar a experiência de crédito imobiliário mais rápida e menos
-                        burocrática.</p>
-
-                    <p>Dizemos isso porque somos a primeira instituição financeira a emitir uma CCI (Cédula de
-                        Crédito Imobiliário) digital no Brasil. Ou seja, o nosso processo é 100% online.
-                        Em 2019, iniciamos a nossa operação ofertando Crédito com Garantia de Imóvel. Só neste ano,
-                        tivemos mais de R$ 1.7 bilhões em solicitações de crédito. Também temos um funding próprio e
-                        todo o dinheiro envolvido nas operações vem da Pontte.</p>
-
-                    <p>Já em 2020, recebemos um aporte de R$ 160 milhões A partir de 2021 o parceiro (B2B) se
-                        tornou o nosso foco. Nos anos seguintes, estreitamos a relação com estes parceiros, criamos
-                        a
-                        Central do Parceiro, que é a nossa plataforma oficial para indicação de leads, além de
-                        melhorarmos os processos da nossa esteira de crédito.</p>
-
-                    <p>Em 2024 migramos para o ecossistema da Galapagos Capital e além de Home Equity podemos
-                        ofertar outras soluções financeiras aos nossos clientes.</p>
-                </div>
-            </div>
-            <div class="faq__item">
-                <strong class="faq__item--question">Diferenciais dos nossos produtos <div class="faq__item--icon">
+            <div class="faq__list">
+                <?php foreach (get_field('faq_list') as $faq_item) : ?>
+                    <div class="faq__item">
+                        <strong class="faq__item--question"><?php echo $faq_item['pergunta']; ?> <div class="faq__item--icon"></div>
+                        </strong>
+                        <div class="faq__item--answer">
+                            <?php echo wpautop($faq_item['resposta']); ?>
+                        </div>
                     </div>
-                </strong>
-                <div class="faq__item--answer">
-                    <p>A Pontte é uma fintech que nasceu em 2018 como um braço de real state da Mauá Capital (agora
-                        Jive
-                        Mauá) com o objetivo de tornar a experiência de crédito imobiliário mais rápida e menos
-                        burocrática.</p>
-
-                    <p>Dizemos isso porque somos a primeira instituição financeira a emitir uma CCI (Cédula de
-                        Crédito Imobiliário) digital no Brasil. Ou seja, o nosso processo é 100% online.
-                        Em 2019, iniciamos a nossa operação ofertando Crédito com Garantia de Imóvel. Só neste ano,
-                        tivemos mais de R$ 1.7 bilhões em solicitações de crédito. Também temos um funding próprio e
-                        todo o dinheiro envolvido nas operações vem da Pontte.</p>
-
-                    <p>Já em 2020, recebemos um aporte de R$ 160 milhões A partir de 2021 o parceiro (B2B) se
-                        tornou o nosso foco. Nos anos seguintes, estreitamos a relação com estes parceiros, criamos
-                        a
-                        Central do Parceiro, que é a nossa plataforma oficial para indicação de leads, além de
-                        melhorarmos os processos da nossa esteira de crédito.</p>
-
-                    <p>Em 2024 migramos para o ecossistema da Galapagos Capital e além de Home Equity podemos
-                        ofertar outras soluções financeiras aos nossos clientes.</p>
-                </div>
-            </div>
-            <div class="faq__item">
-                <strong class="faq__item--question">Crédito com Garantia de Imóvel <div class="faq__item--icon">
-                    </div>
-                </strong>
-                <div class="faq__item--answer">
-                    <p>A Pontte é uma fintech que nasceu em 2018 como um braço de real state da Mauá Capital (agora
-                        Jive
-                        Mauá) com o objetivo de tornar a experiência de crédito imobiliário mais rápida e menos
-                        burocrática.</p>
-
-                    <p>Dizemos isso porque somos a primeira instituição financeira a emitir uma CCI (Cédula de
-                        Crédito Imobiliário) digital no Brasil. Ou seja, o nosso processo é 100% online.
-                        Em 2019, iniciamos a nossa operação ofertando Crédito com Garantia de Imóvel. Só neste ano,
-                        tivemos mais de R$ 1.7 bilhões em solicitações de crédito. Também temos um funding próprio e
-                        todo o dinheiro envolvido nas operações vem da Pontte.</p>
-
-                    <p>Já em 2020, recebemos um aporte de R$ 160 milhões A partir de 2021 o parceiro (B2B) se
-                        tornou o nosso foco. Nos anos seguintes, estreitamos a relação com estes parceiros, criamos
-                        a
-                        Central do Parceiro, que é a nossa plataforma oficial para indicação de leads, além de
-                        melhorarmos os processos da nossa esteira de crédito.</p>
-
-                    <p>Em 2024 migramos para o ecossistema da Galapagos Capital e além de Home Equity podemos
-                        ofertar outras soluções financeiras aos nossos clientes.</p>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
 <section class="midia">
     <div class="container wrap">
