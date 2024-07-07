@@ -1,0 +1,131 @@
+.main-contact {
+    position: relative;
+    background-color: $light-purple;
+    padding-top: 152px;
+    padding-bottom: 138px;
+
+    .wrap {
+        position: relative;
+        padding: 0 32px;
+    }
+
+    &__left {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__text {
+        padding-right: 128px;
+    }
+
+    &__title {
+        font-size: 32px;
+        line-height: 1.2;
+        color: $blue;
+        font-weight: 600;
+    }
+
+    &__desc {
+        margin-top: 10px;
+        color: $purple;
+        font-size: 18px;
+        line-height: 1.2;
+        font-weight: 300;
+    }
+
+    &__illustration {
+        position: absolute;
+        top: 0;
+        right: 32px;
+
+        &-img-desk {
+            display: none;
+        }
+
+        &-img-mobile {}
+
+    }
+
+    &__list {
+        position: relative;
+        background: #FFFFFF;
+        box-shadow: 0px 7px 67px rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+        margin: 30px;
+        padding: 24px;
+        z-index: 15;
+
+    }
+
+    &__item {
+        $s: &;
+        border-radius: 8px;
+        border: 1px solid $off-white;
+        padding: 18px 24px;
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 24px;
+
+        &:first-child {
+            #{$s}--data {
+                a {
+                    display: block;
+                }
+            }
+        }
+
+        &:last-child{
+            margin-bottom: 0;
+        }
+
+        &--icon {
+            width: 64px;
+        }
+
+        &--content {
+            width: calc(100% - 64px);
+        }
+
+        &--title {
+            font-size: 18px;
+            line-height: 1.2;
+            color: $purple;
+            font-weight: 600;
+        }
+
+        &--data {
+            margin-top: 14px;
+            line-height: 1.4;
+            color: $blue;
+            font-weight: 300;
+
+            a {
+                color: $blue;
+                text-decoration: underline;
+            }
+
+            p {
+                margin-bottom: 12px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    &__float-icon{
+        position: absolute;
+        z-index: 5;
+
+        &--one{
+            display: none;
+        }
+
+        &--two{
+            bottom: -60px;
+            right: -62px;
+            max-width: 284px;
+        }
+    }
+}
