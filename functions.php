@@ -180,6 +180,7 @@ add_action('cmb2_admin_init', 'opt_page_register_theme_options_metabox');
 // Fields
 function cmb2_home_metaboxes()
 {
+    // Banner
     $cmb_banner = new_cmb2_box(array(
         'id'            => 'cmb2_banners',
         'title'         => __('Banner', 'cmb2'),
@@ -243,7 +244,7 @@ function cmb2_home_metaboxes()
         'type'    => 'text',
         'sanitization_cb' => 'prefix_sanitize_text_callback'
     ));
-    
+
     $cmb_banner->add_field(array(
         'id'      => 'descricao',
         'name'    => 'Descrição',
@@ -263,48 +264,10 @@ function cmb2_home_metaboxes()
         'type'    => 'text',
     ));
 
-    $cmb_sobre = new_cmb2_box(array(
-        'id'            => 'cmb2_sobre',
-        'title'         => __('Sobre', 'cmb2'),
-        'object_types'  => array('page'),
-        'show_on' => array('key' => 'page-template', 'value' => 'index.php'),
-        'context'       => 'normal',
-        'priority'      => 'high',
-        'show_names'    => true, // Show field names on the left
-    ));
-
-    $cmb_sobre->add_field(array(
-        'id'   => 'exibir_sobre',
-        'name' => 'Exibir seção',
-        'type' => 'checkbox',
-    ));
-
-    $cmb_sobre->add_field(array(
-        'id'   => 'titulo_sobre',
-        'name' => 'Título',
-        'type' => 'text',
-    ));
-
-    $cmb_sobre->add_field(array(
-        'id'      => 'descricao_sobre',
-        'name'    => 'Descrição',
-        'type'    => 'wysiwyg',
-        'options' => array(
-            'wpautop' => true,
-            'media_buttons' => false,
-        ),
-    ));
-
-    $cmb_sobre->add_field(array(
-        'id' => 'iframe_sobre',
-        'name' => 'Iframe vídeo',
-        'type' => 'textarea',
-        'sanitization_cb' => 'prefix_sanitize_iframe'
-    ));
-
-    $cmb_divisor = new_cmb2_box(array(
+    // Divisor
+    $cmb_divider = new_cmb2_box(array(
         'id'            => 'cmb2_divisor',
-        'title'         => __('Divisor', 'cmb2'),
+        'title'         => __('Divisor com cards', 'cmb2'),
         'object_types'  => array('page'),
         'show_on' => array('key' => 'page-template', 'value' => 'index.php'),
         'context'       => 'normal',
@@ -312,54 +275,58 @@ function cmb2_home_metaboxes()
         'show_names'    => true, // Show field names on the left
     ));
 
-    $cmb_divisor->add_field(array(
+    $cmb_divider->add_field(array(
         'id'   => 'exibir_divisor',
         'name' => 'Exibir seção',
         'type' => 'checkbox',
     ));
 
-    $cmb_divisor->add_field(array(
+    $cmb_divider->add_field(array(
         'id'   => 'titulo_divisor',
         'name' => 'Título',
         'type' => 'text',
+        'desc'    => 'Use o seguinte formato: <strong class="purple">Crédito</strong> para <br>criar o <strong>seu futuro</strong>',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
     ));
 
-    $cmb_clinica = new_cmb2_box(array(
-        'id'            => 'cmb2_clinica',
-        'title'         => __('Clínica', 'cmb2'),
-        'object_types'  => array('page'),
-        'show_on' => array('key' => 'page-template', 'value' => 'index.php'),
-        'context'       => 'normal',
-        'priority'      => 'high',
-        'show_names'    => true, // Show field names on the left
-    ));
-
-    $cmb_clinica->add_field(array(
-        'id'   => 'exibir_clinica',
-        'name' => 'Exibir seção',
-        'type' => 'checkbox',
-    ));
-
-    $cmb_clinica->add_field(array(
-        'id'   => 'titulo_clinica',
-        'name' => 'Título',
-        'type' => 'text',
-    ));
-
-    $cmb_clinica->add_field(array(
-        'id'      => 'descricao_clinica',
+    $cmb_divider->add_field(array(
+        'id'      => 'descricao_divisor',
         'name'    => 'Descrição',
-        'type'    => 'wysiwyg',
-        'options' => array(
-            'wpautop' => true,
-            'media_buttons' => false,
+        'type'    => 'textarea',
+    ));
+
+    $cmb_divider->add_field(array(
+        'id'      => 'texto_botao_divisor',
+        'name'    => 'Texto do botão',
+        'type'    => 'text',
+    ));
+
+    $cmb_divider->add_field(array(
+        'id'      => 'link_botao_divisor',
+        'name'    => 'Link do botão',
+        'type'    => 'text',
+    ));
+
+    $cards = $cmb_divider->add_field(array(
+        'id'          => 'Cards',
+        'type'        => 'group',
+        'description' => __('Cards', 'cmb2'),
+        // 'repeatable'  => false, // use false if you want non-repeatable group
+        'options'     => array(
+            'group_title'       => __('Card {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
+            'add_button'        => __('Adicionar card', 'cmb2'),
+            'remove_button'     => __('Remover', 'cmb2'),
+            'sortable'          => true,
+            'limit'         => 4,
+            'closed'         => true, // true to have the groups closed by default
+            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
         ),
     ));
 
-    $cmb_clinica->add_field(array(
-        'id'      => 'imagem_clinica',
-        'name'    => 'Imagem',
-        'desc'    => 'Resolução recomendada de 500x320',
+    $cmb_divider->add_group_field($cards, array(
+        'id'      => 'icon_card',
+        'name'    => 'Ícone do card',
+        'desc'    => 'Resolução recomendada de 32x32',
         'type'    => 'file',
         // Optional:
         'options' => array(
@@ -379,265 +346,16 @@ function cmb2_home_metaboxes()
         'preview_size' => 'medium',
     ));
 
-    $cmb_procedimentos = new_cmb2_box(array(
-        'id'            => 'cmb2_procedimentos',
-        'title'         => __('Procedimentos', 'cmb2'),
-        'object_types'  => array('page'),
-        'show_on' => array('key' => 'page-template', 'value' => 'index.php'),
-        'context'       => 'normal',
-        'priority'      => 'high',
-        'show_names'    => true, // Show field names on the left
-    ));
-
-    $cmb_procedimentos->add_field(array(
-        'id'   => 'exibir_procedimentos',
-        'name' => 'Exibir seção',
-        'type' => 'checkbox',
-    ));
-
-    $cmb_procedimentos->add_field(array(
-        'id'   => 'titulo_procedimentos',
-        'name' => 'Título seção',
+    $cmb_divider->add_group_field($cards, array(
+        'id'   => 'texto_um',
+        'name' => 'Texto 1',
         'type' => 'text',
     ));
 
-    $cmb_procedimentos->add_field(array(
-        'id'      => 'descricao_procedimentos',
-        'name'    => 'Descrição',
-        'type'    => 'wysiwyg',
-        'options' => array(
-            'wpautop' => true,
-            'media_buttons' => false,
-        ),
-    ));
-
-    $procedimentos = $cmb_procedimentos->add_field(array(
-        'id'          => 'procedimentos',
-        'type'        => 'group',
-        'description' => __('Procedimentos', 'cmb2'),
-        // 'repeatable'  => false, // use false if you want non-repeatable group
-        'options'     => array(
-            'group_title'       => __('Procedimento {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
-            'add_button'        => __('Adicionar Procedimento', 'cmb2'),
-            'remove_button'     => __('Remover', 'cmb2'),
-            'sortable'          => true,
-            'limit'         => 4,
-            'closed'         => true, // true to have the groups closed by default
-            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
-        ),
-    ));
-
-    $cmb_procedimentos->add_group_field($procedimentos, array(
-        'id'      => 'imagem_procedimento',
-        'name'    => 'Imagem',
-        'desc'    => 'Resolução recomendada de 300x400',
-        'type'    => 'file',
-        // Optional:
-        'options' => array(
-            'url' => false, // Hide the text input for the url
-        ),
-        'text'    => array(
-            'add_upload_file_text' => 'Adicionar imagem'
-        ),
-        'query_args' => array(
-            'type' => array(
-                'image/png',
-                'image/jpg',
-                'image/jpeg',
-                'image/svg',
-            ),
-        ),
-        'preview_size' => 'medium',
-    ));
-
-    $cmb_procedimentos->add_group_field($procedimentos, array(
-        'id'      => 'nome_procedimento',
-        'name'    => 'Nome',
-        'type'    => 'text',
-    ));
-
-    $cmb_procedimentos->add_group_field($procedimentos, array(
-        'id'      => 'descricao_procedimento',
-        'name'    => 'Descrição',
-        'type'    => 'wysiwyg',
-        'options' => array(
-            'wpautop' => true,
-            'media_buttons' => false,
-        ),
-    ));
-
-    $cmb_tecnologias = new_cmb2_box(array(
-        'id'            => 'cmb2_tecnologias',
-        'title'         => __('Tecnologias', 'cmb2'),
-        'object_types'  => array('page'),
-        'show_on' => array('key' => 'page-template', 'value' => 'index.php'),
-        'context'       => 'normal',
-        'priority'      => 'high',
-        'show_names'    => true, // Show field names on the left
-    ));
-
-    $cmb_tecnologias->add_field(array(
-        'id'   => 'exibir_tecnologias',
-        'name' => 'Exibir seção',
-        'type' => 'checkbox',
-    ));
-
-    $cmb_tecnologias->add_field(array(
-        'id'   => 'titulo_tecnologias',
-        'name' => 'Título seção',
+    $cmb_divider->add_group_field($cards, array(
+        'id'   => 'texto_dois',
+        'name' => 'Texto 2',
         'type' => 'text',
     ));
-
-    $cmb_tecnologias->add_field(array(
-        'id'      => 'descricao_tecnologias',
-        'name'    => 'Descrição',
-        'type'    => 'wysiwyg',
-        'options' => array(
-            'wpautop' => true,
-            'media_buttons' => false,
-        ),
-    ));
-
-    $tecnologias = $cmb_tecnologias->add_field(array(
-        'id'          => 'tecnologias',
-        'type'        => 'group',
-        'description' => __('Tecnologias', 'cmb2'),
-        // 'repeatable'  => false, // use false if you want non-repeatable group
-        'options'     => array(
-            'group_title'       => __('Tecnologia {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
-            'add_button'        => __('Adicionar Tecnologia', 'cmb2'),
-            'remove_button'     => __('Remover', 'cmb2'),
-            'sortable'          => true,
-            'limit'         => 4,
-            'closed'         => true, // true to have the groups closed by default
-            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
-        ),
-    ));
-
-    $cmb_tecnologias->add_group_field($tecnologias, array(
-        'id'      => 'imagem_tecnologia',
-        'name'    => 'Imagem',
-        'desc'    => 'Resolução recomendada de 610x360',
-        'type'    => 'file',
-        // Optional:
-        'options' => array(
-            'url' => false, // Hide the text input for the url
-        ),
-        'text'    => array(
-            'add_upload_file_text' => 'Adicionar imagem'
-        ),
-        'query_args' => array(
-            'type' => array(
-                'image/png',
-                'image/jpg',
-                'image/jpeg',
-                'image/svg',
-            ),
-        ),
-        'preview_size' => 'medium',
-    ));
-
-    $cmb_tecnologias->add_group_field($tecnologias, array(
-        'id'      => 'nome_tecnologia',
-        'name'    => 'Nome',
-        'type'    => 'text',
-    ));
-
-    $cmb_tecnologias->add_group_field($tecnologias, array(
-        'id'      => 'descricao_tecnologia',
-        'name'    => 'Descrição',
-        'type'    => 'wysiwyg',
-        'options' => array(
-            'wpautop' => true,
-            'media_buttons' => false,
-        ),
-    ));
-
-    $cmb_contato = new_cmb2_box(array(
-        'id'            => 'cmb2_contato',
-        'title'         => __('Contato', 'cmb2'),
-        'object_types'  => array('page'),
-        'show_on' => array('key' => 'page-template', 'value' => 'index.php'),
-        'context'       => 'normal',
-        'priority'      => 'high',
-        'show_names'    => true, // Show field names on the left
-    ));
-
-    $cmb_contato->add_field(array(
-        'id'   => 'exibir_contato',
-        'name' => 'Exibir seção',
-        'type' => 'checkbox',
-    ));
-
-    $cmb_contato->add_field(array(
-        'id'   => 'pre_titulo_contato',
-        'name' => 'Pré título seção',
-        'type' => 'text',
-    ));
-
-    $cmb_contato->add_field(array(
-        'id'   => 'titulo_contato',
-        'name' => 'Título seção',
-        'type' => 'text',
-    ));
-
-    $cmb_contato->add_field(array(
-        'id'      => 'descricao_contato',
-        'name'    => 'Descrição',
-        'type'    => 'wysiwyg',
-        'options' => array(
-            'wpautop' => true,
-            'media_buttons' => false,
-        ),
-    ));
-
-    $cmb_contato->add_field(array(
-        'id'   => 'endereco_contato',
-        'name' => 'Endereço',
-        'type' => 'text',
-    ));
-
-    $cmb_contato->add_field(array(
-        'id'   => 'link_endereco_contato',
-        'name' => 'Link endereço',
-        'type' => 'text',
-    ));
-
-    $telefones = $cmb_contato->add_field(array(
-        'id'          => 'telefones',
-        'type'        => 'group',
-        'description' => __('Telefones', 'cmb2'),
-        // 'repeatable'  => false, // use false if you want non-repeatable group
-        'options'     => array(
-            'group_title'       => __('Telefone {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
-            'add_button'        => __('Adicionar Telefone', 'cmb2'),
-            'remove_button'     => __('Remover', 'cmb2'),
-            'sortable'          => true,
-            'limit'         => 4,
-            'closed'         => true, // true to have the groups closed by default
-            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
-        ),
-    ));
-
-    $cmb_contato->add_group_field($telefones, array(
-        'id'      => 'escrita_telefone',
-        'name'    => 'Telefone escrito',
-        'type'    => 'text',
-        'desc'    => 'Whatsapp: (11) 90000-0000',        
-    ));
-
-    $cmb_contato->add_group_field($telefones, array(
-        'id'      => 'link_telefone',
-        'name'    => 'Link do número',
-        'type'    => 'text',
-        'desc'    => 'tel:+5511900000000 || https://wa.me/5511900000000',        
-    ));
-
-    $cmb_contato->add_field(array(
-        'id'   => 'shortcode_contato',
-        'name' => 'Shortcode do formulário',
-        'type' => 'text',
-    ));
-
 }
 add_action('cmb2_admin_init', 'cmb2_home_metaboxes');

@@ -9,7 +9,7 @@ get_header();
     <div class="container wrap">
         <div class="main-hero__content">
             <?php if (!empty(get_field('titulo'))) : ?>
-                <?php echo get_field('titulo'); ?>
+                <h1 class="main-hero__title"><?php echo get_field('titulo'); ?></h1>
             <?php else : ?>
                 <h1 class="main-hero__title"><strong class="purple">Crédito</strong> para <br>criar o <strong>seu futuro</strong></h1>
             <?php endif; ?>
@@ -35,47 +35,56 @@ get_header();
     <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-3.svg" class="main-hero__float-item main-hero__float-item--desktop-bottom" alt="Ícone flutuante">
 </section>
 
-<section class="divider">
-    <div class="container wrap">
-        <h2 class="divider__title"><strong>Crédito</strong> para <br>concretizar planos</h2>
-        <div class="divider__desc">
-            <p>Na Pontte você usa um imóvel como garantia e faz todo o processo online, sem se preocupar com taxas e
-                prazos. Aqui você tem crédito justo para realizar sonhos.</p>
+<?php if (get_field('exibir_divisor')) : ?>
+    <section class="divider">
+        <div class="container wrap">
+            <?php if (!empty(get_field('titulo_divisor'))) : ?>
+                <h2 class="divider__title"><?php echo get_field('titulo_divisor'); ?></h2>
+            <?php else : ?>
+                <h2 class="divider__title"><strong>Crédito</strong> para <br>concretizar planos</h2>
+            <?php endif; ?>
+            <?php if (!empty(get_field('descricao_divisor'))) : ?>
+                <div class="divider__desc">
+                    <?php echo wpautop(get_field('descricao_divisor')) ?>
+                </div>
+            <?php endif; ?>
+            <?php if (!empty(get_field('link_botao_divisor'))) : ?>
+                <a href="<?php echo get_field('link_botao_divisor'); ?>" class="divider__button"><?php echo !empty(get_field('texto_botao_divisor')) ? get_field('texto_botao_divisor') : 'Tire suas dúvidas aqui' ?></a>
+            <?php endif; ?>
         </div>
-        <a href="#" class="divider__button">Tire suas dúvidas aqui</a>
-    </div>
-    <div class="divider__cards swiper">
-        <div class="swiper-wrapper">
-            <div class="divider__cards-item swiper-slide">
-                <div class="divider__cards-icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-calendar.svg" alt="Ícone de um calendário">
+        <div class="divider__cards swiper">
+            <div class="swiper-wrapper">
+                <div class="divider__cards-item swiper-slide">
+                    <div class="divider__cards-icon">
+                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-calendar.svg" alt="Ícone de um calendário">
+                    </div>
+                    <div class="divider__cards-text">
+                        <span class="divider__cards-text--min">Taxas a partir de</span>
+                        <span class="divider__cards-text--normal">1,09% ao mês + IPCA</span>
+                    </div>
                 </div>
-                <div class="divider__cards-text">
-                    <span class="divider__cards-text--min">Taxas a partir de</span>
-                    <span class="divider__cards-text--normal">1,09% ao mês + IPCA</span>
+                <div class="divider__cards-item swiper-slide">
+                    <div class="divider__cards-icon">
+                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-calendar.svg" alt="Ícone de um calendário">
+                    </div>
+                    <div class="divider__cards-text">
+                        <span class="divider__cards-text--min">Carência de 2 meses</span>
+                        <span class="divider__cards-text--normal">para começar a pagar</span>
+                    </div>
                 </div>
-            </div>
-            <div class="divider__cards-item swiper-slide">
-                <div class="divider__cards-icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-calendar.svg" alt="Ícone de um calendário">
-                </div>
-                <div class="divider__cards-text">
-                    <span class="divider__cards-text--min">Carência de 2 meses</span>
-                    <span class="divider__cards-text--normal">para começar a pagar</span>
-                </div>
-            </div>
-            <div class="divider__cards-item swiper-slide">
-                <div class="divider__cards-icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-house.svg" alt="Ícone de uma casa">
-                </div>
-                <div class="divider__cards-text">
-                    <span class="divider__cards-text--min">Empréstimo de até</span>
-                    <span class="divider__cards-text--normal">50% do valor do imóvel</span>
+                <div class="divider__cards-item swiper-slide">
+                    <div class="divider__cards-icon">
+                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-house.svg" alt="Ícone de uma casa">
+                    </div>
+                    <div class="divider__cards-text">
+                        <span class="divider__cards-text--min">Empréstimo de até</span>
+                        <span class="divider__cards-text--normal">50% do valor do imóvel</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
 <section class="about">
     <div class="container wrap">
