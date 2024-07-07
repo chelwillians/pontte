@@ -4,14 +4,28 @@
     padding-top: 152px;
     padding-bottom: 138px;
 
+    @media screen and (min-width: 1024px) {
+        padding-top: 192px;
+        overflow: hidden;
+    }
+
     .wrap {
         position: relative;
         padding: 0 32px;
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            padding: 0;
+        }
     }
 
     &__left {
         display: flex;
         justify-content: space-between;
+
+        @media screen and (min-width: 1024px) {
+            flex-direction: column;
+        }
     }
 
     &__text {
@@ -23,6 +37,11 @@
         line-height: 1.2;
         color: $blue;
         font-weight: 600;
+
+        @media screen and (min-width: 1024px) {
+            font-size: 64px;
+            max-width: 428px;
+        }
     }
 
     &__desc {
@@ -31,6 +50,12 @@
         font-size: 18px;
         line-height: 1.2;
         font-weight: 300;
+
+        @media screen and (min-width: 1024px) {
+            margin-top: 22px;
+            max-width: 344px;
+            line-height: 1.25;
+        }
     }
 
     &__illustration {
@@ -38,12 +63,25 @@
         top: 0;
         right: 32px;
 
-        &-img-desk {
-            display: none;
+        @media screen and (min-width: 1024px) {
+            position: relative;
+            right: 0;
+            margin-top: 32px;
         }
 
-        &-img-mobile {}
+        &-img-desk {
+            display: none;
 
+            @media screen and (min-width: 1024px) {
+                display: block;
+            }
+        }
+
+        &-img-mobile {
+            @media screen and (min-width: 1024px) {
+                display: none;
+            }
+        }
     }
 
     &__list {
@@ -55,6 +93,10 @@
         padding: 24px;
         z-index: 15;
 
+        @media screen and (min-width: 1024px) {
+            margin: 16px 0 16px 46px;
+            padding: 40px;
+        }
     }
 
     &__item {
@@ -66,20 +108,33 @@
         align-items: flex-start;
         margin-bottom: 24px;
 
+        @media screen and (min-width: 1024px) {
+            padding: 28px 32px;
+        }
+
         &:first-child {
             #{$s}--data {
                 a {
                     display: block;
+
+                    @media screen and (min-width: 1024px) {
+                        display: inline;
+                    }
                 }
             }
         }
 
-        &:last-child{
+        &:last-child {
             margin-bottom: 0;
         }
 
         &--icon {
             width: 64px;
+
+            @media screen and (min-width: 1024px) {
+
+                width: 76px;
+            }
         }
 
         &--content {
@@ -99,6 +154,10 @@
             color: $blue;
             font-weight: 300;
 
+            @media screen and (min-width: 1024px) {
+                margin-top: 4px;
+            }
+
             a {
                 color: $blue;
                 text-decoration: underline;
@@ -107,6 +166,10 @@
             p {
                 margin-bottom: 12px;
 
+                @media screen and (min-width: 1024px) {
+                    margin-bottom: 4px;
+                }
+
                 &:last-child {
                     margin-bottom: 0;
                 }
@@ -114,18 +177,30 @@
         }
     }
 
-    &__float-icon{
+    &__float-icon {
         position: absolute;
         z-index: 5;
 
-        &--one{
+        &--one {
             display: none;
+
+            @media screen and (min-width: 1024px) {
+                display: block;
+                bottom: -212px;
+                left: 35%;
+            }
         }
 
-        &--two{
+        &--two {
             bottom: -60px;
             right: -62px;
             max-width: 284px;
+
+            @media screen and (min-width: 1024px) {
+                bottom: unset;
+                top: 0;
+                max-width: unset;
+            }
         }
     }
 }
