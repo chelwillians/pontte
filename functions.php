@@ -308,7 +308,7 @@ function cmb2_home_metaboxes()
     ));
 
     $cards = $cmb_divider->add_field(array(
-        'id'          => 'Cards',
+        'id'          => 'cards_list',
         'type'        => 'group',
         'description' => __('Cards', 'cmb2'),
         // 'repeatable'  => false, // use false if you want non-repeatable group
@@ -335,14 +335,14 @@ function cmb2_home_metaboxes()
         'text'    => array(
             'add_upload_file_text' => 'Adicionar imagem'
         ),
-        'query_args' => array(
-            'type' => array(
-                'image/png',
-                'image/jpg',
-                'image/jpeg',
-                'image/svg',
-            ),
-        ),
+        // 'query_args' => array(
+        //     'type' => array(
+        //         'image/png',
+        //         'image/jpg',
+        //         'image/jpeg',
+        //         'image/svg',
+        //     ),
+        // ),
         'preview_size' => 'medium',
     ));
 

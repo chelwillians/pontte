@@ -54,33 +54,22 @@ get_header();
         </div>
         <div class="divider__cards swiper">
             <div class="swiper-wrapper">
-                <div class="divider__cards-item swiper-slide">
-                    <div class="divider__cards-icon">
-                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-calendar.svg" alt="Ícone de um calendário">
+                <?php
+                foreach (get_field('cards_list') as $card) : ?>
+                    <div class="divider__cards-item swiper-slide">
+                        <div class="divider__cards-icon">
+                            <img src="<?php echo !empty($card['icon_card']) ? $card['icon_card'] : get_template_directory_uri() . '/dist/images/icon-calendar.svg' ?>" alt="Ícone">
+                        </div>
+                        <div class="divider__cards-text">
+                            <?php if (!empty($card['texto_um'])) : ?>
+                                <span class="divider__cards-text--min"><?php echo $card['texto_um']; ?></span>
+                            <?php endif; ?>
+                            <?php if (!empty($card['texto_dois'])) : ?>
+                                <span class="divider__cards-text--normal"><?php echo $card['texto_dois']; ?></span>
+                            <?php endif; ?>
+                        </div>
                     </div>
-                    <div class="divider__cards-text">
-                        <span class="divider__cards-text--min">Taxas a partir de</span>
-                        <span class="divider__cards-text--normal">1,09% ao mês + IPCA</span>
-                    </div>
-                </div>
-                <div class="divider__cards-item swiper-slide">
-                    <div class="divider__cards-icon">
-                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-calendar.svg" alt="Ícone de um calendário">
-                    </div>
-                    <div class="divider__cards-text">
-                        <span class="divider__cards-text--min">Carência de 2 meses</span>
-                        <span class="divider__cards-text--normal">para começar a pagar</span>
-                    </div>
-                </div>
-                <div class="divider__cards-item swiper-slide">
-                    <div class="divider__cards-icon">
-                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-house.svg" alt="Ícone de uma casa">
-                    </div>
-                    <div class="divider__cards-text">
-                        <span class="divider__cards-text--min">Empréstimo de até</span>
-                        <span class="divider__cards-text--normal">50% do valor do imóvel</span>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
