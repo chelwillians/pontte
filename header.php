@@ -26,8 +26,7 @@
                 if (count($menu_items) > 0) :
                 ?>
                     <ul class="main-header__menus-item main-header__links">
-                        <?php foreach ($menu_items as $item) :
-                        ?>
+                        <?php foreach ($menu_items as $item) : ?>
                             <li class="main-header__links-item">
                                 <a href="<?php echo $item->url; ?>" title="<?php echo $item->title; ?>" aria-label="Ir para a página <?php echo $item->title; ?>" class=""><?php echo $item->title; ?></a>
                             </li>
