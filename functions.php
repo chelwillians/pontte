@@ -368,13 +368,13 @@ function cmb2_home_metaboxes()
         'priority'      => 'high',
         'show_names'    => true, // Show field names on the left
     ));
-    
+
     $cmb_about->add_field(array(
         'id'   => 'exibir_sobre',
         'name' => 'Exibir seção',
         'type' => 'checkbox',
     ));
-    
+
     $cmb_about->add_group_field($cards, array(
         'id'      => 'imagem_desk_sobre',
         'name'    => 'Imagem desktop',
@@ -397,7 +397,7 @@ function cmb2_home_metaboxes()
         // ),
         'preview_size' => 'medium',
     ));
-    
+
     $cmb_about->add_group_field($cards, array(
         'id'      => 'imagem_mobile_sobre',
         'name'    => 'Imagem mobile',
@@ -420,13 +420,13 @@ function cmb2_home_metaboxes()
         // ),
         'preview_size' => 'medium',
     ));
-    
+
     $cmb_about->add_field(array(
         'id'   => 'pretitulo_sobre',
         'name' => 'Pré Título',
         'type' => 'text',
     ));
-    
+
     $cmb_about->add_field(array(
         'id'   => 'titulo_sobre',
         'name' => 'Título',
@@ -434,7 +434,7 @@ function cmb2_home_metaboxes()
         'desc'    => 'Use o a tag strong para deixar em bold',
         'sanitization_cb' => 'prefix_sanitize_text_callback'
     ));
-    
+
     $cmb_about->add_field(array(
         'id'      => 'descricao_sobre',
         'name'    => 'Descrição',
@@ -444,7 +444,7 @@ function cmb2_home_metaboxes()
             'media_buttons' => false,
         ),
     ));
-    
+
     $cmb_about->add_field(array(
         'id'   => 'titulo_2_sobre',
         'name' => 'Título',
@@ -452,7 +452,7 @@ function cmb2_home_metaboxes()
         'desc'    => 'Título do bloco flutuante azul',
         'sanitization_cb' => 'prefix_sanitize_text_callback'
     ));
-    
+
     $cmb_about->add_field(array(
         'id'   => 'link_sobre',
         'name' => 'Link do botão',
@@ -460,7 +460,7 @@ function cmb2_home_metaboxes()
         'desc'    => 'Link do botão do bloco azul',
         'sanitization_cb' => 'prefix_sanitize_text_callback'
     ));
-    
+
     $cmb_about->add_field(array(
         'id'   => 'texto_botao_sobre',
         'name' => 'Texto do botão',
@@ -479,7 +479,7 @@ function cmb2_home_metaboxes()
         'priority'      => 'high',
         'show_names'    => true, // Show field names on the left
     ));
-    
+
     $cmb_for_you->add_field(array(
         'id'   => 'exibir_para_voce',
         'name' => 'Exibir seção',
@@ -491,7 +491,7 @@ function cmb2_home_metaboxes()
         'name' => 'Pré Título',
         'type' => 'text',
     ));
-    
+
     $cmb_for_you->add_field(array(
         'id'   => 'titulo_para_voce',
         'name' => 'Título',
@@ -553,6 +553,105 @@ function cmb2_home_metaboxes()
             'wpautop' => true,
             'media_buttons' => false,
         ),
+    ));
+
+    // Seção Home Equity
+    $cmb_home_equity = new_cmb2_box(array(
+        'id'            => 'cmb2_home_equity',
+        'title'         => __('Seção - Home Equity', 'cmb2'),
+        'object_types'  => array('page'),
+        'show_on' => array('key' => 'page-template', 'value' => 'index.php'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ));
+
+    $cmb_home_equity->add_field(array(
+        'id'   => 'exibir_home_equity',
+        'name' => 'Exibir seção',
+        'type' => 'checkbox',
+    ));
+
+    $cmb_home_equity->add_field(array(
+        'id'   => 'pretitulo_home_equity',
+        'name' => 'Pré Título',
+        'type' => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+
+    $cmb_home_equity->add_field(array(
+        'id'   => 'titulo_home_equity',
+        'name' => 'Título',
+        'type' => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+
+    $cmb_home_equity->add_field(array(
+        'id'      => 'descricao_home_equity',
+        'name'    => 'Descrição',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'wpautop' => true,
+            'media_buttons' => false,
+        ),
+    ));
+
+    $cmb_home_equity->add_field(array(
+        'id'   => 'texto_botao_home_equity',
+        'name' => 'Texto do botão',
+        'type' => 'text',
+    ));
+
+    $cmb_home_equity->add_field(array(
+        'id'   => 'link_botao_home_equity',
+        'name' => 'Link do botão',
+        'type' => 'text',
+    ));
+
+    $cmb_home_equity->add_field(array(
+        'id'      => 'imagem_desk_home_equity',
+        'name'    => 'Imagem desktop',
+        'desc'    => 'Resolução recomendada de 700x586',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar imagem'
+        ),
+        // 'query_args' => array(
+        //     'type' => array(
+        //         'image/png',
+        //         'image/jpg',
+        //         'image/jpeg',
+        //         'image/svg',
+        //     ),
+        // ),
+        'preview_size' => 'medium',
+    ));
+
+    $cmb_home_equity->add_field(array(
+        'id'      => 'imagem_mobile_home_equity',
+        'name'    => 'Imagem mobile',
+        'desc'    => 'Resolução recomendada de 716x970',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar imagem'
+        ),
+        // 'query_args' => array(
+        //     'type' => array(
+        //         'image/png',
+        //         'image/jpg',
+        //         'image/jpeg',
+        //         'image/svg',
+        //     ),
+        // ),
+        'preview_size' => 'medium',
     ));
 }
 add_action('cmb2_admin_init', 'cmb2_home_metaboxes');

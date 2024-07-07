@@ -139,32 +139,35 @@ get_header();
     </div>
 <?php endif; ?>
 
-<section class="home-equity">
-    <div class="container wrap">
-        <div class="home-equity__content">
-            <strong class="home-equity__pre-title">Home Equity</strong>
-            <h2 class="home-equity__title">Crédito com <strong>Garantia de Imóvel</strong></h2>
-            <div class="home-equity__desc">
-                <p>O Crédito com Garantia de Imóvel, também conhecido como Home Equity, permite que você use
-                    <strong>seu
-                        imóvel como garantia para obter empréstimos</strong> com taxas de juros mais baixas e prazos
-                    de
-                    pagamento mais longos.
-                </p>
-                <p><strong>A Pontte oferece um empréstimo com valores mais altos e juros justos, proporcionando uma
-                        maneira financeiramente viável para você realizar seus planos.</strong></p>
-                <a href="#" class="home-equity__button">Quero saber mais</a>
+<?php if (!empty(get_field('exibir_home_equity'))) : ?>
+    <section class="home-equity">
+        <div class="container wrap">
+            <div class="home-equity__content">
+                <?php if (!empty(get_field('pretitulo_home_equity'))) : ?>
+                    <strong class="home-equity__pre-title"><?php echo get_field('pretitulo_home_equity'); ?></strong>
+                <?php endif; ?>
+                <?php if (!empty(get_field('titulo_home_equity'))) : ?>
+                    <h2 class="home-equity__title"><?php echo get_field('titulo_home_equity'); ?></h2>
+                <?php endif; ?>
+                <?php if (!empty(get_field('descricao_home_equity'))) : ?>
+                    <div class="home-equity__desc">
+                        <?php echo wpautop(get_field('descricao_home_equity')); ?>
+                        <?php if (!empty(get_field('link_botao_home_equity'))) : ?>
+                            <a href="<?php echo get_field('link_botao_home_equity'); ?>" class="home-equity__button"><?php echo !empty(get_field('texto_botao_home_equity')) ? get_field('texto_botao_home_equity') : 'Quero saber mais'; ?></a>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="home-equity__side">
+                <img src="<?php echo get_template_directory_uri() ?>/dist/images/home-equity-mobile.png" alt="" class="home-equity__image home-equity__image--mobile">
+                <img src="<?php echo get_template_directory_uri() ?>/dist/images/home-equity-desktop.png" alt="" class="home-equity__image home-equity__image--desktop">
+                <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-pontte-gray.svg" alt="Ícone Pontte em cinza" class="home-equity__image home-equity__image--icon">
             </div>
         </div>
-        <div class="home-equity__side">
-            <img src="<?php echo get_template_directory_uri() ?>/dist/images/home-equity-mobile.png" alt="" class="home-equity__image home-equity__image--mobile">
-            <img src="<?php echo get_template_directory_uri() ?>/dist/images/home-equity-desktop.png" alt="" class="home-equity__image home-equity__image--desktop">
-            <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-pontte-gray.svg" alt="Ícone Pontte em cinza" class="home-equity__image home-equity__image--icon">
-        </div>
-    </div>
-    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-4.svg" class="home-equity__float-item home-equity__float-item--mobile" alt="Ícone quadrado flutuante">
-    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-5.svg" class="home-equity__float-item home-equity__float-item--desktop" alt="Ícone quadrado flutuante">
-</section>
+        <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-4.svg" class="home-equity__float-item home-equity__float-item--mobile" alt="Ícone quadrado flutuante">
+        <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-5.svg" class="home-equity__float-item home-equity__float-item--desktop" alt="Ícone quadrado flutuante">
+    </section>
+<?php endif; ?>
 
 <section class="faq">
     <div class="container wrap">
