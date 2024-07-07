@@ -1,0 +1,52 @@
+.partners {
+    margin-top: 92px;
+
+    @media screen and (min-width: 1024px) {
+        margin-top: 142px;
+    }
+
+    .wrap {
+        padding: 0;
+    }
+
+    &__title {
+        font-size: 32px;
+        line-height: 1.2;
+        color: $blue;
+        font-weight: 300;
+        padding: 0 46px;
+        text-align: center;
+
+        @media screen and (min-width: 1024px) {
+            font-size: 40px;
+            margin-top: 0;
+            padding: 0;
+        }
+
+        strong {
+            font-weight: 700;
+        }
+    }
+
+    &__list {
+        margin-top: 46px;
+
+        @media screen and (min-width: 1024px) {
+            margin-top: 56px;
+        }
+    }
+
+    &__item {
+        padding: 20px 12px;
+        border: 1px solid $off-white;
+        border-radius: 16px;
+        background-color: $white;
+        text-align: center;
+        max-width: 170px;
+
+        @media screen and (min-width: 1024px) {
+            max-width: 148px;
+            max-height: 88px;
+        }
+    }
+}

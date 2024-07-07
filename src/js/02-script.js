@@ -94,9 +94,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
         centeredSlides: true,
         slidesPerView: "auto",
         initialSlide: "1",
-        // autoplay: {
-        //     delay: 2500,
-        //     disableOnInteraction: false,
-        // },
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+    });
+});
+
+document.addEventListener("DOMContentLoaded", (event) => {
+    const swiper = new Swiper(".partners__list", {
+        rewind: true,
+        spaceBetween: 16,
+        // centeredSlides: true,
+        slidesPerView: "auto",
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
     });
 });
