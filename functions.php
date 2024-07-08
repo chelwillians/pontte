@@ -1155,5 +1155,74 @@ function cmb2_seja_parceiro_metaboxes()
         'name'    => 'Autor',
         'type'    => 'text',
     ));
+
+    // Timeline
+    $cmb_timeline = new_cmb2_box(array(
+        'id'            => 'cmb2_timeline',
+        'title'         => __('Seção - Timeline', 'cmb2'),
+        'object_types'  => array('page'),
+        'show_on' => array('key' => 'page-template', 'value' => 'seja-um-parceiro.php'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ));
+    $cmb_timeline->add_field(array(
+        'id'   => 'exibir_timeline',
+        'name' => 'Exibir seção',
+        'type' => 'checkbox',
+    ));
+    $cmb_timeline->add_field(array(
+        'id'      => 'titulo_timeline',
+        'name'    => 'Título',
+        'type'    => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+    $cmb_timeline->add_field(array(
+        'id'      => 'descricao_timeline',
+        'name'    => 'Descrição',
+        'type'    => 'textarea',
+    ));
+
+    $cmb_timeline->add_field(array(
+        'id'      => 'imagem_timeline',
+        'name'    => 'Imagem',
+        'desc'    => 'Resolução recomendada de 1216x1014',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar imagem'
+        ),
+        'preview_size' => 'medium',
+    ));
+
+    $timeline = $cmb_timeline->add_field(array(
+        'id'          => 'lista_timeline',
+        'type'        => 'group',
+        'description' => __('Lista', 'cmb2'),
+        // 'repeatable'  => false, // use false if you want non-repeatable group
+        'options'     => array(
+            'group_title'       => __('Lista {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
+            'add_button'        => __('Adicionar item', 'cmb2'),
+            'remove_button'     => __('Remover', 'cmb2'),
+            'sortable'          => true,
+            'closed'         => true, // true to have the groups closed by default
+            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+        ),
+    ));
+
+    $cmb_timeline->add_group_field($timeline, array(
+        'id'      => 'ano',
+        'name'    => 'Ano',
+        'type'    => 'text',
+    ));
+
+    $cmb_timeline->add_group_field($timeline, array(
+        'id'      => 'descricao',
+        'name'    => 'Descrição',
+        'type'    => 'textarea',
+    ));
 }
 add_action('cmb2_admin_init', 'cmb2_seja_parceiro_metaboxes');

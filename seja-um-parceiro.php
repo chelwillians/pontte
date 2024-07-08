@@ -136,7 +136,7 @@ get_header();
     </section>
 <?php endif; ?>
 
-<?php if (!empty(get_field('exibir_depoimentos'))) : ?>
+<?php if (get_field('exibir_depoimentos')) : ?>
     <section class="testimonials">
         <div class="container wrap">
             <?php if (!empty(get_field('pretitulo_depoimentos'))) : ?>
@@ -161,60 +161,37 @@ get_header();
     </section>
 <?php endif; ?>
 
-<section class="timeline">
-    <div class="container wrap">
-        <div class="timeline__left">
-            <div class="timeline__content">
-                <h2 class="timeline__title"><strong>Desde 2018,</strong> conectando pessoas e empresas ao
-                    <strong>futuro</strong>
-                </h2>
-                <div class="timeline__desc">
-                    <p>Conheça um pouco da nossa história</p>
+<?php if (get_field('exibir_timeline')) : ?>
+    <section class="timeline">
+        <div class="container wrap">
+            <div class="timeline__left">
+                <div class="timeline__content">
+                    <?php if (get_field('titulo_timeline')) : ?>
+                        <h2 class="timeline__title"><?php echo get_field('titulo_timeline') ?></h2>
+                    <?php else : ?>
+                        <h2 class="timeline__title"><strong>Desde 2018,</strong> conectando pessoas e empresas ao <strong>futuro</strong></h2>
+                    <?php endif; ?>
+                    <?php if (get_field('descricao_timeline')) : ?>
+                        <div class="timeline__desc">
+                            <?php echo wpautop(get_field('descricao_timeline')) ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
+                <img class="timeline__image" src="<?php echo get_field('imagem_timeline') ? get_field('imagem_timeline') : get_template_directory_uri() . '/dist/images/image-timeline.png' ?>" alt="Imagem da seção">
             </div>
-            <img class="timeline__image" src="<?php echo get_template_directory_uri() ?>/dist/images/image-timeline.png" alt="">
-        </div>
-        <div class="timeline__list">
-            <div class="timeline__item">
-                <div class="timeline__item--year">2018</div>
-                <div class="timeline__item--desc">
-                    <p>A Pontte é fundada como uma fintech de crédito imobiliário</p>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__item--year">2019</div>
-                <div class="timeline__item--desc">
-                    <p>Iniciamos nossa operação e fechamos nossos primeiros contratos de crédito com garantia de
-                        imóvel</p>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__item--year">2020</div>
-                <div class="timeline__item--desc">
-                    <p>Tivemos nossa primeira rodada de investimento, de <strong>R$ 160 milhões</strong></p>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__item--year">2022</div>
-                <div class="timeline__item--desc">
-                    <p>Estreitamos os laços com nossos parceiros e garantimos comissões mais competitivas</p>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__item--year">2023</div>
-                <div class="timeline__item--desc">
-                    <p>Mais de 90% das operações que recebemos foram via parceiros</p>
-                </div>
-            </div>
-            <div class="timeline__item">
-                <div class="timeline__item--year">2024</div>
-                <div class="timeline__item--desc">
-                    <p>Migramos para o ecossistema da Galapagos Capital</p>
-                </div>
+            <div class="timeline__list">
+                <?php foreach (get_field('lista_timeline') as $item) : ?>
+                    <div class="timeline__item">
+                        <div class="timeline__item--year"><?php echo $item['ano'] ?></div>
+                        <div class="timeline__item--desc">
+                            <?php echo wpautop($item['descricao']) ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
 <section class="partners">
     <div class="container wrap">
