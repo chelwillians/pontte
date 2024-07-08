@@ -2,6 +2,8 @@
 
 /* Template Name: Seja um parceiro */
 
+$homeID = url_to_postid(get_home_url());
+
 get_header();
 ?>
 
@@ -214,39 +216,49 @@ get_header();
     </section>
 <?php endif; ?>
 
-<section class="price">
-    <div class="container wrap">
-        <div class="price__left">
-            <h2 class="price__title"><strong>A Pontte é o caminho</strong> para criar o seu futuro</h2>
-            <div class="price__desc">
-                <p>Nossos números comprovam mês a mês que nosso plano está dando certo. Oferecer crédito justo,
-                    fácil e sem burocracias está mudando o futuro de muitas pessoas.
-                    <strong>E também pode mudar o seu.</strong>
-                </p>
+<?php if (get_field('exibir_preco')) : ?>
+    <section class="price">
+        <div class="container wrap">
+            <div class="price__left">
+                <?php if (get_field('titulo_preco')) : ?>
+                    <h2 class="price__title"><?php echo get_field('titulo_preco') ?></h2>
+                <?php else : ?>
+                    <h2 class="price__title"><strong>A Pontte é o caminho</strong> para criar o seu futuro</h2>
+                <?php endif; ?>
+                <?php if (get_field('descricao_preco')) : ?>
+                    <div class="price__desc">
+                        <?php echo wpautop(get_field('descricao_preco')) ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (get_field('link_botao_preco')) : ?>
+                    <a href="<?php echo get_field('link_botao_preco') ?>" class="price__button"><?php echo !empty(get_field('texto_botao_preco')) ? get_field('texto_botao_preco') : 'Quero mudar o meu futuro' ?></a>
+                <?php endif; ?>
             </div>
-            <a href="#" class="price__button">Quero mudar o meu futuro</a>
-        </div>
-        <div class="price__right">
-            <strong class="price__pre-price">A Pontte já concedeu mais de</strong>
-            <div class="price__value">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/images/price.svg" alt="Imagem do valor">
+            <div class="price__right">
+                <?php if (get_field('titulo_2_preco')) : ?>
+                    <strong class="price__pre-price"><?php echo get_field('titulo_2_preco') ?></strong>
+                <?php endif; ?>
+                <div class="price__value">
+                    <img src="<?php echo !empty(get_field('imagem_preco')) ? get_field('imagem_preco') : get_template_directory_uri() . '/dist/images/price.svg' ?>" alt="Imagem do valor">
+                </div>
+                <?php if (get_field('descricao_2_preco')) : ?>
+                    <span class="price__after-price"><?php echo get_field('descricao_2_preco') ?></span>
+                <?php endif; ?>
             </div>
-            <span class="price__after-price"><strong>MILHÕES</strong> em crédito imobiliário</span>
         </div>
-    </div>
-    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-10.svg" class="price__float-item" alt="Ícone quadrado flutuante">
-</section>
+        <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-10.svg" class="price__float-item" alt="Ícone quadrado flutuante">
+    </section>
+<?php endif; ?>
 
-
-<?php if (!empty(get_field('exibir_midia'))) : ?>
+<?php if (!empty(get_field('exibir_midia', $homeID))) : ?>
     <section class="midia">
         <div class="container wrap">
-            <?php if (!empty(get_field('titulo_midia'))) : ?>
-                <h2 class="midia__title"><?php echo get_field('titulo_midia'); ?></h2>
+            <?php if (!empty(get_field('titulo_midia', $homeID))) : ?>
+                <h2 class="midia__title"><?php echo get_field('titulo_midia', $homeID); ?></h2>
             <?php endif; ?>
             <div class="midia__list swiper">
                 <div class="swiper-wrapper">
-                    <?php foreach (get_field('midia_list') as $media_item) : ?>
+                    <?php foreach (get_field('midia_list', $homeID) as $media_item) : ?>
                         <div class="midia__item swiper-slide">
                             <div class="midia__item--logo">
                                 <img src="<?php echo !empty($media_item['logo']) ? $media_item['logo'] : get_template_directory_uri() . '/dist/images/logo-valor-economico.png' ?>" alt="Logo da matéria">
@@ -256,7 +268,7 @@ get_header();
                 </div>
             </div>
             <div class="midia__content-list">
-                <?php foreach (get_field('midia_list') as $media_item) : ?>
+                <?php foreach (get_field('midia_list', $homeID) as $media_item) : ?>
                     <div class="midia__content-item">
                         <div class="midia__content-item--data">
                             <?php if (!empty($media_item['mes'])) : ?>

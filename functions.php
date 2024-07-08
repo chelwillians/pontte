@@ -1275,5 +1275,68 @@ function cmb2_seja_parceiro_metaboxes()
         ),
         'preview_size' => 'medium',
     ));
+
+    // Preço
+    $cmb_price = new_cmb2_box(array(
+        'id'            => 'cmb2_preco',
+        'title'         => __('Seção - Preço', 'cmb2'),
+        'object_types'  => array('page'),
+        'show_on' => array('key' => 'page-template', 'value' => 'seja-um-parceiro.php'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ));
+    $cmb_price->add_field(array(
+        'id'   => 'exibir_preco',
+        'name' => 'Exibir seção',
+        'type' => 'checkbox',
+    ));
+    $cmb_price->add_field(array(
+        'id'      => 'titulo_preco',
+        'name'    => 'Título',
+        'type'    => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+    $cmb_price->add_field(array(
+        'id'      => 'descricao_preco',
+        'name'    => 'Descrição',
+        'type'    => 'textarea',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+    $cmb_price->add_field(array(
+        'id'      => 'link_botao_preco',
+        'name'    => 'Link botão',
+        'type'    => 'text',
+    ));
+    $cmb_price->add_field(array(
+        'id'      => 'texto_botao_preco',
+        'name'    => 'Texto botão',
+        'type'    => 'text',
+    ));
+    $cmb_price->add_field(array(
+        'id'      => 'titulo_2_preco',
+        'name'    => 'Título do preço',
+        'type'    => 'text',
+    ));
+    $cmb_price->add_field(array(
+        'id'      => 'imagem_preco',
+        'name'    => 'Imagem do preço',
+        'desc'    => 'Resolução recomendada de 443x120',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar imagem'
+        ),
+        'preview_size' => 'medium',
+    ));
+    $cmb_price->add_field(array(
+        'id'      => 'descricao_2_preco',
+        'name'    => 'Descrição do preço',
+        'type'    => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
 }
 add_action('cmb2_admin_init', 'cmb2_seja_parceiro_metaboxes');
