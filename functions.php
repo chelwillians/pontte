@@ -716,5 +716,97 @@ function cmb2_home_metaboxes()
             'media_buttons' => false,
         ),
     ));
+
+    // Seção Mídia
+    $cmb_midia = new_cmb2_box(array(
+        'id'            => 'cmb2_midia',
+        'title'         => __('Seção - Na Mídia', 'cmb2'),
+        'object_types'  => array('page'),
+        'show_on' => array('key' => 'page-template', 'value' => 'index.php'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ));
+
+    $cmb_midia->add_field(array(
+        'id'   => 'exibir_midia',
+        'name' => 'Exibir seção',
+        'type' => 'checkbox',
+    ));
+
+    $cmb_midia->add_field(array(
+        'id'   => 'titulo_midia',
+        'name' => 'Título',
+        'type' => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+
+    $materias = $cmb_midia->add_field(array(
+        'id'          => 'midia_list',
+        'type'        => 'group',
+        'description' => __('Materia', 'cmb2'),
+        // 'repeatable'  => false, // use false if you want non-repeatable group
+        'options'     => array(
+            'group_title'       => __('Item {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
+            'add_button'        => __('Adicionar item', 'cmb2'),
+            'remove_button'     => __('Remover', 'cmb2'),
+            'sortable'          => true,
+            'limit'         => 4,
+            'closed'         => true, // true to have the groups closed by default
+            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+        ),
+    ));
+
+    $cmb_midia->add_group_field($materias, array(
+        'id'      => 'logo',
+        'name'    => 'Logo',
+        'desc'    => 'Resolução recomendada de 100x34',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar imagem'
+        ),
+        // 'query_args' => array(
+        //     'type' => array(
+        //         'image/png',
+        //         'image/jpg',
+        //         'image/jpeg',
+        //         'image/svg',
+        //     ),
+        // ),
+        'preview_size' => 'medium',
+    ));
+
+    $cmb_midia->add_group_field($materias, array(
+        'id'      => 'mes',
+        'name'    => 'Mês',
+        'type'    => 'text',
+        'desc'    => 'Exemplo: JAN, FEV, MAR, ABR...',
+    ));
+
+    $cmb_midia->add_group_field($materias, array(
+        'id'      => 'ano',
+        'name'    => 'Ano',
+        'type'    => 'text',
+    ));
+
+    $cmb_midia->add_group_field($materias, array(
+        'id'      => 'materia',
+        'name'    => 'Matéria',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'wpautop' => true,
+            'media_buttons' => false,
+        ),
+    ));
+
+    $cmb_midia->add_group_field($materias, array(
+        'id'      => 'link',
+        'name'    => 'Link',
+        'type'    => 'text',
+    ));
 }
 add_action('cmb2_admin_init', 'cmb2_home_metaboxes');

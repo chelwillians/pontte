@@ -194,149 +194,48 @@ get_header();
     </section>
 <?php endif; ?>
 
-<section class="midia">
-    <div class="container wrap">
-        <h2 class="midia__title">Pontte na <strong>mídia</strong></h2>
-        <div class="midia__list swiper">
-            <div class="swiper-wrapper">
-                <div class="midia__item swiper-slide">
-                    <div class="midia__item--logo">
-                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo-valor-economico.png" alt="Logo Economico Valor">
-                    </div>
+<?php if (!empty(get_field('exibir_midia'))) : ?>
+    <section class="midia">
+        <div class="container wrap">
+            <?php if (!empty(get_field('titulo_midia'))) : ?>
+                <h2 class="midia__title"><?php echo get_field('titulo_midia'); ?></h2>
+            <?php endif; ?>
+            <div class="midia__list swiper">
+                <div class="swiper-wrapper">
+                    <?php foreach (get_field('midia_list') as $media_item) : ?>
+                        <div class="midia__item swiper-slide">
+                            <div class="midia__item--logo">
+                                <img src="<?php echo !empty($media_item['logo']) ? $media_item['logo'] : get_template_directory_uri() . '/dist/images/logo-valor-economico.png' ?>" alt="Logo da matéria">
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 </div>
-                <div class="midia__item swiper-slide">
-                    <div class="midia__item--logo">
-                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo-forbes.png" alt="Logo Economico forbes">
+            </div>
+            <div class="midia__content-list">
+                <?php foreach (get_field('midia_list') as $media_item) : ?>
+                    <div class="midia__content-item">
+                        <div class="midia__content-item--data">
+                            <?php if (!empty($media_item['mes'])) : ?>
+                                <span class="month"><?php echo $media_item['mes'] ?></span>
+                            <?php endif; ?>
+                            <?php if (!empty($media_item['ano'])) : ?>
+                                <span class="year"><?php echo $media_item['ano'] ?></span>
+                            <?php endif; ?>
+                        </div>
+                        <div class="midia__content-item--text">
+                            <?php echo wpautop($media_item['materia']) ?>
+                        </div>
+                        <?php if (!empty($media_item['link'])) : ?>
+                            <a href="<?php echo $media_item['link'] ?>" class="midia__content-item--link">
+                                <span>Acesse a notícia</span>
+                            </a>
+                        <?php endif; ?>
                     </div>
-                </div>
-                <div class="midia__item swiper-slide">
-                    <div class="midia__item--logo">
-                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo-valor-economico.png" alt="Logo Economico Valor">
-                    </div>
-                </div>
-                <div class="midia__item swiper-slide">
-                    <div class="midia__item--logo">
-                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo-forbes.png" alt="Logo Economico forbes">
-                    </div>
-                </div>
-                <div class="midia__item swiper-slide">
-                    <div class="midia__item--logo">
-                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo-valor-economico.png" alt="Logo Economico Valor">
-                    </div>
-                </div>
-                <div class="midia__item swiper-slide">
-                    <div class="midia__item--logo">
-                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/logo-forbes.png" alt="Logo Economico forbes">
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
         </div>
-        <div class="midia__content-list">
-            <div class="midia__content-item">
-                <div class="midia__content-item--data">
-                    <span class="month">FEV</span>
-                    <span class="year">2022</span>
-                </div>
-                <div class="midia__content-item--text">
-                    <p>1Recentemente, a Pontte liderou um grupo que incluiu a Vórtx DTVM, a QI Tech, a Uniproof e a
-                        Mauá Capital, e desenvolveu o conceito que tornou realidade a emissão de CCIs 100%
-                        eletrônicas. A B3, na qualidade de câmara registradora e de negociação das CCIs, concedeu a
-                        autorização inédita em agosto de 2020 e isso agora passa a ser realidade para todos os
-                        participantes desse mercado. Isso significa mais agilidade e menos custos para o tomador de
-                        crédito no Brasil.</p>
-                </div>
-                <a href="#" class="midia__content-item--link">
-                    <span>Acesse a notícia</span>
-                </a>
-            </div>
-            <div class="midia__content-item">
-                <div class="midia__content-item--data">
-                    <span class="month">MAR</span>
-                    <span class="year">2022</span>
-                </div>
-                <div class="midia__content-item--text">
-                    <p>2Recentemente, a Pontte liderou um grupo que incluiu a Vórtx DTVM, a QI Tech, a Uniproof e a
-                        Mauá Capital, e desenvolveu o conceito que tornou realidade a emissão de CCIs 100%
-                        eletrônicas. A B3, na qualidade de câmara registradora e de negociação das CCIs, concedeu a
-                        autorização inédita em agosto de 2020 e isso agora passa a ser realidade para todos os
-                        participantes desse mercado. Isso significa mais agilidade e menos custos para o tomador de
-                        crédito no Brasil.</p>
-                </div>
-                <a href="#" class="midia__content-item--link">
-                    <span>Acesse a notícia</span>
-                </a>
-            </div>
-            <div class="midia__content-item">
-                <div class="midia__content-item--data">
-                    <span class="month">ABR</span>
-                    <span class="year">2022</span>
-                </div>
-                <div class="midia__content-item--text">
-                    <p>3Recentemente, a Pontte liderou um grupo que incluiu a Vórtx DTVM, a QI Tech, a Uniproof e a
-                        Mauá Capital, e desenvolveu o conceito que tornou realidade a emissão de CCIs 100%
-                        eletrônicas. A B3, na qualidade de câmara registradora e de negociação das CCIs, concedeu a
-                        autorização inédita em agosto de 2020 e isso agora passa a ser realidade para todos os
-                        participantes desse mercado. Isso significa mais agilidade e menos custos para o tomador de
-                        crédito no Brasil.</p>
-                </div>
-                <a href="#" class="midia__content-item--link">
-                    <span>Acesse a notícia</span>
-                </a>
-            </div>
-            <div class="midia__content-item">
-                <div class="midia__content-item--data">
-                    <span class="month">MAI</span>
-                    <span class="year">2022</span>
-                </div>
-                <div class="midia__content-item--text">
-                    <p>4Recentemente, a Pontte liderou um grupo que incluiu a Vórtx DTVM, a QI Tech, a Uniproof e a
-                        Mauá Capital, e desenvolveu o conceito que tornou realidade a emissão de CCIs 100%
-                        eletrônicas. A B3, na qualidade de câmara registradora e de negociação das CCIs, concedeu a
-                        autorização inédita em agosto de 2020 e isso agora passa a ser realidade para todos os
-                        participantes desse mercado. Isso significa mais agilidade e menos custos para o tomador de
-                        crédito no Brasil.</p>
-                </div>
-                <a href="#" class="midia__content-item--link">
-                    <span>Acesse a notícia</span>
-                </a>
-            </div>
-            <div class="midia__content-item">
-                <div class="midia__content-item--data">
-                    <span class="month">JUN</span>
-                    <span class="year">2022</span>
-                </div>
-                <div class="midia__content-item--text">
-                    <p>5Recentemente, a Pontte liderou um grupo que incluiu a Vórtx DTVM, a QI Tech, a Uniproof e a
-                        Mauá Capital, e desenvolveu o conceito que tornou realidade a emissão de CCIs 100%
-                        eletrônicas. A B3, na qualidade de câmara registradora e de negociação das CCIs, concedeu a
-                        autorização inédita em agosto de 2020 e isso agora passa a ser realidade para todos os
-                        participantes desse mercado. Isso significa mais agilidade e menos custos para o tomador de
-                        crédito no Brasil.</p>
-                </div>
-                <a href="#" class="midia__content-item--link">
-                    <span>Acesse a notícia</span>
-                </a>
-            </div>
-            <div class="midia__content-item">
-                <div class="midia__content-item--data">
-                    <span class="month">JUL</span>
-                    <span class="year">2022</span>
-                </div>
-                <div class="midia__content-item--text">
-                    <p>6Recentemente, a Pontte liderou um grupo que incluiu a Vórtx DTVM, a QI Tech, a Uniproof e a
-                        Mauá Capital, e desenvolveu o conceito que tornou realidade a emissão de CCIs 100%
-                        eletrônicas. A B3, na qualidade de câmara registradora e de negociação das CCIs, concedeu a
-                        autorização inédita em agosto de 2020 e isso agora passa a ser realidade para todos os
-                        participantes desse mercado. Isso significa mais agilidade e menos custos para o tomador de
-                        crédito no Brasil.</p>
-                </div>
-                <a href="#" class="midia__content-item--link">
-                    <span>Acesse a notícia</span>
-                </a>
-            </div>
-        </div>
-    </div>
-    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-6.svg" class="midia__float-item" alt="Ícone quadrado flutuante">
-</section>
+        <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-6.svg" class="midia__float-item" alt="Ícone quadrado flutuante">
+    </section>
+<?php endif; ?>
 
 <?php get_footer(); ?>
