@@ -17,7 +17,7 @@ function hide_editor()
     // Get the name of the Page Template file.
     $template_file = get_post_meta($post_id, '_wp_page_template', true);
 
-    if ($template_file == 'index.php') { // edit the template name
+    if ($template_file == 'index.php' || $template_file == 'seja-um-parceiro.php') { // edit the template name
         remove_post_type_support('page', 'editor');
     }
 }
@@ -810,3 +810,69 @@ function cmb2_home_metaboxes()
     ));
 }
 add_action('cmb2_admin_init', 'cmb2_home_metaboxes');
+
+// Seja um parceiro
+function cmb2_seja_parceiro_metaboxes()
+{
+    // Banner
+    $cmb_banner = new_cmb2_box(array(
+        'id'            => 'cmb2_banners_seja_um_parceiro',
+        'title'         => __('Banner', 'cmb2'),
+        'object_types'  => array('page'),
+        'show_on' => array('key' => 'page-template', 'value' => 'seja-um-parceiro.php'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ));
+
+    $cmb_banner->add_field(array(
+        'id'      => 'imagem_desktop',
+        'name'    => 'Imagem desktop',
+        'desc'    => 'Resolução recomendada de 1464x1412',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar imagem'
+        ),
+        'query_args' => array(
+            'type' => array(
+                'image/png',
+                'image/jpg',
+                'image/jpeg',
+                'image/svg',
+            ),
+        ),
+        'preview_size' => 'medium',
+    ));
+
+    $cmb_banner->add_field(array(
+        'id'      => 'titulo',
+        'name'    => 'Título',
+        'desc'    => 'Use o seguinte formato: <strong class="purple">Crédito</strong> para <br>criar o <strong>seu futuro</strong>',
+        'type'    => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+
+    $cmb_banner->add_field(array(
+        'id'      => 'descricao',
+        'name'    => 'Descrição',
+        'type'    => 'textarea',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+
+    $cmb_banner->add_field(array(
+        'id'      => 'texto_botao',
+        'name'    => 'Texto do botão',
+        'type'    => 'text',
+    ));
+
+    $cmb_banner->add_field(array(
+        'id'      => 'link_botao',
+        'name'    => 'Link do botão',
+        'type'    => 'text',
+    ));
+}
+add_action('cmb2_admin_init', 'cmb2_seja_parceiro_metaboxes');
