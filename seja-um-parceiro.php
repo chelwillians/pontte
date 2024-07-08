@@ -193,40 +193,26 @@ get_header();
     </section>
 <?php endif; ?>
 
-<section class="partners">
-    <div class="container wrap">
-        <h2 class="partners__title">Conheça nossos <strong>parceiros</strong></h2>
-
-        <div class="partners__list swiper">
-            <div class="swiper-wrapper">
-                <div class="partners__item swiper-slide">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/logos/logo-1.png" alt="">
-                </div>
-                <div class="partners__item swiper-slide">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/logos/logo-2.png" alt="">
-                </div>
-                <div class="partners__item swiper-slide">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/logos/logo-3.png" alt="">
-                </div>
-                <div class="partners__item swiper-slide">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/logos/logo-4.png" alt="">
-                </div>
-                <div class="partners__item swiper-slide">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/logos/logo-5.png" alt="">
-                </div>
-                <div class="partners__item swiper-slide">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/logos/logo-6.png" alt="">
-                </div>
-                <div class="partners__item swiper-slide">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/logos/logo-7.png" alt="">
-                </div>
-                <div class="partners__item swiper-slide">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/logos/logo-8.png" alt="">
+<?php if (get_field('exibir_parceiros')) : ?>
+    <section class="partners">
+        <div class="container wrap">
+            <?php if (!empty(get_field('titulo_parceiros'))) : ?>
+                <h2 class="partners__title"><?php echo get_field('titulo_parceiros') ?></h2>
+            <?php else : ?>
+                <h2 class="partners__title">Conheça nossos <strong>parceiros</strong></h2>
+            <?php endif; ?>
+            <div class="partners__list swiper">
+                <div class="swiper-wrapper">
+                    <?php foreach (get_field('lista_parceiros') as $item) : ?>
+                        <div class="partners__item swiper-slide">
+                            <img src="<?php echo !empty($item['logo']) ? $item['logo'] : get_template_directory_uri() . '/dist/images/logos/logo-1.png' ?>" alt="Logo do parceiro">
+                        </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
 <section class="price">
     <div class="container wrap">
