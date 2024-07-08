@@ -1,0 +1,46 @@
+.the-page {
+    padding-top: 154px;
+    padding-bottom: 80px;
+    line-height: 1.6;
+    background-color: $light-purple;
+    color: $dark-blue;
+    font-size: 18px;
+
+    .wrap {
+        padding: 0 32px;
+    }
+
+    &__title {
+        margin-bottom: 48px;
+        font-size: 32px;
+        line-height: 1.2;
+        font-weight: 600;
+        color: $blue;
+
+        @media screen and (min-width: 1024px) {
+            font-size: 40px;
+            color: $purple;
+            max-width: 755px;
+        }
+    }
+
+    p {
+        margin-bottom: 24px;
+    }
+
+    strong {
+        font-weight: 700;
+    }
+
+    ul {
+        list-style-position: inside;
+        list-style-type: disc;
+    }
+
+    ol {
+        list-style-position: inside;
+        list-style-type: decimal;
+    }
+
+
+}
