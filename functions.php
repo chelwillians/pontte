@@ -1008,5 +1008,95 @@ function cmb2_seja_parceiro_metaboxes()
         ),
         'preview_size' => 'medium',
     ));
+
+    // Depoimentos
+    $cmb_steps = new_cmb2_box(array(
+        'id'            => 'cmb2_etapas',
+        'title'         => __('Seção - Etapas', 'cmb2'),
+        'object_types'  => array('page'),
+        'show_on' => array('key' => 'page-template', 'value' => 'seja-um-parceiro.php'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ));
+    $cmb_steps->add_field(array(
+        'id'   => 'exibir_etapas',
+        'name' => 'Exibir seção',
+        'type' => 'checkbox',
+    ));
+    $cmb_steps->add_field(array(
+        'id'      => 'titulo_etapas',
+        'name'    => 'Título',
+        'desc'    => 'Use a tag strong para destacar o texto',
+        'type'    => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+
+    $cmb_steps->add_field(array(
+        'id'      => 'link_etapas',
+        'name'    => 'Link botão',
+        'type'    => 'text',
+    ));
+
+    $cmb_steps->add_field(array(
+        'id'      => 'texto_botao_etapas',
+        'name'    => 'Texto botão',
+        'type'    => 'text',
+    ));
+
+    $cards_steps = $cmb_steps->add_field(array(
+        'id'          => 'cards_list_etapas',
+        'type'        => 'group',
+        'description' => __('Cards', 'cmb2'),
+        // 'repeatable'  => false, // use false if you want non-repeatable group
+        'options'     => array(
+            'group_title'       => __('Card {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
+            'add_button'        => __('Adicionar card', 'cmb2'),
+            'remove_button'     => __('Remover', 'cmb2'),
+            'sortable'          => true,
+            'limit'         => 4,
+            'closed'         => true, // true to have the groups closed by default
+            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+        ),
+    ));
+
+    $cmb_steps->add_group_field($cards_steps, array(
+        'id'      => 'icon_card',
+        'name'    => 'Ícone do card',
+        'desc'    => 'Resolução recomendada de 40x40',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar imagem'
+        ),
+        // 'query_args' => array(
+        //     'type' => array(
+        //         'image/png',
+        //         'image/jpg',
+        //         'image/jpeg',
+        //         'image/svg',
+        //     ),
+        // ),
+        'preview_size' => 'medium',
+    ));
+
+    $cmb_steps->add_group_field($cards_steps, array(
+        'id'   => 'titulo',
+        'name' => 'Título',
+        'type' => 'text',
+    ));
+
+    $cmb_steps->add_group_field($cards_steps, array(
+        'id'      => 'descricao',
+        'name'    => 'Descrição',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'wpautop' => true,
+            'media_buttons' => false,
+        ),
+    ));
 }
 add_action('cmb2_admin_init', 'cmb2_seja_parceiro_metaboxes');

@@ -100,61 +100,41 @@ get_header();
     </section>
 <?php endif; ?>
 
-<section class="steps">
-    <div class="container wrap">
-        <div class="steps__header">
-            <a href="#" class="steps__arrow-down">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/images/arrow-down-2.svg" alt="Seta apontando para baixo">
-            </a>
-            <h2 class="steps__title">Quer ser um parceiro Pontte?<br><strong>É fácil. É rápido!</strong> Descubra
-                como
-                funciona</h2>
-            <a href="#" class="steps__button">Quero ser um parceiro Pontte</a>
-        </div>
+<?php if (!empty(get_field('exibir_etapas'))) : ?>
+    <section class="steps">
+        <div class="container wrap">
+            <div class="steps__header">
+                <a href="#" class="steps__arrow-down">
+                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/arrow-down-2.svg" alt="Seta apontando para baixo">
+                </a>
+                <?php if (!empty(get_field('titulo_etapas'))) : ?>
+                    <h2 class="steps__title"><?php echo get_field('titulo_etapas') ?></h2>
+                <?php endif; ?>
+                <?php if (!empty(get_field('link_etapas'))) : ?>
+                    <a href="<?php echo get_field('link_etapas') ?>" class="steps__button"><?php echo !empty(get_field('texto_botao_etapas')) ? get_field('texto_botao_etapas') : 'Quero ser um parceiro Pontte' ?></a>
+                <?php endif; ?>
+            </div>
 
-        <div class="steps__cards">
-            <div class="steps__item">
-                <div class="steps__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-1.svg" alt="">
-                </div>
-                <h3 class="steps__item--title">Cadastro</h3>
-                <div class="steps__item--desc">
-                    <p>Você preenche o formulário e nós entramos em contato para agendar uma conversa.</p>
-                </div>
-            </div>
-            <div class="steps__item">
-                <div class="steps__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-2.svg" alt="">
-                </div>
-                <h3 class="steps__item--title">Contrato</h3>
-                <div class="steps__item--desc">
-                    <p>Durante a assinatura do contrato oferecemos todo o apoio necessário para sanar dúvidas e
-                        explicar como funciona a nossa esteira.</p>
-                </div>
-            </div>
-            <div class="steps__item">
-                <div class="steps__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-3.svg" alt="">
-                </div>
-                <h3 class="steps__item--title">Indicações</h3>
-                <div class="steps__item--desc">
-                    <p>Com o contrato assinado, é hora de agir! Você pode indicar operações e ajudar seus clientes a
-                        obter crédito com facilidade.</p>
-                </div>
-            </div>
-            <div class="steps__item">
-                <div class="steps__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-4.svg" alt="">
-                </div>
-                <h3 class="steps__item--title">Crédito liberado</h3>
-                <div class="steps__item--desc">
-                    <p>Com a operação concluída, o crédito é liberado para o cliente e você ganha seu repasse, após
-                        os trâmites legais.</p>
-                </div>
+            <div class="steps__cards">
+                <?php foreach (get_field('cards_list_etapas') as $item) : ?>
+                    <div class="steps__item">
+                        <div class="steps__item--icon">
+                            <img src="<?php echo !empty($item['icon_card']) ? $item['icon_card'] : get_template_directory_uri() . '/dist/images/icon-1.svg' ?>" alt="Ícone">
+                        </div>
+                        <?php if (!empty($item['titulo'])) : ?>
+                            <h3 class="steps__item--title"><?php echo $item['titulo'] ?></h3>
+                        <?php endif; ?>
+                        <?php if (!empty($item['descricao'])) : ?>
+                            <div class="steps__item--desc">
+                                <?php echo wpautop($item['descricao']) ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
 <section class="testimonials">
     <div class="container wrap">
