@@ -56,72 +56,49 @@ get_header();
     </section>
 <?php endif; ?>
 
-<section class="benefits">
-    <div class="container wrap">
-        <div class="benefits__left">
-            <h2 class="benefits__title">Com a Pontte, <strong>você</strong> e o <strong>seu cliente ganham</strong>
-            </h2>
-            <div class="benefits__desc">
-                <p>Aqui o seu cliente pode usar um imóvel como garantia e obter crédito com as melhores taxas e
-                    condições de pagamento - tudo isso com rapidez, facilidade e segurança.</p>
+<?php if (!empty(get_field('exibir_beneficios'))) : ?>
+    <section class="benefits">
+        <div class="container wrap">
+            <div class="benefits__left">
+                <?php if (!empty(get_field('titulo_beneficios'))) : ?>
+                    <h2 class="benefits__title"><?php echo get_field('titulo_beneficios'); ?></h2>
+                <?php endif; ?>
+                <?php if (!empty(get_field('descricao_beneficios'))) : ?>
+                    <div class="benefits__desc">
+                        <?php echo wpautop(get_field('descricao_beneficios')); ?>
+                    </div>
+                <?php endif; ?>
+                <?php if (!empty(get_field('link_botao_beneficios'))) : ?>
+                    <a href="<?php echo get_field('link_botao_beneficios'); ?>" class="benefits__button"><?php echo !empty(get_field('texto_botao_beneficios')) ? get_field('texto_botao_beneficios') : 'Quero ser parceiro'; ?></a>
+                <?php endif; ?>
             </div>
-            <a href="#" class="benefits__button">Quero ser parceiro</a>
-        </div>
 
-        <div class="benefits__info">
-            <div class="benefits__info--icon">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-pontte.svg" alt="Ícone pontte">
-            </div>
-            <div class="benefits__info--desc">
-                <p><strong>Seu cliente consegue crédito</strong> para fazer o que precisa.</p>
-                <p><strong>Você ganha comissão</strong> para aproveitar o agora.</p>
-            </div>
-        </div>
+            <?php if (!empty(get_field('conteudo_flutuante_beneficios'))) : ?>
+                <div class="benefits__info">
+                    <div class="benefits__info--icon">
+                        <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-pontte.svg" alt="Ícone pontte">
+                    </div>
+                    <div class="benefits__info--desc">
+                        <?php echo wpautop(get_field('conteudo_flutuante_beneficios')); ?>
+                    </div>
+                </div>
+            <?php endif; ?>
 
-        <div class="benefits__list">
-            <div class="benefits__item">
-                <div class="benefits__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-percent.svg" alt="">
-                </div>
-                <div class="benefits__item--text">
-                    <h3 class="benefits__item--title">Taxas a partir de <strong>1,09% ao mês + IPCA</strong></h3>
-                </div>
-            </div>
-            <div class="benefits__item">
-                <div class="benefits__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-calendar.svg" alt="">
-                </div>
-                <div class="benefits__item--text">
-                    <h3 class="benefits__item--title">Carência de até <strong>2 meses</strong></h3>
-                </div>
-            </div>
-            <div class="benefits__item">
-                <div class="benefits__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-star.svg" alt="">
-                </div>
-                <div class="benefits__item--text">
-                    <h3 class="benefits__item--title">Imóveis avaliados a partir de <strong>R$ 200 mil</strong></h3>
-                </div>
-            </div>
-            <div class="benefits__item">
-                <div class="benefits__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-house.svg" alt="">
-                </div>
-                <div class="benefits__item--text">
-                    <h3 class="benefits__item--title">Crédito de até <strong>50% do valor do imóvel</strong></h3>
-                </div>
-            </div>
-            <div class="benefits__item">
-                <div class="benefits__item--icon">
-                    <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-clock.svg" alt="">
-                </div>
-                <div class="benefits__item--text">
-                    <h3 class="benefits__item--title">Prazo de <strong>60 até 240 meses para pagar</strong></h3>
-                </div>
+            <div class="benefits__list">
+                <?php foreach (get_field('lista_beneficios') as $item) : ?>
+                    <div class="benefits__item">
+                        <div class="benefits__item--icon">
+                            <img src="<?php echo !empty($item['icone']) ? $item['icone'] : get_template_directory_uri() . '/dist/images/icon-percent.svg' ?>" alt="Ícone">
+                        </div>
+                        <div class="benefits__item--text">
+                            <h3 class="benefits__item--title"><?php echo $item['texto_um'] ?> <strong><?php echo $item['texto_dois'] ?></strong></h3>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
 <section class="steps">
     <div class="container wrap">
