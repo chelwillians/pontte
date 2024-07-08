@@ -17,7 +17,7 @@ function hide_editor()
     // Get the name of the Page Template file.
     $template_file = get_post_meta($post_id, '_wp_page_template', true);
 
-    if ($template_file == 'index.php' || $template_file == 'seja-um-parceiro.php') { // edit the template name
+    if ($template_file == 'index.php' || $template_file == 'seja-um-parceiro.php' || $template_file == 'contato.php') { // edit the template name
         remove_post_type_support('page', 'editor');
     }
 }
@@ -1340,3 +1340,111 @@ function cmb2_seja_parceiro_metaboxes()
     ));
 }
 add_action('cmb2_admin_init', 'cmb2_seja_parceiro_metaboxes');
+
+// Contato
+function cmb2_contato_metaboxes()
+{
+    $cmb_contact = new_cmb2_box(array(
+        'id'            => 'cmb2_contato',
+        'title'         => __('Seção - Contato', 'cmb2'),
+        'object_types'  => array('page'),
+        'show_on' => array('key' => 'page-template', 'value' => 'contato.php'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ));
+    // $cmb_contact->add_field(array(
+    //     'id'   => 'exibir_contato',
+    //     'name' => 'Exibir seção',
+    //     'type' => 'checkbox',
+    // ));
+    $cmb_contact->add_field(array(
+        'id'      => 'titulo_contato',
+        'name'    => 'Título',
+        'type'    => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+    $cmb_contact->add_field(array(
+        'id'      => 'descricao_contato',
+        'name'    => 'Descrição',
+        'type'    => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+    $cmb_contact->add_field(array(
+        'id'   => 'whatsapp_contato',
+        'name' => 'Whatsapp',
+        'type' => 'title',
+    ));
+    $cmb_contact->add_field( array(
+        'id'   => 'whatsapp_titulo_contato',
+        'name' => 'Whatsapp - Título',
+        'type' => 'text',
+    ) );
+    $cmb_contact->add_field(array(
+        'id'      => 'whatsapp_conteudo_contato',
+        'name'    => 'Whatsapp - conteúdo',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'wpautop' => true,
+            'media_buttons' => false,
+        ),
+    ));
+    $cmb_contact->add_field(array(
+        'id'   => 'email_contato',
+        'name' => 'E-mail',
+        'type' => 'title',
+    ));
+    $cmb_contact->add_field( array(
+        'id'   => 'email_titulo_contato',
+        'name' => 'E-mail - Título',
+        'type' => 'text',
+    ) );
+    $cmb_contact->add_field(array(
+        'id'      => 'email_conteudo_contato',
+        'name'    => 'E-mail - conteúdo',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'wpautop' => true,
+            'media_buttons' => false,
+        ),
+    ));
+    $cmb_contact->add_field(array(
+        'id'   => 'telefonar_contato',
+        'name' => 'Telefonar',
+        'type' => 'title',
+    ));
+    $cmb_contact->add_field( array(
+        'id'   => 'telefonar_titulo_contato',
+        'name' => 'Telefonar - Título',
+        'type' => 'text',
+    ) );
+    $cmb_contact->add_field(array(
+        'id'      => 'telefonar_conteudo_contato',
+        'name'    => 'Telefonar - conteúdo',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'wpautop' => true,
+            'media_buttons' => false,
+        ),
+    ));
+    $cmb_contact->add_field(array(
+        'id'   => 'trabalhe_contato',
+        'name' => 'Trabalhe com a gente',
+        'type' => 'title',
+    ));
+    $cmb_contact->add_field( array(
+        'id'   => 'trabalhe_titulo_contato',
+        'name' => 'Trabalhe com a gente - Título',
+        'type' => 'text',
+    ) );
+    $cmb_contact->add_field(array(
+        'id'      => 'trabalhe_conteudo_contato',
+        'name'    => 'Trabalhe com a gente - conteúdo',
+        'type'    => 'wysiwyg',
+        'options' => array(
+            'wpautop' => true,
+            'media_buttons' => false,
+        ),
+    ));
+}
+add_action('cmb2_admin_init', 'cmb2_contato_metaboxes');
