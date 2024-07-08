@@ -1009,7 +1009,7 @@ function cmb2_seja_parceiro_metaboxes()
         'preview_size' => 'medium',
     ));
 
-    // Depoimentos
+    // Etapas
     $cmb_steps = new_cmb2_box(array(
         'id'            => 'cmb2_etapas',
         'title'         => __('Seção - Etapas', 'cmb2'),
@@ -1097,6 +1097,63 @@ function cmb2_seja_parceiro_metaboxes()
             'wpautop' => true,
             'media_buttons' => false,
         ),
+    ));
+
+    // Depoimentos
+    $cmb_testimonials = new_cmb2_box(array(
+        'id'            => 'cmb2_depoimentos',
+        'title'         => __('Seção - Depoimentos', 'cmb2'),
+        'object_types'  => array('page'),
+        'show_on' => array('key' => 'page-template', 'value' => 'seja-um-parceiro.php'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ));
+    $cmb_testimonials->add_field(array(
+        'id'   => 'exibir_depoimentos',
+        'name' => 'Exibir seção',
+        'type' => 'checkbox',
+    ));
+    $cmb_testimonials->add_field(array(
+        'id'      => 'pretitulo_depoimentos',
+        'name'    => 'Pre título',
+        'type'    => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+    $cmb_testimonials->add_field(array(
+        'id'      => 'titulo_depoimentos',
+        'name'    => 'Título',
+        'desc'    => 'Use a tag strong para destacar o texto',
+        'type'    => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+
+    $depoimentos = $cmb_testimonials->add_field(array(
+        'id'          => 'lista_depoimentos',
+        'type'        => 'group',
+        'description' => __('Depoimentos', 'cmb2'),
+        // 'repeatable'  => false, // use false if you want non-repeatable group
+        'options'     => array(
+            'group_title'       => __('Depoimento {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
+            'add_button'        => __('Adicionar depoimento', 'cmb2'),
+            'remove_button'     => __('Remover', 'cmb2'),
+            'sortable'          => true,
+            'limit'         => 4,
+            'closed'         => true, // true to have the groups closed by default
+            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+        ),
+    ));
+
+    $cmb_testimonials->add_group_field($depoimentos, array(
+        'id'      => 'texto',
+        'name'    => 'Texto',
+        'type'    => 'textarea',
+    ));
+
+    $cmb_testimonials->add_group_field($depoimentos, array(
+        'id'      => 'autor',
+        'name'    => 'Autor',
+        'type'    => 'text',
     ));
 }
 add_action('cmb2_admin_init', 'cmb2_seja_parceiro_metaboxes');

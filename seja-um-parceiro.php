@@ -136,55 +136,30 @@ get_header();
     </section>
 <?php endif; ?>
 
-<section class="testimonials">
-    <div class="container wrap">
-        <strong class="testimonials__pre-title">Parceiros</strong>
-        <h2 class="testimonials__title"><strong>Faça parte</strong> da Pontte</h2>
-    </div>
-    <div class="testimonials__list swiper">
-        <div class="swiper-wrapper">
-            <div class="testimonials__item swiper-slide">
-                <div class="testimonials__item--wrap">
-                    <p>"É um prazer e satisfação fazer parte desta instituição financeira que, para nós, é
-                        considerada
-                        nossa família. Não há palavras suficientes para expressar nossa gratidão pela dedicação
-                        incansável que vocês têm com a minha empresa. Só posso dizer uma coisa: obrigado,
-                        Pontte,
-                        por
-                        acreditar em nosso trabalho."</p>
-                    <strong>Rodolfo - R3R Assessoria</strong>
-                </div>
-            </div>
-            <div class="testimonials__item swiper-slide">
-                <div class="testimonials__item--wrap">
-                    <p>"O diferencial da Pontte é o atendimento. Eles estão sempre prestativos por WhatsApp ou
-                        por
-                        telefone, e temos acesso desde a pessoa que faz o operacional até o CEO.  Outro
-                        diferencial
-                        é a
-                        parte de comissionamento, a rapidez dos processo e a possibilidade de poder defender uma
-                        proposta. Ou seja, a Pontte dá abertura pra gente flexibilizar e defender o cliente e, é
-                        lógico,
-                        soltar essa operação e todo mundo ficar contente: o cliente, o parceiro que me trouxe a
-                        indicação, a Pontte e a minha empresa."</p>
-                    <strong>Eduardo Gelm Goi</strong>
-                </div>
-            </div>
-            <div class="testimonials__item swiper-slide">
-                <div class="testimonials__item--wrap">
-                    <p>"Enquanto temos no mercado grandes bancos que trabalham com esteiras travadas e sem
-                        flexibilidade, na Pontte conseguimos fazer um trabalho absolutamente personalizado. Eu
-                        consigo
-                        que o analista converse comigo e entenda o cliente, o negócio do cliente e a fonte de
-                        renda
-                        dele. Isso dá uma condição completamente diferente que eu não consigo em uma instituição
-                        financeira padrão."</p>
-                    <strong>Paulo - My Side</strong>
-                </div>
+<?php if (!empty(get_field('exibir_depoimentos'))) : ?>
+    <section class="testimonials">
+        <div class="container wrap">
+            <?php if (!empty(get_field('pretitulo_depoimentos'))) : ?>
+                <strong class="testimonials__pre-title"><?php echo get_field('pretitulo_depoimentos') ?></strong>
+            <?php endif; ?>
+            <?php if (!empty(get_field('titulo_depoimentos'))) : ?>
+                <h2 class="testimonials__title"><?php echo get_field('titulo_depoimentos') ?></h2>
+            <?php endif; ?>
+        </div>
+        <div class="testimonials__list swiper">
+            <div class="swiper-wrapper">
+                <?php foreach (get_field('lista_depoimentos') as $depoimento) : ?>
+                    <div class="testimonials__item swiper-slide">
+                        <div class="testimonials__item--wrap">
+                            <?php echo wpautop($depoimento['texto']) ?>
+                            <strong><?php echo $depoimento['autor'] ?></strong>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+<?php endif; ?>
 
 <section class="timeline">
     <div class="container wrap">
