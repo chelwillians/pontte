@@ -874,5 +874,53 @@ function cmb2_seja_parceiro_metaboxes()
         'name'    => 'Link do botão',
         'type'    => 'text',
     ));
+
+    // O Futuro
+    $cmb_the_future = new_cmb2_box(array(
+        'id'            => 'cmb2_o_futuro',
+        'title'         => __('Seção - O futuro', 'cmb2'),
+        'object_types'  => array('page'),
+        'show_on' => array('key' => 'page-template', 'value' => 'seja-um-parceiro.php'),
+        'context'       => 'normal',
+        'priority'      => 'high',
+        'show_names'    => true, // Show field names on the left
+    ));
+    $cmb_the_future->add_field(array(
+        'id'   => 'exibir_o_futuro',
+        'name' => 'Exibir seção',
+        'type' => 'checkbox',
+    ));
+    $cmb_the_future->add_field(array(
+        'id'      => 'titulo_o_futuro',
+        'name'    => 'Título',
+        'desc'    => 'Use a tag strong para destacar o texto',
+        'type'    => 'text',
+        'sanitization_cb' => 'prefix_sanitize_text_callback'
+    ));
+    $list = $cmb_the_future->add_field(array(
+        'id'          => 'lista_o_futuro',
+        'type'        => 'group',
+        'description' => __('Item', 'cmb2'),
+        // 'repeatable'  => false, // use false if you want non-repeatable group
+        'options'     => array(
+            'group_title'       => __('Item {#}', 'cmb2'), // since version 1.1.4, {#} gets replaced by row number
+            'add_button'        => __('Adicionar item', 'cmb2'),
+            'remove_button'     => __('Remover', 'cmb2'),
+            'sortable'          => true,
+            'limit'         => 4,
+            'closed'         => true, // true to have the groups closed by default
+            // 'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'cmb2' ), // Performs confirmation before removing group.
+        ),
+    ));
+    $cmb_the_future->add_group_field($list, array(
+        'id'      => 'titulo',
+        'name'    => 'Título',
+        'type'    => 'text',
+    ));
+    $cmb_the_future->add_group_field($list, array(
+        'id'      => 'descricao',
+        'name'    => 'Descrição',
+        'type'    => 'textarea',
+    ));
 }
 add_action('cmb2_admin_init', 'cmb2_seja_parceiro_metaboxes');

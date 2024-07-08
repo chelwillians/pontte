@@ -32,51 +32,29 @@ get_header();
     <img src="<?php echo get_template_directory_uri() ?>/dist/images/message-rounded.png" class="internal-banner__float-item internal-banner__float-item--message" alt="Dado rotativo">
 </section>
 
-<section class="the-future" id="the-future">
-    <div class="container wrap">
-        <h2 class="the-future__title">O <strong>futuro</strong> a um <strong>crédito</strong> de distância</h2>
+<?php if (!empty(get_field('exibir_o_futuro'))) : ?>
+    <section class="the-future" id="the-future">
+        <div class="container wrap">
+            <?php if (!empty(get_field('link_botao'))) : ?>
+                <h2 class="the-future__title"><?php echo get_field('titulo_o_futuro'); ?></h2>
+            <?php endif; ?>
 
-        <div class="the-future__list">
-            <div class="the-future__item">
-                <h3 class="the-future__item--title">Ganhe mais com a Pontte</h3>
-                <div class="the-future__item--desc">
-                    <p>Oferecemos incentivos exclusivos aos parceiros, além de uma comissão competitiva e uma das
-                        menores taxas do mercado.</p>
-                </div>
-            </div>
-            <div class="the-future__item">
-                <h3 class="the-future__item--title">Crédito para criar o seu futuro</h3>
-                <div class="the-future__item--desc">
-                    <p>Todos os nossos processos são online: da indicação do cliente à assinatura do contrato.</p>
-                </div>
-            </div>
-            <div class="the-future__item">
-                <h3 class="the-future__item--title">Atendimento personalizado</h3>
-                <div class="the-future__item--desc">
-                    <p>Sendo um parceiro Pontte você e seu cliente contam com o atendimento de especialistas
-                        comprometidos com o seu sucesso.</p>
-                </div>
-            </div>
-            <div class="the-future__item">
-                <h3 class="the-future__item--title">Acompanhe tudo em tempo real</h3>
-                <div class="the-future__item--desc">
-                    <p>Na Pontte você tem acesso a uma plataforma exclusiva para acompanhar indicações, simulações e
-                        cadastros de operações em tempo real.</p>
-                </div>
-            </div>
-            <div class="the-future__item">
-                <h3 class="the-future__item--title">Materiais de apoio</h3>
-                <div class="the-future__item--desc">
-                    <p>Enquanto parceiro, você recebe materiais e treinamentos para ser mais persuasivo, fechar bons
-                        negócios e aumentar sua comissão.</p>
-                </div>
+            <div class="the-future__list">
+                <?php foreach (get_field('lista_o_futuro') as $item) : ?>
+                    <div class="the-future__item">
+                        <h3 class="the-future__item--title"><?php echo $item['titulo'] ?></h3>
+                        <div class="the-future__item--desc">
+                            <?php echo wpautop($item['descricao']) ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
-    </div>
 
-    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-8.svg" class="the-future__float-item the-future__float-item--top-left" alt="Quadrado flutuante">
-    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-9.svg" class="the-future__float-item the-future__float-item--bottom-right" alt="Quadrado flutuante">
-</section>
+        <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-8.svg" class="the-future__float-item the-future__float-item--top-left" alt="Quadrado flutuante">
+        <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-9.svg" class="the-future__float-item the-future__float-item--bottom-right" alt="Quadrado flutuante">
+    </section>
+<?php endif; ?>
 
 <section class="benefits">
     <div class="container wrap">
