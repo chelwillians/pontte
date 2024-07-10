@@ -1,6 +1,6 @@
 .the-future {
     position: relative;
-    margin-top: 34px;
+    margin-top: 8px;
 
     @media screen and (min-width: 1024px) {
         margin-top: 144px;
@@ -114,6 +114,7 @@
 
     &__float-item {
         display: none;
+        z-index: -1;
 
         @media screen and (min-width: 1024px) {
             position: absolute;

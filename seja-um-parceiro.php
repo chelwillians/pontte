@@ -179,7 +179,7 @@ get_header();
                         </div>
                     <?php endif; ?>
                 </div>
-                <img class="timeline__image" src="<?php echo get_field('imagem_timeline') ? get_field('imagem_timeline') : get_template_directory_uri() . '/dist/images/image-timeline.png' ?>" alt="Imagem da seção">
+                <img class="timeline__image" src="<?php echo get_field('imagem_timeline') ? get_field('imagem_timeline') : get_template_directory_uri() . '/dist/images/timeline-full.jpg' ?>" alt="Imagem da seção">
             </div>
             <div class="timeline__list">
                 <?php foreach (get_field('lista_timeline') as $item) : ?>

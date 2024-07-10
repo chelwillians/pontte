@@ -7,11 +7,14 @@
     flex-direction: column-reverse;
     align-items: flex-start;
 
+    padding-bottom: 48px;
+
     @media screen and (min-width: 1024px) {
         margin-top: 0;
         flex-direction: row;
         min-height: 704px;
         overflow: unset;
+        padding-bottom: 0;
     }
 
     .wrap {
@@ -136,13 +139,13 @@
 
         &--message {
             right: 0;
-            bottom: -60px;
+            bottom: -12px;
             max-width: 200px;
             animation: spinner 16s linear infinite;
 
             @media screen and (min-width: 1024px) {
                 max-width: 406px;
-                right: 164px;
+                right: -80px;
                 bottom: -240px;
             }
         }

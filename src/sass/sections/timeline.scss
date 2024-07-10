@@ -27,19 +27,18 @@
     }
 
     &__image {
-        max-width: 398px;
-
-        // remover
-        margin-bottom: 46px;
-
+        border-bottom-right-radius: 92px;
+        height: 383px;
+        object-fit: cover;
+        margin-right: 32px;
         @media screen and (min-width: 1024px) {
-            max-width: 608px;
-
+            height: 507px;
             position: absolute;
             right: 0;
             bottom: 0;
             margin-bottom: 0;
             transform: translateY(100%);
+            max-width: none;
         }
     }
 
@@ -103,13 +102,20 @@
             }
         }
 
+        &:hover {
+            #{$item}--year {
+                color: $yellow;
+            }
+        }
+
         &--year {
             font-size: 24px;
-            color: $yellow;
+            color: #D0D0D0;
             line-height: 1.2;
             font-weight: 500;
             margin-right: 24px;
             max-width: 56px;
+            transition: .4s;
 
             @media screen and (min-width: 1024px) {
                 max-width: unset;
