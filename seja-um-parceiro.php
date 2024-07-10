@@ -12,7 +12,7 @@ get_header();
         <img src="<?php echo !empty(get_field('imagem_desktop')) ? get_field('imagem_desktop') : get_template_directory_uri() . '/dist/images/banner-seja-parceiro.jpg' ?>" alt="Banner interno">
     </div>
     <div class="container wrap">
-        <div class="internal-banner__content" data-aos="fade-left" data-aos-duration="400">
+        <div class="internal-banner__content" data-aos-once="true" data-aos="fade-left" data-aos-duration="400">
             <?php if (!empty(get_field('titulo'))) : ?>
                 <h1 class="internal-banner__title"><?php echo get_field('titulo') ?></h1>
             <?php else : ?>
@@ -89,7 +89,7 @@ get_header();
             <div class="benefits__list">
                 <?php $duration = 400;
                 foreach (get_field('lista_beneficios') as $item) : ?>
-                    <div class="benefits__item" data-aos="fade-left" data-aos-duration="<?= $duration ?>">
+                    <div class="benefits__item" data-aos-once="true" data-aos="fade-left" data-aos-duration="<?= $duration ?>">
                         <div class="benefits__item--icon">
                             <img src="<?php echo !empty($item['icone']) ? $item['icone'] : get_template_directory_uri() . '/dist/images/icon-percent.svg' ?>" alt="Ícone">
                         </div>
@@ -122,7 +122,7 @@ get_header();
             <div class="steps__cards">
                 <?php $duration = 400;
                 foreach (get_field('cards_list_etapas') as $item) : ?>
-                    <div class="steps__item" data-aos="fade-up" data-aos-duration="<?= $duration ?>">
+                    <div class="steps__item" data-aos-once="true" data-aos="fade-up" data-aos-duration="<?= $duration ?>">
                         <div class="steps__item--icon">
                             <img src="<?php echo !empty($item['icon_card']) ? $item['icon_card'] : get_template_directory_uri() . '/dist/images/icon-1.svg' ?>" alt="Ícone">
                         </div>
@@ -187,7 +187,7 @@ get_header();
             </div>
             <div class="timeline__list">
                 <?php $duration = 400; foreach (get_field('lista_timeline') as $item) : ?>
-                    <div class="timeline__item"  data-aos="fade-up" data-aos-duration="<?= $duration ?>">
+                    <div class="timeline__item"  data-aos-once="true" data-aos="fade-up" data-aos-duration="<?= $duration ?>">
                         <div class="timeline__item--year"><?php echo $item['ano'] ?></div>
                         <div class="timeline__item--desc">
                             <?php echo wpautop($item['descricao']) ?>
