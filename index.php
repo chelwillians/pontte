@@ -23,8 +23,10 @@ get_header();
             <?php endif; ?>
         </div>
         <div class="main-hero__image">
-            <img src="<?php echo !empty(get_field('imagem_desktop')) ? get_field('imagem_desktop') : get_template_directory_uri() . '/dist/images/banner.png'; ?>" class="main-hero__image--desktop" alt="Banner">
-            <img src="<?php echo !empty(get_field('imagem_mobile')) ? get_field('imagem_mobile') : get_template_directory_uri() . '/dist/images/banner-mobile.png'; ?>" class="main-hero__image--mobile" alt="Banner">
+            <img src="<?php echo !empty(get_field('imagem_desktop')) ? get_field('imagem_desktop') : get_template_directory_uri() . '/dist/images/banner-home-limpo-desk.png'; ?>" class="main-hero__image--desktop" alt="Banner">
+            <img src="<?php echo !empty(get_field('imagem_mobile')) ? get_field('imagem_mobile') : get_template_directory_uri() . '/dist/images/banner-home-limpo.png'; ?>" class="main-hero__image--mobile" alt="Banner">
+            <img src="<?php echo !empty(get_field('float_card_1')) ? get_field('float_card_1') : get_template_directory_uri() . '/dist/images/float-card-1.png'; ?>" class="main-hero__image--float-card main-hero__image--float-card--1" alt="Card flutuante">
+            <img src="<?php echo !empty(get_field('float_card_2')) ? get_field('float_card_2') : get_template_directory_uri() . '/dist/images/float-card-2.png'; ?>" class="main-hero__image--float-card main-hero__image--float-card--2" alt="Card flutuante">
         </div>
         <a href="#" class="main-hero__arrow-down">
             <img src="<?php echo get_template_directory_uri() ?>/dist/images/arrow-down.svg" alt="Seta apontando para baixo">

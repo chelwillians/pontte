@@ -243,6 +243,52 @@ function cmb2_home_metaboxes()
     ));
 
     $cmb_banner->add_field(array(
+        'id'      => 'float_card_1',
+        'name'    => 'Card flutuante 1',
+        // 'desc'    => 'Resolução recomendada de 366x485',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar imagem'
+        ),
+        'query_args' => array(
+            'type' => array(
+                'image/png',
+                'image/jpg',
+                'image/jpeg',
+                'image/svg',
+            ),
+        ),
+        'preview_size' => 'medium',
+    ));
+    
+    $cmb_banner->add_field(array(
+        'id'      => 'float_card_2',
+        'name'    => 'Card flutuante 2',
+        // 'desc'    => 'Resolução recomendada de 366x485',
+        'type'    => 'file',
+        // Optional:
+        'options' => array(
+            'url' => false, // Hide the text input for the url
+        ),
+        'text'    => array(
+            'add_upload_file_text' => 'Adicionar imagem'
+        ),
+        'query_args' => array(
+            'type' => array(
+                'image/png',
+                'image/jpg',
+                'image/jpeg',
+                'image/svg',
+            ),
+        ),
+        'preview_size' => 'medium',
+    ));
+
+    $cmb_banner->add_field(array(
         'id'      => 'titulo',
         'name'    => 'Título',
         'desc'    => 'Use o seguinte formato: <strong class="purple">Crédito</strong> para <br>criar o <strong>seu futuro</strong>',

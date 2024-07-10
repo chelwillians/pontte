@@ -82,6 +82,7 @@
 
     &__image {
         margin-top: 38px;
+        position: relative;
 
         @media screen and (min-width: 1024px) {
             margin-top: 0px;
@@ -104,6 +105,32 @@
 
             @media screen and (min-width: 1024px) {
                 display: none;
+            }
+        }
+
+        &--float-card {
+            position: absolute;
+
+            &--1 {
+                top: 0;
+                left: 0;
+                max-width: 38%;
+
+                @media screen and (min-width: 1024px) {
+                    top: calc(50% - 50px);
+                }
+            }
+
+            &--2 {
+                bottom: 78px;
+                right: 0;
+                max-width: 50%;
+
+                @media screen and (min-width: 1024px) {
+                    right: unset;
+                    left: 42px;
+                    bottom: 62px;
+                }
             }
         }
     }
