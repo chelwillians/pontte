@@ -2,7 +2,7 @@
     <div class="container wrap">
         <div class="main-footer__menus">
             <?php
-            $menu_items = get_menu_items('menu_header');
+            $menu_items = get_menu_items('menu_footer');
             if (count($menu_items) > 0) :
             ?>
                 <ul class="main-footer__links">

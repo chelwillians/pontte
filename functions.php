@@ -37,6 +37,11 @@ function menu_header()
 }
 add_action('init', 'menu_header');
 
+function menu_footer()
+{
+    register_nav_menu('menu_footer', __('Menu footer'));
+}
+add_action('init', 'menu_footer');
 
 // Functions CMB2
 function prefix_sanitize_text_callback($value, $field_args, $field)

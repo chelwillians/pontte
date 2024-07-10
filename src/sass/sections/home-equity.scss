@@ -18,6 +18,7 @@
     }
 
     &__content {
+        position: relative;
         background-color: $blue;
         padding: 40px 32px 40px 40px;
         box-shadow: 0px 7px 64px rgba(0, 0, 0, 0.12);
@@ -142,7 +143,7 @@
             right: 236px;
 
             @media screen and (min-width: 1024px) {
-                bottom: -24px;
+                top: 388px;
                 right: unset;
                 left: 16px;
             }
@@ -167,8 +168,10 @@
 
             @media screen and (min-width: 1024px) {
                 display: block;
-                bottom: -142px;
-                left: 232px;
+                top: 100%;
+                right: 0;
+                transform: translate(-27%, -36%);
+                max-width: none;
             }
         }
     }

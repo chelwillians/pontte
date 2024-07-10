@@ -149,7 +149,7 @@
                 font-size: 24px;
             }
 
-            strong{
+            strong {
                 font-weight: 700;
             }
         }
@@ -183,6 +183,23 @@
 
             @media screen and (min-width: 1024px) {
                 display: none;
+            }
+        }
+    }
+
+    &__float-item {
+        position: absolute;
+
+        &--desktop-bottom {
+            display: none;
+
+            @media screen and (min-width: 1024px) {
+                display: block;
+                bottom: 100%;
+                right: 0;
+                transform: translate(-26%, 9%);
+                z-index: -1;
+                max-width: none;
             }
         }
     }

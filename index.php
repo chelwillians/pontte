@@ -32,7 +32,6 @@ get_header();
     </div>
     <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon.svg" class="main-hero__float-item main-hero__float-item--mobile-top" alt="Ícone quadrado flutuante">
     <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-2.svg" class="main-hero__float-item main-hero__float-item--mobile-center" alt="Ícone retangular flutuante">
-    <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-3.svg" class="main-hero__float-item main-hero__float-item--desktop-bottom" alt="Ícone flutuante">
 </section>
 
 <?php if (get_field('exibir_divisor')) : ?>
@@ -82,6 +81,7 @@ get_header();
                 <img src="<?php echo !empty(get_field('imagem_mobile_sobre')) ? get_field('imagem_mobile_sobre') : get_template_directory_uri() . '/dist/images/about-mobile.jpg' ?>" alt="" class="about__image--mobile">
                 <img src="<?php echo !empty(get_field('imagem_desk_sobre')) ? get_field('imagem_desk_sobre') : get_template_directory_uri() . '/dist/images/about.jpg' ?>" alt="" class="about__image--desktop">
                 <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-pontte-gray.svg" alt="Ícone Pontte em cinza" class="about__image--icon">
+                <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-3.svg" class="about__float-item about__float-item--desktop-bottom" alt="Ícone flutuante">
             </div>
             <div class="about__content">
                 <?php if (!empty(get_field('pretitulo_sobre'))) : ?>
@@ -157,6 +157,7 @@ get_header();
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
+                <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-5.svg" class="home-equity__float-item home-equity__float-item--desktop" alt="Ícone quadrado flutuante">
             </div>
             <div class="home-equity__side">
                 <img src="<?php echo get_template_directory_uri() ?>/dist/images/home-equity-mobile.png" alt="" class="home-equity__image home-equity__image--mobile">
@@ -165,7 +166,6 @@ get_header();
             </div>
         </div>
         <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-4.svg" class="home-equity__float-item home-equity__float-item--mobile" alt="Ícone quadrado flutuante">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-5.svg" class="home-equity__float-item home-equity__float-item--desktop" alt="Ícone quadrado flutuante">
     </section>
 <?php endif; ?>
 
