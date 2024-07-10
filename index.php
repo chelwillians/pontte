@@ -7,7 +7,7 @@ get_header();
 
 <section class="main-hero">
     <div class="container wrap">
-        <div class="main-hero__content">
+        <div class="main-hero__content" data-aos="fade-right" data-aos-duration="400">
             <?php if (!empty(get_field('titulo'))) : ?>
                 <h1 class="main-hero__title"><?php echo get_field('titulo'); ?></h1>
             <?php else : ?>
@@ -25,8 +25,8 @@ get_header();
         <div class="main-hero__image">
             <img src="<?php echo !empty(get_field('imagem_desktop')) ? get_field('imagem_desktop') : get_template_directory_uri() . '/dist/images/banner-home-limpo-desk.png'; ?>" class="main-hero__image--desktop" alt="Banner">
             <img src="<?php echo !empty(get_field('imagem_mobile')) ? get_field('imagem_mobile') : get_template_directory_uri() . '/dist/images/banner-home-limpo.png'; ?>" class="main-hero__image--mobile" alt="Banner">
-            <img src="<?php echo !empty(get_field('float_card_1')) ? get_field('float_card_1') : get_template_directory_uri() . '/dist/images/float-card-1.png'; ?>" class="main-hero__image--float-card main-hero__image--float-card--1" alt="Card flutuante">
-            <img src="<?php echo !empty(get_field('float_card_2')) ? get_field('float_card_2') : get_template_directory_uri() . '/dist/images/float-card-2.png'; ?>" class="main-hero__image--float-card main-hero__image--float-card--2" alt="Card flutuante">
+            <img data-aos="fade-left" data-aos-duration="400" src="<?php echo !empty(get_field('float_card_1')) ? get_field('float_card_1') : get_template_directory_uri() . '/dist/images/float-card-1.png'; ?>" class="main-hero__image--float-card main-hero__image--float-card--1" alt="Card flutuante">
+            <img data-aos="fade-left" data-aos-duration="500" src="<?php echo !empty(get_field('float_card_2')) ? get_field('float_card_2') : get_template_directory_uri() . '/dist/images/float-card-2.png'; ?>" class="main-hero__image--float-card main-hero__image--float-card--2" alt="Card flutuante">
         </div>
         <a href="#" class="main-hero__arrow-down">
             <img src="<?php echo get_template_directory_uri() ?>/dist/images/arrow-down.svg" alt="Seta apontando para baixo">
@@ -55,9 +55,9 @@ get_header();
         </div>
         <div class="divider__cards swiper">
             <div class="swiper-wrapper">
-                <?php
+                <?php $duration = 400;
                 foreach (get_field('cards_list') as $card) : ?>
-                    <div class="divider__cards-item swiper-slide">
+                    <div class="divider__cards-item swiper-slide" data-aos="fade-left" data-aos-duration="<?php echo $duration ?>">
                         <div class="divider__cards-icon">
                             <img src="<?php echo !empty($card['icon_card']) ? $card['icon_card'] : get_template_directory_uri() . '/dist/images/icon-calendar.svg' ?>" alt="Ícone">
                         </div>
@@ -70,7 +70,8 @@ get_header();
                             <?php endif; ?>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                <?php $duration += 150;
+                endforeach; ?>
             </div>
         </div>
     </section>
@@ -121,8 +122,8 @@ get_header();
                 <h2 class="for-you__title"><?php echo get_field('titulo_para_voce'); ?></h2>
             <?php endif; ?>
             <div class="for-you__cards">
-                <?php foreach (get_field('cards_list_para_voce') as $card) : ?>
-                    <div class="for-you__item">
+                <?php $duration = 400; foreach (get_field('cards_list_para_voce') as $card) : ?>
+                    <div class="for-you__item" data-aos="fade-up" data-aos-duration="<?php echo $duration ?>">
                         <div class="for-you__item--icon">
                             <img src="<?php echo !empty($card['icon_card']) ? $card['icon_card'] : get_template_directory_uri() . '/dist/images/icon-checkbox.svg' ?>" alt="Ícone">
                         </div>
@@ -135,7 +136,7 @@ get_header();
                             </div>
                         <?php endif; ?>
                     </div>
-                <?php endforeach; ?>
+                <?php $duration += 150; endforeach; ?>
             </div>
         </div>
     </div>
@@ -182,15 +183,15 @@ get_header();
             <?php endif; ?>
 
             <div class="faq__list">
-                <?php foreach (get_field('faq_list') as $faq_item) : ?>
-                    <div class="faq__item">
+                <?php $duration = 400; foreach (get_field('faq_list') as $faq_item) : ?>
+                    <div class="faq__item" data-aos="fade-up" data-aos-duration="<?php echo $duration; ?>">
                         <strong class="faq__item--question"><?php echo $faq_item['pergunta']; ?> <div class="faq__item--icon"></div>
                         </strong>
                         <div class="faq__item--answer">
                             <?php echo wpautop($faq_item['resposta']); ?>
                         </div>
                     </div>
-                <?php endforeach; ?>
+                <?php $duration += 200; endforeach; ?>
             </div>
         </div>
     </section>

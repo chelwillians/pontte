@@ -9,7 +9,7 @@ get_header();
 <section class="main-contact">
     <div class="container wrap">
         <div class="main-contact__left">
-            <div class="main-contact__text">
+            <div class="main-contact__text" data-aos="fade-right" data-aos-duration="400">
                 <?php if (!empty(get_field('titulo_contato'))) : ?>
                     <h1 class="main-contact__title"><?php echo get_field('titulo_contato'); ?></h1>
                 <?php else : ?>
@@ -21,13 +21,13 @@ get_header();
                     </div>
                 <?php endif; ?>
             </div>
-            <div class="main-contact__illustration">
+            <div class="main-contact__illustration"  data-aos="fade-up-right" data-aos-duration="400">
                 <img class="main-contact__illustration-img-mobile" src="<?php echo get_template_directory_uri() ?>/dist/images/rockeat-mobile.svg" alt="Foguete">
                 <img class="main-contact__illustration-img-desk" src="<?php echo get_template_directory_uri() ?>/dist/images/rockeat.svg" alt="Foguete">
             </div>
         </div>
         <div class="main-contact__list">
-            <div class="main-contact__item">
+            <div class="main-contact__item" data-aos="fade-left" data-aos-duration="400">
                 <div class="main-contact__item--icon">
                     <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-whatsapp.svg" alt="">
                 </div>
@@ -40,7 +40,7 @@ get_header();
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="main-contact__item">
+            <div class="main-contact__item" data-aos="fade-left" data-aos-duration="600">
                 <div class="main-contact__item--icon">
                     <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-mail.svg" alt="">
                 </div>
@@ -53,7 +53,7 @@ get_header();
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="main-contact__item">
+            <div class="main-contact__item" data-aos="fade-left" data-aos-duration="800">
                 <div class="main-contact__item--icon">
                     <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-headphones.svg" alt="">
                 </div>
@@ -66,7 +66,7 @@ get_header();
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="main-contact__item">
+            <div class="main-contact__item" data-aos="fade-left" data-aos-duration="1000">
                 <div class="main-contact__item--icon">
                     <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-laptop.svg" alt="">
                 </div>
