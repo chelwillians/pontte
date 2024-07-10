@@ -21,9 +21,10 @@
         height: 362px;
         background-size: contain;
         background-position-x: 50%;
+        overflow: hidden;
 
         @media screen and (min-width: 1024px) {
-            width: 45.5%;
+            width: 536px;
             height: 100%;
         }
 
@@ -44,7 +45,8 @@
                 display: block;
                 object-fit: cover;
                 width: 100%;
-                height: 100%
+                height: 100%;
+                border-top-left-radius: 92px;
             }
         }
 
@@ -57,7 +59,7 @@
             transform: translateY(calc(-50% - 16px));
 
             @media screen and (min-width: 1024px) {
-                left: 176px;
+                left: 76px;
                 width: 129px;
 
             }
@@ -69,7 +71,7 @@
         padding: 46px 32px 132px;
 
         @media screen and (min-width: 1024px) {
-            width: 54.5%;
+            width: calc(100% - 536px);
             padding: 180px 161px 180px 64px;
         }
     }

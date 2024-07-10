@@ -79,7 +79,7 @@ get_header();
         <div class="container wrap">
             <div class="about__image">
                 <img src="<?php echo !empty(get_field('imagem_mobile_sobre')) ? get_field('imagem_mobile_sobre') : get_template_directory_uri() . '/dist/images/about-mobile.jpg' ?>" alt="" class="about__image--mobile">
-                <img src="<?php echo !empty(get_field('imagem_desk_sobre')) ? get_field('imagem_desk_sobre') : get_template_directory_uri() . '/dist/images/about.jpg' ?>" alt="" class="about__image--desktop">
+                <img src="<?php echo !empty(get_field('imagem_desk_sobre')) ? get_field('imagem_desk_sobre') : get_template_directory_uri() . '/dist/images/sobre.png' ?>" alt="" class="about__image--desktop">
                 <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-pontte-gray.svg" alt="Ícone Pontte em cinza" class="about__image--icon">
                 <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-3.svg" class="about__float-item about__float-item--desktop-bottom" alt="Ícone flutuante">
             </div>

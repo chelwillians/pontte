@@ -380,7 +380,7 @@ function cmb2_home_metaboxes()
         'type' => 'checkbox',
     ));
 
-    $cmb_about->add_group_field($cards, array(
+    $cmb_about->add_field(array(
         'id'      => 'imagem_desk_sobre',
         'name'    => 'Imagem desktop',
         'desc'    => 'Resolução recomendada de 1312x1360',
@@ -403,7 +403,7 @@ function cmb2_home_metaboxes()
         'preview_size' => 'medium',
     ));
 
-    $cmb_about->add_group_field($cards, array(
+    $cmb_about->add_field(array(
         'id'      => 'imagem_mobile_sobre',
         'name'    => 'Imagem mobile',
         'desc'    => 'Resolução recomendada de 430x362',
