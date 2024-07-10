@@ -161,7 +161,7 @@ get_header();
             </div>
             <div class="home-equity__side">
                 <img src="<?php echo get_template_directory_uri() ?>/dist/images/home-equity-mobile.png" alt="" class="home-equity__image home-equity__image--mobile">
-                <img src="<?php echo get_template_directory_uri() ?>/dist/images/home-equity-desktop.png" alt="" class="home-equity__image home-equity__image--desktop">
+                <img src="<?php echo get_template_directory_uri() ?>/dist/images/home-equity-desktop-2.png" alt="" class="home-equity__image home-equity__image--desktop">
                 <img src="<?php echo get_template_directory_uri() ?>/dist/images/icon-pontte-gray.svg" alt="Ícone Pontte em cinza" class="home-equity__image home-equity__image--icon">
             </div>
         </div>

@@ -133,6 +133,8 @@
                 left: -20px;
                 top: 0;
                 max-width: unset;
+                border-bottom-left-radius: 92px;
+                height: 672px;
             }
         }
 
@@ -143,7 +145,7 @@
             right: 236px;
 
             @media screen and (min-width: 1024px) {
-                top: 388px;
+                bottom: 0;
                 right: unset;
                 left: 16px;
             }

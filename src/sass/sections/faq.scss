@@ -12,6 +12,10 @@
             max-width: 858px;
             padding: 0;
         }
+
+        @media screen and (max-width: 447px) {
+            padding: 0 18px;
+        }
     }
 
     &__pre-title {
