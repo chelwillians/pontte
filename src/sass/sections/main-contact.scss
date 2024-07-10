@@ -3,6 +3,7 @@
     background-color: $light-purple;
     padding-top: 152px;
     padding-bottom: 138px;
+    overflow: hidden;
 
     @media screen and (min-width: 1024px) {
         padding-top: 192px;
@@ -15,6 +16,7 @@
 
         @media screen and (min-width: 1024px) {
             display: flex;
+            align-items: flex-start;
             padding: 0;
         }
     }
@@ -89,7 +91,7 @@
         background: #FFFFFF;
         box-shadow: 0px 7px 67px rgba(0, 0, 0, 0.15);
         border-radius: 16px;
-        margin: 30px;
+        margin-top: 30px;
         padding: 24px;
         z-index: 15;
 
@@ -161,6 +163,10 @@
             a {
                 color: $blue;
                 text-decoration: underline;
+
+                &[href^="mailto:"]{
+                    display: block;
+                }
             }
 
             p {
@@ -188,6 +194,11 @@
                 display: block;
                 bottom: -212px;
                 left: 35%;
+            }
+
+            @media screen and (min-width: 1920px) {
+
+                left: 38%;
             }
         }
 
