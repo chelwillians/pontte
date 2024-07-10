@@ -1,7 +1,13 @@
-<svg width="14" height="29" viewBox="0 0 14 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="path-1-outside-1_343_890" maskUnits="userSpaceOnUse" x="-0.5" y="-1" width="16" height="31" fill="black">
-<rect fill="white" x="-0.5" y="-1" width="16" height="31"/>
-<path d="M0.9 0.959999H13.62V29H6.3V3.68L9.5 6.88H0.9V0.959999Z"/>
-</mask>
-<path d="M0.9 0.959999V-0.0400014H-0.1V0.959999H0.9ZM13.62 0.959999H14.62V-0.0400014H13.62V0.959999ZM13.62 29V30H14.62V29H13.62ZM6.3 29H5.3V30H6.3V29ZM6.3 3.68L7.00711 2.97289L5.3 1.26579V3.68H6.3ZM9.5 6.88V7.88H11.9142L10.2071 6.17289L9.5 6.88ZM0.9 6.88H-0.1V7.88H0.9V6.88ZM0.9 1.96H13.62V-0.0400014H0.9V1.96ZM12.62 0.959999V29H14.62V0.959999H12.62ZM13.62 28H6.3V30H13.62V28ZM7.3 29V3.68H5.3V29H7.3ZM5.59289 4.38711L8.79289 7.58711L10.2071 6.17289L7.00711 2.97289L5.59289 4.38711ZM9.5 5.88H0.9V7.88H9.5V5.88ZM1.9 6.88V0.959999H-0.1V6.88H1.9Z" fill="#BC9426" mask="url(#path-1-outside-1_343_890)"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 16.6 32.2">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #bc9426;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M1.8,2.1h12.7v28h-7.3V8H1.8V2.1Z"/>
 </svg>
