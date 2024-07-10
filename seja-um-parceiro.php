@@ -9,7 +9,7 @@ get_header();
 
 <section class="internal-banner">
     <div class="internal-banner__image">
-        <img src="<?php echo !empty(get_field('imagem_desktop')) ? get_field('imagem_desktop') : get_template_directory_uri() . '/dist/images/internal-banner.png' ?>" alt="Banner interno">
+        <img src="<?php echo !empty(get_field('imagem_desktop')) ? get_field('imagem_desktop') : get_template_directory_uri() . '/dist/images/banner-seja-parceiro.jpg' ?>" alt="Banner interno">
     </div>
     <div class="container wrap">
         <div class="internal-banner__content">
