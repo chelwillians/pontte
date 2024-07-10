@@ -149,7 +149,8 @@
 
     &__float-item{
         position: absolute;
-        right: 0;
+        left: 100%;
         bottom: 0;
+        transform: translateX(-50%);
     }
 }
