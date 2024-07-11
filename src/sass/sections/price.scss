@@ -8,6 +8,7 @@
     }
 
     .wrap {
+        position: relative;
         padding: 0;
 
         @media screen and (min-width: 1024px) {
@@ -147,10 +148,12 @@
         }
     }
 
-    &__float-item{
+    &__float-item {
         position: absolute;
         left: 100%;
-        bottom: 0;
-        transform: translateX(-50%);
+        top: 100%;
+        transform: translateX(-220px);
+        max-width: none;
+        z-index: -1;
     }
 }

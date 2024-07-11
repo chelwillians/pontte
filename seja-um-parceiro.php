@@ -249,9 +249,9 @@ get_header();
                 <?php if (get_field('descricao_2_preco')) : ?>
                     <span class="price__after-price"><?php echo get_field('descricao_2_preco') ?></span>
                 <?php endif; ?>
+                <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-10.svg" class="price__float-item" alt="Ícone quadrado flutuante">
             </div>
         </div>
-        <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-10.svg" class="price__float-item" alt="Ícone quadrado flutuante">
     </section>
 <?php endif; ?>
 
