@@ -94,10 +94,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         centeredSlides: true,
         slidesPerView: "auto",
         initialSlide: "1",
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
     });
 });
 

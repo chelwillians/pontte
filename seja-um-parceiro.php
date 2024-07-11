@@ -34,30 +34,6 @@ get_header();
     <img src="<?php echo get_template_directory_uri() ?>/dist/images/message-rounded.png" class="internal-banner__float-item internal-banner__float-item--message" alt="Dado rotativo">
 </section>
 
-<?php if (!empty(get_field('exibir_o_futuro'))) : ?>
-    <section class="the-future" id="the-future">
-        <div class="container wrap">
-            <?php if (!empty(get_field('link_botao'))) : ?>
-                <h2 class="the-future__title"><?php echo get_field('titulo_o_futuro'); ?></h2>
-            <?php endif; ?>
-
-            <div class="the-future__list">
-                <?php foreach (get_field('lista_o_futuro') as $item) : ?>
-                    <div class="the-future__item">
-                        <h3 class="the-future__item--title"><?php echo $item['titulo'] ?></h3>
-                        <div class="the-future__item--desc">
-                            <?php echo wpautop($item['descricao']) ?>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </div>
-
-        <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-8.svg" class="the-future__float-item the-future__float-item--top-left" alt="Quadrado flutuante">
-        <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-9.svg" class="the-future__float-item the-future__float-item--bottom-right" alt="Quadrado flutuante">
-    </section>
-<?php endif; ?>
-
 <?php if (!empty(get_field('exibir_beneficios'))) : ?>
     <section class="benefits">
         <div class="container wrap">
@@ -101,6 +77,30 @@ get_header();
                 endforeach; ?>
             </div>
         </div>
+    </section>
+<?php endif; ?>
+
+<?php if (!empty(get_field('exibir_o_futuro'))) : ?>
+    <section class="the-future" id="the-future">
+        <div class="container wrap">
+            <?php if (!empty(get_field('link_botao'))) : ?>
+                <h2 class="the-future__title"><?php echo get_field('titulo_o_futuro'); ?></h2>
+            <?php endif; ?>
+
+            <div class="the-future__list">
+                <?php foreach (get_field('lista_o_futuro') as $item) : ?>
+                    <div class="the-future__item">
+                        <h3 class="the-future__item--title"><?php echo $item['titulo'] ?></h3>
+                        <div class="the-future__item--desc">
+                            <?php echo wpautop($item['descricao']) ?>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-9.svg" class="the-future__float-item the-future__float-item--one" alt="Quadrado flutuante">
+            <img src="<?php echo get_template_directory_uri() ?>/dist/images/float-icon-8.svg" class="the-future__float-item the-future__float-item--two" alt="Quadrado flutuante">
+        </div>
+
     </section>
 <?php endif; ?>
 
@@ -256,7 +256,7 @@ get_header();
 <?php endif; ?>
 
 <?php if (!empty(get_field('exibir_midia', $homeID))) : ?>
-    <section class="midia">
+    <section class="midia midia--seja-um-parceiro">
         <div class="container wrap">
             <?php if (!empty(get_field('titulo_midia', $homeID))) : ?>
                 <h2 class="midia__title"><?php echo get_field('titulo_midia', $homeID); ?></h2>

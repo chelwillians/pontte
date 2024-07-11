@@ -6,6 +6,13 @@
         margin-top: 126px;
     }
 
+    &--seja-um-parceiro {
+        @media screen and (min-width: 1024px) {
+            margin-top: 56px;
+        }
+
+    }
+
     &::after {
         content: '';
         background-color: $light-purple;

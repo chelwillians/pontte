@@ -1,18 +1,14 @@
 .the-future {
+    background-color: $light-purple;
     position: relative;
     margin-top: 8px;
+    padding: 32px 0;
 
     @media screen and (min-width: 1024px) {
         margin-top: 144px;
-        margin-bottom: 180px;
-    }
-
-    .wrap {
-        padding: 0 32px;
-
-        @media screen and (min-width: 1024px) {
-            padding: 0;
-        }
+        margin-bottom: 40px;
+        padding-top: 80px;
+        padding-bottom: 60px;
     }
 
     &__title {
@@ -36,6 +32,7 @@
     &__list {
         margin-top: 32px;
         padding-left: 48px;
+        z-index: 10;
 
         @media screen and (min-width: 1024px) {
             max-width: 636px;
@@ -119,15 +116,16 @@
         @media screen and (min-width: 1024px) {
             position: absolute;
             display: block;
+            z-index: 1;
 
-            &--top-left {
-                left: 0%;
-                top: -61%;
+            &--one {
+                left: 100%;
+                top: -264px;
             }
 
-            &--bottom-right {
-                right: -1%;
-                bottom: -48%;
+            &--two {
+                right: 100%;
+                bottom: -120px;
             }
         }
     }
