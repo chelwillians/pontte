@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/dist/css/styles.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title><?php wp_title('&laquo;', true, 'right'); ?> <?php bloginfo('name'); ?></title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
     <?php wp_head() ?>
 </head>
 
