@@ -37,7 +37,7 @@ get_header();
 </section>
 
 <?php if (get_field('exibir_divisor')) : ?>
-    <section class="divider">
+    <section id="credito" class="divider">
         <div class="container wrap">
             <?php if (!empty(get_field('titulo_divisor'))) : ?>
                 <h2 class="divider__title"><?php echo get_field('titulo_divisor'); ?></h2>
@@ -78,7 +78,7 @@ get_header();
 <?php endif; ?>
 
 <?php if (get_field('exibir_sobre')) : ?>
-    <section class="about">
+    <section id="sobre" class="about">
         <div class="container wrap">
             <div class="about__image">
                 <img src="<?php echo !empty(get_field('imagem_mobile_sobre')) ? get_field('imagem_mobile_sobre') : get_template_directory_uri() . '/dist/images/about-mobile.jpg' ?>" alt="" class="about__image--mobile">
@@ -113,7 +113,7 @@ get_header();
 <?php endif; ?>
 
 <?php if (!empty(get_field('exibir_para_voce'))) : ?>
-    <div class="for-you">
+    <div id="para-voce" class="for-you">
         <div class="container wrap">
             <?php if (!empty(get_field('pretitulo_para_voce'))) : ?>
                 <strong class="for-you__pre-title"><?php echo get_field('pretitulo_para_voce'); ?></strong>
@@ -143,7 +143,7 @@ get_header();
 <?php endif; ?>
 
 <?php if (!empty(get_field('exibir_home_equity'))) : ?>
-    <section class="home-equity">
+    <section id="home-equity" class="home-equity">
         <div class="container wrap">
             <div class="home-equity__content">
                 <?php if (!empty(get_field('pretitulo_home_equity'))) : ?>
@@ -173,7 +173,7 @@ get_header();
 <?php endif; ?>
 
 <?php if (!empty(get_field('exibir_faq'))) : ?>
-    <section class="faq">
+    <section id="faq" class="faq">
         <div class="container wrap">
             <?php if (!empty(get_field('pretitulo_faq'))) : ?>
                 <strong class="faq__pre-title"><?php echo get_field('pretitulo_faq'); ?></strong>
@@ -198,7 +198,7 @@ get_header();
 <?php endif; ?>
 
 <?php if (!empty(get_field('exibir_midia'))) : ?>
-    <section class="midia">
+    <section id="na-midia" class="midia">
         <div class="container wrap">
             <?php if (!empty(get_field('titulo_midia'))) : ?>
                 <h2 class="midia__title"><?php echo get_field('titulo_midia'); ?></h2>
