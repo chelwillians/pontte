@@ -118,7 +118,7 @@
             opacity: 0;
 
             #{$item}.active & {
-                max-height: 1000px;
+                max-height: 1500px;
                 padding: 16px 0;
                 opacity: 1;
             }
